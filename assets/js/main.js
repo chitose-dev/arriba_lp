@@ -6,6 +6,18 @@ const trialForm = document.getElementById("trial-form");
 const lineUrl = "https://lin.ee/8yWT6iB";
 let activeModal = null;
 
+function scrollToAnchor(hash, smooth = true) {
+  if (!hash || hash === "#" || hash.startsWith("#modal-")) return false;
+  const target = document.querySelector(hash);
+  const header = document.querySelector(".site-header");
+  if (!target) return false;
+
+  const offset = header?.offsetHeight || 0;
+  const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+  window.scrollTo({ top: Math.max(0, top), behavior: smooth ? "smooth" : "auto" });
+  return true;
+}
+
 function closeMenu() {
   if (!globalMenu || !menuToggle) return;
   globalMenu.classList.remove("open");
@@ -85,6 +97,30 @@ window.addEventListener("popstate", () => {
 if (location.hash.startsWith("#modal-")) {
   openModal(location.hash.slice(1), false);
 }
+
+document.querySelectorAll('a[href^="#"]').forEach((link) => {
+  link.addEventListener("click", (event) => {
+    const hash = link.getAttribute("href");
+    if (!hash || hash === "#") return;
+    const didScroll = scrollToAnchor(hash);
+    if (!didScroll) return;
+
+    event.preventDefault();
+    closeMenu();
+    if (activeModal) {
+      activeModal.classList.remove("is-open");
+      activeModal = null;
+      document.body.classList.remove("modal-open");
+    }
+    history.pushState(null, "", hash);
+  });
+});
+
+window.addEventListener("load", () => {
+  if (location.hash && !location.hash.startsWith("#modal-")) {
+    window.setTimeout(() => scrollToAnchor(location.hash, false), 80);
+  }
+});
 
 function getFormValue(formData, key) {
   return String(formData.get(key) || "").trim();
