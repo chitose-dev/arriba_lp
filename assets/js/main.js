@@ -5,6 +5,7 @@ const modals = document.querySelectorAll(".modal");
 const trialForm = document.getElementById("trial-form");
 const lineUrl = "https://lin.ee/8yWT6iB";
 let activeModal = null;
+let activeModalFromPush = false;
 
 function scrollToAnchor(hash, smooth = true) {
   if (!hash || hash === "#" || hash.startsWith("#modal-")) return false;
@@ -41,6 +42,7 @@ function openModal(id, updateHistory = true) {
   const modal = document.getElementById(id);
   if (!modal) return;
   activeModal = modal;
+  activeModalFromPush = updateHistory;
   modal.classList.add("is-open");
   document.body.classList.add("modal-open");
   const backButton = modal.querySelector(".modal-back");
@@ -52,11 +54,17 @@ function openModal(id, updateHistory = true) {
 
 function closeModal(updateHistory = true) {
   if (!activeModal) return;
+  const shouldGoBack = activeModalFromPush;
   activeModal.classList.remove("is-open");
   activeModal = null;
+  activeModalFromPush = false;
   document.body.classList.remove("modal-open");
   if (updateHistory && location.hash.startsWith("#modal-")) {
-    history.back();
+    if (shouldGoBack) {
+      history.back();
+    } else {
+      history.replaceState(null, "", `${location.pathname}${location.search}`);
+    }
   }
 }
 
@@ -68,6 +76,12 @@ modalTriggers.forEach((trigger) => {
 });
 
 modals.forEach((modal) => {
+  modal.addEventListener("click", (event) => {
+    if (event.target === modal) {
+      closeModal();
+    }
+  });
+
   modal.querySelectorAll(".modal-close").forEach((button) => {
     button.addEventListener("click", () => closeModal());
   });
@@ -76,6 +90,7 @@ modals.forEach((modal) => {
     link.addEventListener("click", () => {
       modal.classList.remove("is-open");
       activeModal = null;
+      activeModalFromPush = false;
       document.body.classList.remove("modal-open");
     });
   });
@@ -85,6 +100,7 @@ window.addEventListener("popstate", () => {
   if (activeModal) {
     activeModal.classList.remove("is-open");
     activeModal = null;
+    activeModalFromPush = false;
     document.body.classList.remove("modal-open");
     return;
   }
@@ -110,6 +126,7 @@ document.querySelectorAll('a[href^="#"]').forEach((link) => {
     if (activeModal) {
       activeModal.classList.remove("is-open");
       activeModal = null;
+      activeModalFromPush = false;
       document.body.classList.remove("modal-open");
     }
     history.pushState(null, "", hash);
