@@ -1445,13 +1445,20 @@ dd {
   }
 
   .mini-nav {
-    justify-content: flex-start;
-    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px 12px;
     padding: 8px 14px;
+    overflow-x: visible;
+    white-space: normal;
   }
 
   .mini-nav a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     font-size: 0.8rem;
+    text-align: center;
   }
 
   .mini-nav .is-call {
