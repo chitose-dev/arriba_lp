@@ -1756,8 +1756,8 @@ dd {
   .hero {
     min-height: auto;
     display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(124px, 38vw);
-    gap: 14px;
+    grid-template-columns: minmax(0, 1fr) minmax(150px, 44vw);
+    gap: 16px;
     align-items: start;
     padding: 84px 20px 36px;
   }
@@ -1770,7 +1770,7 @@ dd {
     grid-column: 2;
     grid-row: 1;
     width: 100%;
-    height: clamp(148px, 42vw, 196px);
+    height: clamp(170px, 48vw, 220px);
     box-shadow: none;
   }
 
@@ -1782,12 +1782,12 @@ dd {
   }
 
   .hero-kicker {
-    font-size: clamp(0.62rem, 2.5vw, 0.78rem);
+    font-size: clamp(0.58rem, 2.35vw, 0.74rem);
   }
 
   .hero h1,
   .final-section h2 {
-    font-size: clamp(1.38rem, 6.2vw, 2.08rem);
+    font-size: clamp(1.28rem, 5.8vw, 1.92rem);
   }
 
   .hero-lead,
@@ -1797,7 +1797,7 @@ dd {
   .method-copy p,
   .career-copy p,
   .final-section p {
-    font-size: clamp(0.86rem, 3.4vw, 0.98rem);
+    font-size: clamp(0.82rem, 3.25vw, 0.96rem);
     line-height: 1.68;
   }
 
@@ -1811,8 +1811,8 @@ dd {
   .method-section,
   .career-section,
   .trial-section {
-    grid-template-columns: minmax(0, 1fr) minmax(124px, 38vw);
-    gap: 18px 14px;
+    grid-template-columns: minmax(0, 1fr) minmax(150px, 44vw);
+    gap: 18px 16px;
     align-items: start;
   }
 
@@ -1842,7 +1842,7 @@ dd {
     grid-column: 2;
     grid-row: 1;
     width: 100%;
-    height: clamp(148px, 42vw, 196px);
+    height: clamp(170px, 48vw, 220px);
     min-height: 0;
     aspect-ratio: auto;
     box-shadow: none;
@@ -1875,7 +1875,7 @@ dd {
   }
 
   h2 {
-    font-size: clamp(1.46rem, 6.4vw, 2rem);
+    font-size: clamp(1.34rem, 5.95vw, 1.9rem);
     line-height: 1.18;
   }
 
@@ -1922,6 +1922,38 @@ dd {
     display: none;
   }
 
+  .hero-actions,
+  .section-actions,
+  .place-actions,
+  .final-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: stretch;
+    width: min(82vw, 340px);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-actions:has(.btn + .btn),
+  .section-actions:has(.btn + .btn),
+  .place-actions:has(.btn + .btn),
+  .final-actions:has(.btn + .btn) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: calc(100vw - 40px);
+    max-width: 360px;
+  }
+
+  .hero-actions .btn,
+  .section-actions .btn,
+  .place-actions .btn,
+  .final-actions .btn {
+    width: 100%;
+    min-width: 0;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: center;
+  }
+
   .modal {
     padding: 0 10px 24px;
   }
@@ -1956,7 +1988,7 @@ dd {
   .method-section,
   .career-section,
   .trial-section {
-    grid-template-columns: minmax(0, 1fr) minmax(112px, 36vw);
+    grid-template-columns: minmax(0, 1fr) minmax(146px, 43vw);
     gap: 16px 12px;
   }
 
@@ -1966,11 +1998,11 @@ dd {
   .place-photo,
   .method-photo,
   .career-photo {
-    height: clamp(136px, 43vw, 176px);
+    height: clamp(162px, 48vw, 204px);
   }
 
   h2 {
-    font-size: clamp(1.34rem, 6.2vw, 1.68rem);
+    font-size: clamp(1.24rem, 5.8vw, 1.58rem);
   }
 }
 
