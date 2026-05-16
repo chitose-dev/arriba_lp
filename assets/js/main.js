@@ -167,19 +167,9 @@ if (trialForm) {
     event.preventDefault();
     const status = trialForm.querySelector(".form-status");
     const formData = new FormData(trialForm);
-    const email = getFormValue(formData, "email");
-    const emailConfirm = getFormValue(formData, "email_confirm");
 
     if (!trialForm.checkValidity()) {
       trialForm.reportValidity();
-      return;
-    }
-
-    if (email !== emailConfirm) {
-      if (status) {
-        status.textContent = "メールアドレスと確認用メールアドレスが一致していません。";
-        status.classList.add("is-error");
-      }
       return;
     }
 
