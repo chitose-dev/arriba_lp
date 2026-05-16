@@ -821,6 +821,17 @@ dd {
 
 .trial-section {
   background: #ece6dc;
+  grid-template-columns: minmax(0, 0.86fr) minmax(420px, 1.14fr);
+  align-items: start;
+}
+
+.trial-section .section-photo {
+  aspect-ratio: 4 / 5;
+  min-height: 720px;
+}
+
+.trial-section .section-photo img {
+  object-position: center;
 }
 
 .phone-section {
