@@ -248,6 +248,10 @@ section[id] {
   display: none !important;
 }
 
+.phone-section h2 span {
+  display: block;
+}
+
 .hero-lead {
   max-width: 680px;
   margin: 28px 0 0;
@@ -1809,8 +1813,8 @@ dd {
   .hero {
     min-height: auto;
     display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(150px, 44vw);
-    gap: 16px;
+    grid-template-columns: 1fr;
+    gap: 18px;
     align-items: start;
     padding: 84px 20px 36px;
   }
@@ -1820,10 +1824,10 @@ dd {
     top: auto;
     right: auto;
     bottom: auto;
-    grid-column: 2;
-    grid-row: 1;
+    grid-column: 1;
+    grid-row: 2;
     width: 100%;
-    height: clamp(170px, 48vw, 220px);
+    height: clamp(210px, 58vw, 280px);
     box-shadow: none;
   }
 
@@ -1844,12 +1848,11 @@ dd {
   }
 
   .hero h1 .desktop-line {
-    display: none;
+    display: block;
   }
 
   .hero h1 .mobile-line {
-    display: block !important;
-    white-space: nowrap;
+    display: none !important;
   }
 
   .hero-lead,
@@ -1876,6 +1879,10 @@ dd {
     grid-template-columns: minmax(0, 1fr) minmax(150px, 44vw);
     gap: 18px 16px;
     align-items: start;
+  }
+
+  .phone-section {
+    grid-template-columns: 1fr;
   }
 
   .split-reverse .section-copy,
@@ -1908,6 +1915,30 @@ dd {
     min-height: 0;
     aspect-ratio: auto;
     box-shadow: none;
+  }
+
+  .phone-section .section-copy,
+  .phone-section .section-photo {
+    grid-column: 1;
+  }
+
+  .phone-section .section-photo {
+    grid-row: auto;
+    height: clamp(210px, 58vw, 280px);
+  }
+
+  .phone-section .section-actions {
+    grid-column: 1;
+  }
+
+  .phone-number {
+    width: max-content;
+    max-width: 100%;
+    font-size: clamp(1.95rem, 8.8vw, 2.35rem) !important;
+    line-height: 1.06;
+    white-space: nowrap;
+    word-break: keep-all;
+    overflow-wrap: normal;
   }
 
   .section-photo img,
@@ -2063,7 +2094,6 @@ dd {
     height: 46px;
   }
 
-  .hero,
   .split,
   .split-reverse,
   .place-section,
@@ -2074,6 +2104,11 @@ dd {
     gap: 16px 12px;
   }
 
+  .hero,
+  .phone-section {
+    grid-template-columns: 1fr;
+  }
+
   .hero-bg,
   .section-photo,
   .section-photo.tall,
@@ -2081,6 +2116,11 @@ dd {
   .method-photo,
   .career-photo {
     height: clamp(162px, 48vw, 204px);
+  }
+
+  .hero-bg,
+  .phone-section .section-photo {
+    height: clamp(210px, 64vw, 260px);
   }
 
   h2 {
