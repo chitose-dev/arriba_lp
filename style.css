@@ -264,7 +264,7 @@ section[id] {
   margin: 26px 0 0;
   font-size: 1.55rem;
   font-weight: 900;
-  color: var(--black);
+  color: var(--red);
 }
 
 .hero-actions,
@@ -1813,8 +1813,8 @@ dd {
   .hero {
     min-height: auto;
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 18px;
+    grid-template-columns: minmax(0, 1fr) minmax(156px, 43vw);
+    gap: 16px;
     align-items: start;
     padding: 84px 20px 36px;
   }
@@ -1824,10 +1824,10 @@ dd {
     top: auto;
     right: auto;
     bottom: auto;
-    grid-column: 1;
-    grid-row: 2;
+    grid-column: 2;
+    grid-row: 1;
     width: 100%;
-    height: clamp(210px, 58vw, 280px);
+    height: clamp(190px, 54vw, 244px);
     box-shadow: none;
   }
 
@@ -1848,11 +1848,12 @@ dd {
   }
 
   .hero h1 .desktop-line {
-    display: block;
+    display: none;
   }
 
   .hero h1 .mobile-line {
-    display: none !important;
+    display: block !important;
+    white-space: nowrap;
   }
 
   .hero-lead,
@@ -2104,9 +2105,12 @@ dd {
     gap: 16px 12px;
   }
 
-  .hero,
   .phone-section {
     grid-template-columns: 1fr;
+  }
+
+  .hero {
+    grid-template-columns: minmax(0, 1fr) minmax(128px, 40vw);
   }
 
   .hero-bg,
@@ -2118,9 +2122,12 @@ dd {
     height: clamp(162px, 48vw, 204px);
   }
 
-  .hero-bg,
   .phone-section .section-photo {
     height: clamp(210px, 64vw, 260px);
+  }
+
+  .hero-bg {
+    height: clamp(176px, 54vw, 220px);
   }
 
   h2 {
