@@ -69,10 +69,19 @@ function closeModal(updateHistory = true) {
 }
 
 modalTriggers.forEach((trigger) => {
-  trigger.addEventListener("click", (event) => {
+  const openFromTrigger = (event) => {
     event.preventDefault();
     openModal(trigger.dataset.modal);
-  });
+  };
+
+  trigger.addEventListener("click", openFromTrigger);
+
+  if (trigger.getAttribute("role") === "button") {
+    trigger.addEventListener("keydown", (event) => {
+      if (event.key !== "Enter" && event.key !== " ") return;
+      openFromTrigger(event);
+    });
+  }
 });
 
 modals.forEach((modal) => {
