@@ -629,11 +629,12 @@ h3 {
   z-index: 0;
   pointer-events: none;
   user-select: none;
-  color: rgba(200, 23, 30, 0.08);
+  color: var(--red);
   font-size: 9rem;
   line-height: 0.85;
   font-weight: 900;
   white-space: nowrap;
+  opacity: 0.08;
   transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
@@ -852,7 +853,7 @@ dd {
 }
 
 .method-section .bg-word {
-  color: rgba(200, 23, 30, 0.08);
+  color: var(--red);
 }
 
 .method-copy p,
