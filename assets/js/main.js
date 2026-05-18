@@ -26,6 +26,13 @@ function closeMenu() {
   menuToggle.setAttribute("aria-expanded", "false");
 }
 
+function openMenu() {
+  if (!globalMenu || !menuToggle) return;
+  globalMenu.classList.add("open");
+  document.body.classList.add("menu-open");
+  menuToggle.setAttribute("aria-expanded", "true");
+}
+
 if (menuToggle && globalMenu) {
   menuToggle.addEventListener("click", () => {
     const isOpen = globalMenu.classList.toggle("open");
@@ -35,6 +42,14 @@ if (menuToggle && globalMenu) {
 
   globalMenu.querySelectorAll("a").forEach((link) => {
     link.addEventListener("click", closeMenu);
+  });
+
+  document.querySelectorAll("[data-open-menu]").forEach((trigger) => {
+    trigger.addEventListener("click", (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      openMenu();
+    });
   });
 }
 
@@ -85,12 +100,6 @@ modalTriggers.forEach((trigger) => {
 });
 
 modals.forEach((modal) => {
-  modal.addEventListener("click", (event) => {
-    if (event.target === modal) {
-      closeModal();
-    }
-  });
-
   modal.querySelectorAll(".modal-close").forEach((button) => {
     button.addEventListener("click", () => closeModal());
   });
@@ -125,6 +134,7 @@ if (location.hash.startsWith("#modal-")) {
 
 document.querySelectorAll('a[href^="#"]').forEach((link) => {
   link.addEventListener("click", (event) => {
+    if (link.hasAttribute("data-open-menu")) return;
     const hash = link.getAttribute("href");
     if (!hash || hash === "#") return;
     const didScroll = scrollToAnchor(hash);
