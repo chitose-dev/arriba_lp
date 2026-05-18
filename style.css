@@ -2281,6 +2281,79 @@ dd {
   }
 }
 
+@media (max-width: 900px) {
+  html,
+  body {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  .hero-lead,
+  .section-copy p,
+  .wide-copy p,
+  .place-copy p,
+  .method-copy p,
+  .career-copy p,
+  .final-section p {
+    font-size: clamp(0.94rem, 3.65vw, 1.06rem);
+    line-height: 1.72;
+  }
+
+  .hero-formula {
+    font-size: clamp(0.78rem, 3.25vw, 1.04rem);
+  }
+
+  .hero-actions,
+  .section-copy .section-actions,
+  .place-copy + .place-photo + .place-actions,
+  .final-actions {
+    width: 100%;
+    max-width: none;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .hero-actions:has(.btn + .btn),
+  .section-copy .section-actions:has(.btn + .btn),
+  .place-actions:has(.btn + .btn),
+  .final-actions:has(.btn + .btn) {
+    grid-template-columns: 1fr;
+    width: 100%;
+    max-width: none;
+  }
+
+  .hero-actions .btn,
+  .section-actions .btn,
+  .place-actions .btn,
+  .final-actions .btn {
+    min-height: 54px;
+    font-size: 0.98rem;
+  }
+
+  .circle-points,
+  #about .circle-points {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+    width: calc(100vw - 40px);
+    max-width: 360px;
+    flex-wrap: unset;
+    overflow: visible;
+  }
+
+  .circle-points li,
+  #about .circle-points li {
+    width: 100%;
+    max-width: none;
+    min-width: 0;
+    flex: none;
+    aspect-ratio: 1;
+    padding: 0 4px;
+    font-size: clamp(0.72rem, 3.1vw, 0.88rem);
+    line-height: 1.18;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
