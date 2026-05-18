@@ -6,6 +6,8 @@ const trialForm = document.getElementById("trial-form");
 const lineUrl = "https://lin.ee/8yWT6iB";
 let activeModal = null;
 let activeModalFromPush = false;
+const modalTapThreshold = 8;
+let modalPressStart = null;
 
 function scrollToAnchor(hash, smooth = true) {
   if (!hash || hash === "#" || hash.startsWith("#modal-")) return false;
@@ -100,6 +102,29 @@ modalTriggers.forEach((trigger) => {
 });
 
 modals.forEach((modal) => {
+  modal.addEventListener("pointerdown", (event) => {
+    if (!modal.classList.contains("is-open")) return;
+    modalPressStart = {
+      id: event.pointerId,
+      x: event.clientX,
+      y: event.clientY,
+      target: event.target
+    };
+  });
+
+  modal.addEventListener("pointerup", (event) => {
+    if (!modalPressStart || modalPressStart.id !== event.pointerId) return;
+
+    const dx = Math.abs(event.clientX - modalPressStart.x);
+    const dy = Math.abs(event.clientY - modalPressStart.y);
+    const startTarget = modalPressStart.target;
+    modalPressStart = null;
+
+    if (dx > modalTapThreshold || dy > modalTapThreshold) return;
+    if (startTarget.closest("a, button, input, select, textarea, iframe")) return;
+    closeModal();
+  });
+
   modal.querySelectorAll(".modal-close").forEach((button) => {
     button.addEventListener("click", () => closeModal());
   });
