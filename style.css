@@ -2392,12 +2392,12 @@ dd {
   .method-section,
   .career-section,
   .trial-section {
-    grid-template-columns: minmax(0, 1fr) minmax(154px, 46vw);
-    gap: 16px 12px;
+    grid-template-columns: minmax(0, 1fr) minmax(168px, 48vw);
+    gap: 16px 10px;
   }
 
   .hero {
-    grid-template-columns: minmax(0, 1fr) minmax(148px, 46vw);
+    grid-template-columns: minmax(0, 1fr) minmax(156px, 45vw);
   }
 
   .hero-bg,
@@ -2406,11 +2406,11 @@ dd {
   .place-photo,
   .method-photo,
   .career-photo {
-    height: clamp(184px, 54vw, 226px);
+    height: clamp(210px, 62vw, 278px);
   }
 
   .hero-bg {
-    height: clamp(198px, 60vw, 244px);
+    height: clamp(220px, 66vw, 296px);
   }
 
   h2 {
@@ -2487,14 +2487,18 @@ dd {
   }
 
   .hero {
-    grid-template-columns: minmax(0, 1fr) minmax(142px, 42vw);
-    gap: 12px;
+    grid-template-columns: minmax(0, 1fr) minmax(156px, 45vw);
+    gap: 10px;
   }
 
   .hero h1,
   .final-section h2 {
     font-size: clamp(1.36rem, 5.65vw, 1.72rem);
     line-height: 1.12;
+  }
+
+  .hero h1 {
+    font-size: clamp(1.18rem, 4.95vw, 1.5rem);
   }
 
   .hero-actions,
@@ -2599,6 +2603,25 @@ dd {
     grid-row: 1 / span 4;
   }
 
+  .section-photo[data-animate],
+  .place-photo[data-animate],
+  .method-photo[data-animate],
+  .career-photo[data-animate],
+  .category-layout[data-animate] {
+    opacity: 1;
+    transform: translateX(14px) scale(0.99);
+    transition: opacity 0.62s ease, transform 0.74s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .section-photo[data-animate].is-visible,
+  .place-photo[data-animate].is-visible,
+  .method-photo[data-animate].is-visible,
+  .career-photo[data-animate].is-visible,
+  .category-layout[data-animate].is-visible {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+
   .hero-bg {
     background: transparent;
   }
@@ -2612,8 +2635,58 @@ dd {
     height: 100%;
     object-fit: cover;
     object-position: 52% center;
+    animation: mobileImageSettle 0.72s cubic-bezier(0.22, 1, 0.36, 1) both;
   }
 
+  .section-photo img,
+  .place-photo img,
+  .method-photo img,
+  .career-photo img,
+  .category-list img,
+  .category-main img {
+    object-fit: cover;
+  }
+
+  #about .section-photo img {
+    object-position: 58% center;
+  }
+
+  #message .section-photo img {
+    object-position: 52% 38%;
+  }
+
+  #recruit .section-photo img {
+    object-position: 52% center;
+  }
+
+  #place .place-photo img {
+    object-position: 50% center;
+  }
+
+  #method .method-photo img,
+  #career .career-photo img {
+    object-position: 52% center;
+  }
+
+  #trial .section-photo img {
+    object-position: 55% center;
+  }
+
+  #phone .section-photo img {
+    object-position: 56% 38%;
+  }
+
+}
+
+@keyframes mobileImageSettle {
+  from {
+    opacity: 0;
+    transform: translateX(18px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
