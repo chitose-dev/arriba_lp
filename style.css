@@ -1129,15 +1129,8 @@ dd {
 }
 
 .sponsor-logo:last-child img {
-  max-width: 156px;
-  max-height: 156px;
-}
-
-.sponsor-name {
-  margin-top: 10px;
-  color: var(--black);
-  font-size: 0.92rem;
-  font-weight: 900;
+  max-width: 184px;
+  max-height: 184px;
 }
 
 .site-footer {
@@ -1688,8 +1681,8 @@ dd {
   }
 
   .sponsor-logo:last-child img {
-    max-width: 96px;
-    max-height: 96px;
+    max-width: 112px;
+    max-height: 112px;
   }
 
   .site-footer {
