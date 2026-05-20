@@ -1075,9 +1075,15 @@ dd {
   align-items: center;
   min-height: 46px;
   margin: 4px 0 34px;
+  padding: 0;
+  border: 0;
+  background: transparent;
   color: var(--red);
   font-weight: 900;
+  font-family: inherit;
+  font-size: 1rem;
   text-decoration: none;
+  cursor: pointer;
 }
 
 .sponsor-recruit-link::after {
