@@ -2239,6 +2239,19 @@ dd {
     line-height: 1.18;
   }
 
+  #recruit h2 {
+    font-size: clamp(2.15rem, 9.4vw, 2.75rem);
+    line-height: 1.03;
+  }
+
+  #recruit {
+    grid-template-columns: minmax(0, 1fr) minmax(146px, 40vw);
+  }
+
+  #recruit h2 span {
+    white-space: nowrap;
+  }
+
   .section-kicker {
     margin-bottom: 8px;
     font-size: 0.72rem;
