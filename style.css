@@ -2567,18 +2567,17 @@ dd {
   #about .circle-points {
     grid-column: 1 / 3;
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 108px));
-    gap: 8px;
-    width: calc(100vw - 40px);
-    max-width: 360px;
-    justify-content: start;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 6px;
+    width: 100%;
+    max-width: none;
+    justify-content: stretch;
     flex-wrap: unset;
     overflow: visible;
   }
 
   #about .circle-points {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    justify-content: stretch;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
   }
 
   #trial .circle-points {
@@ -2608,17 +2607,17 @@ dd {
 
   #method .circle-points,
   .method-section .circle-points {
-    grid-template-columns: repeat(2, 74px);
-    width: auto;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    width: 100%;
     max-width: none;
-    justify-content: start;
+    justify-content: stretch;
   }
 
   .method-section .circle-points li {
-    width: 74px;
-    height: 74px;
-    aspect-ratio: auto;
-    font-size: 0.78rem;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1;
+    font-size: clamp(0.62rem, 2.5vw, 0.78rem);
   }
 
   .section-photo,
