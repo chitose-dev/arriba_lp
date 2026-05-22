@@ -9,6 +9,8 @@ let activeModalFromPush = false;
 const modalTapThreshold = 8;
 let modalPressStart = null;
 
+document.documentElement.classList.add("js");
+
 function scrollToAnchor(hash, smooth = true) {
   if (!hash || hash === "#" || hash.startsWith("#modal-")) return false;
   const target = document.querySelector(hash);
@@ -250,6 +252,15 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.18 });
 
 animatedItems.forEach((item) => observer.observe(item));
+
+const revealGroups = document.querySelectorAll(".hero, .lp-section, .sponsor-section, .mini-nav, .site-footer");
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    entry.target.classList.toggle("is-inview", entry.isIntersecting);
+  });
+}, { rootMargin: "-10% 0px -18% 0px", threshold: 0.12 });
+
+revealGroups.forEach((group) => revealObserver.observe(group));
 
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape" && globalMenu && globalMenu.classList.contains("open")) {
