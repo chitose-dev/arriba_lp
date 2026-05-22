@@ -3,6 +3,11 @@ const globalMenu = document.querySelector(".global-menu");
 const modalTriggers = document.querySelectorAll("[data-modal]");
 const modals = document.querySelectorAll(".modal");
 const trialForm = document.getElementById("trial-form");
+const lineDialog = document.getElementById("line-dialog");
+const lineDialogTitle = document.getElementById("line-dialog-title");
+const lineDialogMessage = document.getElementById("line-dialog-message");
+const lineOpenButton = document.querySelector("[data-line-open]");
+const lineCloseButton = document.querySelector("[data-line-close]");
 const lineUrl = "https://lin.ee/8yWT6iB";
 let activeModal = null;
 let activeModalFromPush = false;
@@ -13,6 +18,10 @@ document.documentElement.classList.add("js");
 
 function scrollToAnchor(hash, smooth = true) {
   if (!hash || hash === "#" || hash.startsWith("#modal-")) return false;
+  if (hash === "#top") {
+    window.scrollTo({ top: 0, behavior: smooth ? "smooth" : "auto" });
+    return true;
+  }
   const target = document.querySelector(hash);
   const header = document.querySelector(".site-header");
   if (!target) return false;
@@ -208,6 +217,41 @@ function buildTrialMessage(formData) {
   ].join("\n");
 }
 
+function openLineDialog(copied) {
+  if (!lineDialog) return;
+  if (lineDialogTitle) {
+    lineDialogTitle.textContent = copied
+      ? "問い合わせ内容をコピーしました"
+      : "問い合わせ内容を作成しました";
+  }
+  if (lineDialogMessage) {
+    lineDialogMessage.textContent = copied
+      ? "LINEが開いたら、そのまま貼り付けて送信してください。"
+      : "問い合わせ内容を作成しました。LINEが開いたら、入力内容を確認して送信してください。";
+  }
+  lineDialog.hidden = false;
+  document.body.classList.add("line-dialog-open");
+  lineOpenButton?.focus();
+}
+
+function closeLineDialog() {
+  if (!lineDialog) return;
+  lineDialog.hidden = true;
+  document.body.classList.remove("line-dialog-open");
+}
+
+lineOpenButton?.addEventListener("click", () => {
+  window.location.href = lineUrl;
+});
+
+lineCloseButton?.addEventListener("click", closeLineDialog);
+
+window.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && lineDialog && !lineDialog.hidden) {
+    closeLineDialog();
+  }
+});
+
 if (trialForm) {
   trialForm.addEventListener("submit", async (event) => {
     event.preventDefault();
@@ -220,23 +264,23 @@ if (trialForm) {
     }
 
     const message = buildTrialMessage(formData);
+    let copied = false;
 
     try {
       await navigator.clipboard.writeText(message);
+      copied = true;
       if (status) {
-        status.textContent = "申込内容をコピーしました。LINEが開いたら、そのまま貼り付けて送信してください。";
+        status.textContent = "";
         status.classList.remove("is-error");
       }
     } catch {
       if (status) {
-        status.textContent = "LINEが開いたら、入力内容を確認して送信してください。";
+        status.textContent = "";
         status.classList.remove("is-error");
       }
     }
 
-    window.setTimeout(() => {
-      window.location.href = lineUrl;
-    }, 1000);
+    openLineDialog(copied);
   });
 }
 

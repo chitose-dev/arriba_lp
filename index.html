@@ -197,6 +197,7 @@
     <section class="lp-section place-section" id="place">
       <span class="bg-word bg-word-tr" aria-hidden="true">PLACE</span>
       <div class="place-copy" data-animate="slideLeft">
+        <p class="section-kicker">PLACE</p>
         <h2>練習場所</h2>
         <p class="modal-teaser" role="button" tabindex="0" data-modal="modal-place">アリバの平日練習は、主に宝塚市の花屋敷グラウンドで行っています。人工芝のグラウンドで、基礎技術から実戦形式まで集中して取り組めます。<span class="inline-more">続き ＞</span></p>
         <dl class="place-list">
@@ -294,7 +295,7 @@
           <label><span>体験会をどこで知りましたか？ ※</span><select name="source"><option>ホームページ</option><option>インスタグラム</option><option>X</option><option>知り合いに聞いた</option><option>その他</option></select></label>
           <label class="wide-field"><span>備考</span><textarea name="message" rows="4"></textarea></label>
           <p class="form-status wide-field" aria-live="polite"></p>
-          <button class="btn btn-primary" type="submit">LINE用の申込内容を作成する</button>
+          <button class="btn btn-primary" type="submit">LINEの問い合わせ内容を作成</button>
         </form>
       </div>
     </section>
@@ -383,6 +384,18 @@
   <div class="mobile-fixed">
     <a href="tel:09095484524">電話相談</a>
     <a href="#trial">無料体験</a>
+  </div>
+
+  <div class="line-dialog" id="line-dialog" role="dialog" aria-modal="true" aria-labelledby="line-dialog-title" hidden>
+    <div class="line-dialog-panel">
+      <p class="section-kicker">LINE</p>
+      <h2 id="line-dialog-title">問い合わせ内容をコピーしました</h2>
+      <p id="line-dialog-message">LINEが開いたら、そのまま貼り付けて送信してください。</p>
+      <div class="line-dialog-actions">
+        <button class="btn btn-primary" type="button" data-line-open>LINEを開く</button>
+        <button class="btn btn-dark" type="button" data-line-close>戻る</button>
+      </div>
+    </div>
   </div>
 
   <div class="modal" id="modal-about" role="dialog" aria-modal="true" aria-labelledby="modal-about-title">
