@@ -325,7 +325,6 @@ section[id] {
 }
 
 .btn:active,
-.modal-next-links a:active,
 .mini-nav a:active {
   transform: translateY(1px);
 }
@@ -1368,46 +1367,9 @@ dd {
   line-height: 1.75;
 }
 
-.modal-next-links {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 10px;
-  align-items: stretch;
-  margin: 28px 0 0;
-  padding-top: 22px;
-  border-top: 1px solid var(--line);
-}
-
-.modal-next-links span {
-  grid-column: 1 / -1;
-  color: var(--red);
-  font-size: 0.88rem;
-  font-weight: 900;
-}
-
-.modal-next-links a {
-  display: inline-flex;
-  align-items: center;
-  min-height: 42px;
-  padding: 10px 14px;
-  border: 1px solid rgba(18, 20, 23, 0.22);
-  color: var(--ink);
-  font-weight: 900;
-  text-decoration: none;
-  justify-content: center;
-  text-align: center;
-  transition: transform 0.24s ease, color 0.24s ease, background 0.24s ease, border-color 0.24s ease;
-}
-
-.modal-next-links a:hover {
-  border-color: var(--red);
-  color: var(--red);
-  transform: translateY(-2px);
-}
-
 .modal-body > .btn,
 .modal-actions .btn {
-  margin-top: 18px;
+  margin-top: 24px;
 }
 
 .modal-body > .btn {
@@ -1498,9 +1460,9 @@ dd {
 .js .mini-nav a,
 .js .site-footer img,
 .js .site-footer p {
-  opacity: 1;
-  transform: translateY(18px);
-  transition: opacity 0.54s ease, transform 0.64s cubic-bezier(0.22, 1, 0.36, 1);
+  opacity: 0;
+  transform: translateY(42px);
+  transition: opacity 0.78s ease, transform 0.82s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .js .hero.is-inview .hero-kicker,
@@ -1596,7 +1558,6 @@ dd {
 }
 
 .modal.is-open .modal-detail-card,
-.modal.is-open .modal-next-links a,
 .modal.is-open .modal-body > .btn,
 .modal.is-open .modal-actions .btn {
   animation: modalItemRise 0.52s cubic-bezier(0.22, 1, 0.36, 1) both;
@@ -1607,9 +1568,6 @@ dd {
 .modal.is-open .modal-detail-card:nth-child(4) { animation-delay: 0.12s; }
 .modal.is-open .modal-detail-card:nth-child(5) { animation-delay: 0.16s; }
 .modal.is-open .modal-detail-card:nth-child(6) { animation-delay: 0.2s; }
-.modal.is-open .modal-next-links a:nth-of-type(1) { animation-delay: 0.12s; }
-.modal.is-open .modal-next-links a:nth-of-type(2) { animation-delay: 0.16s; }
-.modal.is-open .modal-next-links a:nth-of-type(3) { animation-delay: 0.2s; }
 .modal.is-open .modal-body > .btn,
 .modal.is-open .modal-actions .btn {
   animation-delay: 0.24s;
@@ -1629,7 +1587,6 @@ dd {
 }
 
 .modal.is-open .modal-detail-card:hover,
-.modal.is-open .modal-next-links a:hover,
 .modal.is-open .modal-body > .btn:hover,
 .modal.is-open .modal-actions .btn:hover {
   animation: none;
@@ -2100,9 +2057,6 @@ dd {
     font-size: 2.1rem;
   }
 
-  .modal-next-links {
-    grid-template-columns: 1fr;
-  }
 }
 
 @media (max-width: 900px) {
@@ -2699,11 +2653,6 @@ dd {
 
   .modal-detail-card {
     padding: 15px;
-  }
-
-  .modal-next-links a {
-    width: 100%;
-    justify-content: center;
   }
 
   .modal-floating-close {

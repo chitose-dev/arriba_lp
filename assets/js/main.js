@@ -253,14 +253,45 @@ const observer = new IntersectionObserver((entries) => {
 
 animatedItems.forEach((item) => observer.observe(item));
 
-const revealGroups = document.querySelectorAll(".hero, .lp-section, .sponsor-section, .mini-nav, .site-footer");
+const revealGroups = document.querySelectorAll(".hero, .lp-section, .final-section, .sponsor-section, .mini-nav, .site-footer");
+let revealTicking = false;
+
+function revealGroup(group) {
+  group.classList.add("is-inview");
+  revealObserver.unobserve(group);
+}
+
+function revealVisibleGroups() {
+  revealGroups.forEach((group) => {
+    if (group.classList.contains("is-inview")) return;
+    const rect = group.getBoundingClientRect();
+    if (rect.top < window.innerHeight * 0.9 && rect.bottom > window.innerHeight * 0.04) {
+      revealGroup(group);
+    }
+  });
+}
+
 const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
-    entry.target.classList.toggle("is-inview", entry.isIntersecting);
+    if (!entry.isIntersecting) return;
+    revealGroup(entry.target);
   });
-}, { rootMargin: "-10% 0px -18% 0px", threshold: 0.12 });
+}, { rootMargin: "-4% 0px -8% 0px", threshold: 0.04 });
 
-revealGroups.forEach((group) => revealObserver.observe(group));
+revealGroups.forEach((group) => {
+  revealObserver.observe(group);
+});
+
+revealVisibleGroups();
+window.addEventListener("load", () => window.setTimeout(revealVisibleGroups, 140));
+window.addEventListener("scroll", () => {
+  if (revealTicking) return;
+  revealTicking = true;
+  window.requestAnimationFrame(() => {
+    revealVisibleGroups();
+    revealTicking = false;
+  });
+}, { passive: true });
 
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape" && globalMenu && globalMenu.classList.contains("open")) {
