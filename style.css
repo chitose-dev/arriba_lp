@@ -1267,6 +1267,66 @@ dd {
   border-bottom: 1px solid var(--line);
 }
 
+.modal-detail-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin: 30px 0;
+}
+
+.modal-detail-card {
+  padding: 18px;
+  border: 1px solid var(--line);
+  background: #fffdfa;
+}
+
+.modal-detail-card h3 {
+  margin: 0 0 8px;
+  color: var(--red);
+  font-size: 1rem;
+  line-height: 1.35;
+}
+
+.modal-detail-card p {
+  margin: 0;
+  font-size: 0.98rem;
+  line-height: 1.75;
+}
+
+.modal-next-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  margin: 28px 0 0;
+  padding-top: 22px;
+  border-top: 1px solid var(--line);
+}
+
+.modal-next-links span {
+  width: 100%;
+  color: var(--red);
+  font-size: 0.88rem;
+  font-weight: 900;
+}
+
+.modal-next-links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 42px;
+  padding: 10px 14px;
+  border: 1px solid rgba(18, 20, 23, 0.22);
+  color: var(--ink);
+  font-weight: 900;
+  text-decoration: none;
+}
+
+.modal-next-links a:first-of-type {
+  border-color: var(--red);
+  background: var(--red);
+  color: #fff;
+}
+
 .modal-map {
   height: 360px;
   margin: 28px 0;
@@ -2350,6 +2410,20 @@ dd {
     font-size: clamp(1.5rem, 6.5vw, 2rem);
   }
 
+  .modal-detail-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .modal-detail-card {
+    padding: 15px;
+  }
+
+  .modal-next-links a {
+    width: 100%;
+    justify-content: center;
+  }
+
   .modal-floating-close {
     position: fixed;
     left: 28px;
@@ -2730,6 +2804,142 @@ dd {
   to {
     opacity: 1;
     transform: translateX(0) scale(1);
+  }
+}
+
+@media (max-width: 900px) {
+  main {
+    padding-bottom: 0;
+  }
+
+  .lp-section {
+    padding-top: 28px;
+    padding-bottom: 34px;
+  }
+
+  .phone-section,
+  .trial-section,
+  .final-section {
+    padding-bottom: 42px;
+  }
+
+  .split,
+  .split-reverse,
+  .place-section,
+  .method-section,
+  .career-section,
+  .trial-section,
+  #recruit {
+    grid-template-columns: minmax(0, 1.12fr) minmax(128px, 36vw);
+    gap: 14px 12px;
+  }
+
+  .section-photo,
+  .section-photo.tall,
+  .place-photo,
+  .method-photo,
+  .career-photo {
+    position: sticky;
+    top: calc(74px + env(safe-area-inset-top));
+    height: clamp(210px, 58vw, 300px);
+    z-index: 1;
+  }
+
+  .section-kicker {
+    font-size: clamp(0.88rem, 3.65vw, 1.05rem);
+    line-height: 1.1;
+  }
+
+  h2,
+  .split h2,
+  .split-reverse h2,
+  .place-copy > h2,
+  .method-copy > h2,
+  .career-copy > h2 {
+    font-size: clamp(2rem, 8.65vw, 2.95rem);
+    line-height: 1.04;
+    letter-spacing: 0;
+  }
+
+  #recruit h2 {
+    font-size: clamp(2.35rem, 10.4vw, 3.15rem);
+    line-height: 0.98;
+  }
+
+  .hero-lead,
+  .section-copy p,
+  .wide-copy p,
+  .place-copy p,
+  .method-copy p,
+  .career-copy p,
+  .final-section p {
+    font-size: clamp(1.06rem, 4.45vw, 1.28rem);
+    line-height: 1.56;
+    letter-spacing: 0;
+  }
+
+  .recruit-list,
+  .place-list,
+  .trial-list {
+    margin-top: 28px;
+  }
+
+  .mini-nav.last {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0;
+    overflow: hidden;
+    padding: 8px 0;
+  }
+
+  .mini-nav.last a {
+    min-width: 0;
+    padding: 12px 4px;
+    font-size: clamp(0.72rem, 3.2vw, 0.9rem);
+    line-height: 1.1;
+  }
+
+  .site-footer {
+    margin-top: 0;
+    padding-top: 28px;
+  }
+}
+
+@media (max-width: 420px) {
+  .site-header {
+    min-height: 64px;
+  }
+
+  .split,
+  .split-reverse,
+  .place-section,
+  .method-section,
+  .career-section,
+  .trial-section,
+  #recruit {
+    grid-template-columns: minmax(0, 1.08fr) minmax(124px, 34vw);
+    gap: 12px 10px;
+  }
+
+  h2,
+  .split h2,
+  .split-reverse h2,
+  .place-copy > h2,
+  .method-copy > h2,
+  .career-copy > h2 {
+    font-size: clamp(1.92rem, 8.25vw, 2.52rem);
+  }
+
+  #recruit h2 {
+    font-size: clamp(2.18rem, 9.6vw, 2.75rem);
+  }
+
+  .section-photo,
+  .section-photo.tall,
+  .place-photo,
+  .method-photo,
+  .career-photo {
+    height: clamp(214px, 62vw, 286px);
   }
 }
 
