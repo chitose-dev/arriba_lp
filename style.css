@@ -1293,6 +1293,13 @@ dd {
   transform: scale(1);
 }
 
+.modal-panel > img.modal-portrait {
+  aspect-ratio: 4 / 5;
+  max-height: 720px;
+  object-fit: cover;
+  object-position: center;
+}
+
 .modal-body {
   padding: 42px clamp(22px, 5vw, 64px) 56px;
   opacity: 0;
@@ -1491,7 +1498,7 @@ dd {
 .js .mini-nav a,
 .js .site-footer img,
 .js .site-footer p {
-  opacity: 0;
+  opacity: 1;
   transform: translateY(18px);
   transition: opacity 0.54s ease, transform 0.64s cubic-bezier(0.22, 1, 0.36, 1);
 }
@@ -2671,6 +2678,12 @@ dd {
     aspect-ratio: auto;
   }
 
+  .modal-panel > img.modal-portrait {
+    height: clamp(300px, 94vw, 520px);
+    aspect-ratio: auto;
+    object-position: center top;
+  }
+
   .modal-body {
     padding: 28px 18px calc(42px + env(safe-area-inset-bottom));
   }
@@ -2848,6 +2861,27 @@ dd {
     min-width: 0;
   }
 
+  .hero-kicker {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .hero h1 {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .hero-lead {
+    grid-column: 1;
+    grid-row: 3;
+  }
+
+  .hero-formula {
+    grid-column: 1 / 3;
+    grid-row: 4;
+    margin-top: 14px;
+  }
+
   .hero-bg {
     grid-column: 2;
     grid-row: 1 / span 3;
@@ -2855,9 +2889,9 @@ dd {
 
   .hero .hero-actions {
     grid-column: 1 / 3;
-    grid-row: 4;
+    grid-row: 5;
     width: 100%;
-    margin-top: 18px;
+    margin-top: 12px;
   }
 
   .hero h1,
@@ -2867,7 +2901,7 @@ dd {
   }
 
   .hero h1 {
-    font-size: clamp(1.18rem, 4.95vw, 1.5rem);
+    font-size: clamp(1.62rem, 6.85vw, 2.25rem);
   }
 
   .hero-actions,
@@ -2914,7 +2948,7 @@ dd {
     grid-column: 1 / 3;
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 6px;
+    gap: 4px;
     width: 100%;
     max-width: none;
     justify-content: stretch;
@@ -2924,6 +2958,8 @@ dd {
 
   #about .circle-points {
     grid-template-columns: repeat(5, minmax(0, 1fr));
+    width: calc(100vw - 24px);
+    margin-left: -8px;
   }
 
   #trial .circle-points {
@@ -2941,14 +2977,17 @@ dd {
     min-width: 0;
     flex: none;
     aspect-ratio: 1;
-    padding: 0 4px;
-    font-size: clamp(0.72rem, 3.1vw, 0.88rem);
+    padding: 0 2px;
+    font-size: clamp(0.82rem, 3.35vw, 0.98rem);
     line-height: 1.18;
+    white-space: nowrap;
+    word-break: keep-all;
+    overflow-wrap: normal;
   }
 
   #trial .circle-points li {
     padding: 0 2px;
-    font-size: clamp(0.62rem, 2.5vw, 0.78rem);
+    font-size: clamp(0.72rem, 2.9vw, 0.88rem);
   }
 
   #method .circle-points,
@@ -2963,7 +3002,7 @@ dd {
     width: 100%;
     height: auto;
     aspect-ratio: 1;
-    font-size: clamp(0.62rem, 2.5vw, 0.78rem);
+    font-size: clamp(0.72rem, 2.9vw, 0.88rem);
   }
 
   .section-photo,
@@ -3087,6 +3126,10 @@ dd {
     gap: 14px 12px;
   }
 
+  .hero {
+    grid-template-columns: minmax(0, 1fr) minmax(128px, 34vw);
+  }
+
   .section-photo,
   .section-photo.tall,
   .place-photo,
@@ -3099,7 +3142,7 @@ dd {
   }
 
   .section-kicker {
-    font-size: clamp(0.88rem, 3.65vw, 1.05rem);
+    font-size: clamp(1rem, 4.35vw, 1.25rem);
     line-height: 1.1;
   }
 
@@ -3109,7 +3152,7 @@ dd {
   .place-copy > h2,
   .method-copy > h2,
   .career-copy > h2 {
-    font-size: clamp(2rem, 8.65vw, 2.95rem);
+    font-size: clamp(2.26rem, 9.7vw, 3.3rem);
     line-height: 1.04;
     letter-spacing: 0;
   }
@@ -3126,9 +3169,21 @@ dd {
   .method-copy p,
   .career-copy p,
   .final-section p {
-    font-size: clamp(1.06rem, 4.45vw, 1.28rem);
+    font-size: clamp(1.1rem, 4.6vw, 1.34rem);
     line-height: 1.56;
     letter-spacing: 0;
+  }
+
+  .hero-kicker {
+    font-size: clamp(0.9rem, 3.95vw, 1.12rem);
+    line-height: 1.35;
+  }
+
+  .hero-formula {
+    color: var(--red);
+    font-size: clamp(1.26rem, 5.38vw, 1.62rem);
+    line-height: 1.2;
+    white-space: nowrap;
   }
 
   .recruit-list,
@@ -3163,6 +3218,10 @@ dd {
     min-height: 64px;
   }
 
+  .hero {
+    grid-template-columns: minmax(0, 1fr) minmax(118px, 31vw);
+  }
+
   .split,
   .split-reverse,
   .place-section,
@@ -3180,7 +3239,7 @@ dd {
   .place-copy > h2,
   .method-copy > h2,
   .career-copy > h2 {
-    font-size: clamp(1.92rem, 8.25vw, 2.52rem);
+    font-size: clamp(2.12rem, 9.1vw, 2.85rem);
   }
 
   #recruit h2 {

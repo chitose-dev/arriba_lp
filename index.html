@@ -26,7 +26,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/img/favicon-32.png">
   <link rel="icon" type="image/png" sizes="192x192" href="./assets/img/favicon-192.png">
   <link rel="apple-touch-icon" sizes="180x180" href="./assets/img/apple-touch-icon.png">
-  <link rel="stylesheet" href="./style.css?v=20260518-hero-buttons-row">
+  <link rel="stylesheet" href="./style.css?v=20260522-mobile-category-modal">
 </head>
 <body>
   <header class="site-header" id="top">
@@ -144,15 +144,15 @@
       <div class="category-layout" data-animate="slideRight">
         <figure class="category-main"><img src="./assets/img/category.jpg?v=20260517-spec-photos" alt="グラウンドで集合する選手たち"></figure>
         <div class="category-list">
-          <button id="category-junior-youth" type="button" data-modal="modal-category">
+          <button id="category-junior-youth" type="button" data-modal="modal-junior-youth">
             <img src="./assets/img/junior-youth.jpg?v=20260517-spec-photos" alt="">
             <span class="category-text"><strong>ジュニアユース</strong><small>中学生年代の実戦的トレーニング。<span class="text-more">続き ＞</span></small></span>
           </button>
-          <button id="category-junior" type="button" data-modal="modal-category">
+          <button id="category-junior" type="button" data-modal="modal-junior">
             <img src="./assets/img/junior.jpg?v=20260517-spec-photos" alt="">
             <span class="category-text"><strong>ジュニア</strong><small>小学生年代の技術・判断練習。<span class="text-more">続き ＞</span></small></span>
           </button>
-          <button id="category-school" type="button" data-modal="modal-category">
+          <button id="category-school" type="button" data-modal="modal-school">
             <img src="./assets/img/school.jpg?v=20260517-spec-photos" alt="">
             <span class="category-text"><strong>スクール</strong><small>小学5年生から中学3年生まで参加できます。<span class="text-more">続き ＞</span></small></span>
           </button>
@@ -454,6 +454,72 @@
     <button class="modal-floating-close modal-close" type="button">← ページに戻る</button>
   </div>
 
+  <div class="modal" id="modal-junior-youth" role="dialog" aria-modal="true" aria-labelledby="modal-junior-youth-title">
+    <div class="modal-panel">
+      <button class="modal-back modal-close" type="button">← ページに戻る</button>
+      <img class="modal-portrait" src="./assets/img/modal-junior-youth.jpg?v=20260522-category-modal" alt="">
+      <div class="modal-body">
+        <h2 id="modal-junior-youth-title">ジュニアユース</h2>
+        <p>中学生年代の実戦的トレーニング。</p>
+        <p>練習参加後にクラブ側・ご本人・保護者と相談し、入部を決定します。入部を希望または検討している選手は、まず体験にお越しください。</p>
+        <div class="modal-detail-grid">
+          <div class="modal-detail-card"><h3>練習日</h3><p>火曜日・水曜日・金曜日、毎週開催。時間は18:00〜20:00です。</p></div>
+          <div class="modal-detail-card"><h3>場所</h3><p>花屋敷グラウンド。住所は宝塚市花屋敷荘園4-2-35です。</p></div>
+          <div class="modal-detail-card"><h3>休日活動</h3><p>日曜・休日は近隣などで活動します。カップ戦、遠征、公式戦、合宿等は別途案内です。</p></div>
+          <div class="modal-detail-card"><h3>入部について</h3><p>途中入部も相談できます。練習参加後に、クラブ側・本人・保護者で相談します。</p></div>
+        </div>
+        <div class="modal-next-links" aria-label="次におすすめ"><span>次におすすめ</span><a href="#recruit">募集内容</a><a href="#trial">体験会案内</a><a href="#place">練習場所</a></div>
+        <a class="btn btn-primary" href="#trial">体験会に申し込む</a>
+        <button class="modal-bottom modal-close" type="button">← ページに戻る</button>
+      </div>
+    </div>
+    <button class="modal-floating-close modal-close" type="button">← ページに戻る</button>
+  </div>
+
+  <div class="modal" id="modal-junior" role="dialog" aria-modal="true" aria-labelledby="modal-junior-title">
+    <div class="modal-panel">
+      <button class="modal-back modal-close" type="button">← ページに戻る</button>
+      <img class="modal-portrait" src="./assets/img/modal-junior.jpg?v=20260522-category-modal" alt="">
+      <div class="modal-body">
+        <h2 id="modal-junior-title">ジュニア</h2>
+        <p>小学生年代の技術・判断練習。</p>
+        <p>体験会フォームでは、希望項目として「ジュニア（小学生）選手」を選択できます。参加前に確認したいことは、電話相談で確認できます。</p>
+        <div class="modal-detail-grid">
+          <div class="modal-detail-card"><h3>活動内容</h3><p>小学生年代の技術・判断練習です。</p></div>
+          <div class="modal-detail-card"><h3>体験希望</h3><p>体験会フォームの希望項目には「ジュニア（小学生）選手」があります。</p></div>
+          <div class="modal-detail-card"><h3>相談内容</h3><p>対象学年、活動カテゴリー、今のレベルなど、体験前の不安は電話相談で確認できます。</p></div>
+          <div class="modal-detail-card"><h3>確認導線</h3><p>参加前に練習場所、体験日、送迎などを確認できます。</p></div>
+        </div>
+        <div class="modal-next-links" aria-label="次におすすめ"><span>次におすすめ</span><a href="#trial">体験会案内</a><a href="#method">指導方針</a><a href="#about">アリバとは</a></div>
+        <a class="btn btn-primary" href="#trial">体験会に申し込む</a>
+        <button class="modal-bottom modal-close" type="button">← ページに戻る</button>
+      </div>
+    </div>
+    <button class="modal-floating-close modal-close" type="button">← ページに戻る</button>
+  </div>
+
+  <div class="modal" id="modal-school" role="dialog" aria-modal="true" aria-labelledby="modal-school-title">
+    <div class="modal-panel">
+      <button class="modal-back modal-close" type="button">← ページに戻る</button>
+      <img class="modal-portrait" src="./assets/img/modal-school.jpg?v=20260522-category-modal" alt="">
+      <div class="modal-body">
+        <h2 id="modal-school-title">スクール</h2>
+        <p>平日練習がない小学生におすすめ。中学生と一緒に練習をしよう。</p>
+        <p>練習は都合の良い日に参加するだけ。セレクション有。対象は小学5年生〜中学3年生です。</p>
+        <div class="modal-detail-grid">
+          <div class="modal-detail-card"><h3>開催日</h3><p>火曜日・水曜日・金曜日。場所は花屋敷グラウンドです。</p></div>
+          <div class="modal-detail-card"><h3>対象</h3><p>小学5年生〜中学3年生。時間は18:00〜20:00です。</p></div>
+          <div class="modal-detail-card"><h3>料金</h3><p>2日コースは月謝5,500円、3日コースは月謝7,700円。初月無料、スポーツ保険料1,000円です。</p></div>
+          <div class="modal-detail-card"><h3>送迎</h3><p>送迎有り。2日コースは別途2,200円/月、3日コースは別途3,300円/月です。</p></div>
+        </div>
+        <div class="modal-next-links" aria-label="次におすすめ"><span>次におすすめ</span><a href="#trial">体験会案内</a><a href="#place">練習場所</a><a href="#phone">電話相談</a></div>
+        <a class="btn btn-primary" href="#trial">体験会に申し込む</a>
+        <button class="modal-bottom modal-close" type="button">← ページに戻る</button>
+      </div>
+    </div>
+    <button class="modal-floating-close modal-close" type="button">← ページに戻る</button>
+  </div>
+
   <div class="modal" id="modal-recruit" role="dialog" aria-modal="true" aria-labelledby="modal-recruit-title">
     <div class="modal-panel">
       <button class="modal-back modal-close" type="button">← ページに戻る</button>
@@ -619,6 +685,6 @@
     <button class="modal-floating-close modal-close" type="button">← ページに戻る</button>
   </div>
 
-  <script src="./assets/js/main.js?v=20260518-tap-close"></script>
+  <script src="./assets/js/main.js?v=20260522-mobile-category-modal"></script>
 </body>
 </html>
