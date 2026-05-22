@@ -234,7 +234,9 @@ if (trialForm) {
       }
     }
 
-    window.open(lineUrl, "_blank", "noopener");
+    window.setTimeout(() => {
+      window.location.href = lineUrl;
+    }, 1000);
   });
 }
 

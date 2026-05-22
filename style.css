@@ -575,13 +575,6 @@ h3 {
   line-height: 1.35;
   font-weight: 900;
   background: rgba(255, 253, 248, 0.52);
-  transition: transform 0.34s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.28s ease, box-shadow 0.28s ease;
-}
-
-.circle-points li:hover {
-  transform: translateY(-5px);
-  border-color: rgba(200, 23, 30, 0.48);
-  box-shadow: 0 14px 34px rgba(7, 16, 24, 0.12);
 }
 
 #about .circle-points {
@@ -1571,10 +1564,6 @@ dd {
   animation-delay: 0.24s;
 }
 
-.js .lp-section.is-inview .circle-points li:hover {
-  transform: translateY(-5px);
-}
-
 .js .lp-section.is-inview .category-list button:hover {
   transform: translateX(6px);
 }
@@ -2146,7 +2135,7 @@ dd {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 0;
-    padding: 12px 8px;
+    padding: 14px 8px;
     overflow-x: visible;
     white-space: nowrap;
   }
@@ -2156,11 +2145,11 @@ dd {
     align-items: center;
     justify-content: center;
     min-width: 0;
-    min-height: 34px;
-    padding: 0 4px;
+    min-height: 44px;
+    padding: 0 5px;
     border-right: 1px solid var(--line);
-    font-size: clamp(0.68rem, 3.05vw, 0.9rem);
-    line-height: 1.08;
+    font-size: clamp(0.84rem, 3.6vw, 1rem);
+    line-height: 1.12;
     text-align: center;
   }
 
@@ -2169,7 +2158,7 @@ dd {
   }
 
   .mini-nav .is-call {
-    padding: 6px 4px;
+    padding: 8px 5px;
     border-right: 0;
   }
 
@@ -2847,7 +2836,7 @@ dd {
   }
 
   .hero h1 {
-    font-size: clamp(1.62rem, 6.85vw, 2.25rem);
+    font-size: clamp(1.76rem, 7.2vw, 2.35rem);
   }
 
   .hero-actions,
@@ -2948,7 +2937,7 @@ dd {
     width: 100%;
     height: auto;
     aspect-ratio: 1;
-    font-size: clamp(0.72rem, 2.9vw, 0.88rem);
+    font-size: clamp(0.9rem, 3.95vw, 1.05rem);
   }
 
   .section-photo,
@@ -3159,14 +3148,15 @@ dd {
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 0;
     overflow: hidden;
-    padding: 8px 0;
+    padding: 10px 0;
   }
 
   .mini-nav.last a {
     min-width: 0;
-    padding: 12px 4px;
-    font-size: clamp(0.72rem, 3.2vw, 0.9rem);
-    line-height: 1.1;
+    min-height: 46px;
+    padding: 14px 4px;
+    font-size: clamp(0.84rem, 3.6vw, 1rem);
+    line-height: 1.12;
   }
 
   .site-footer {
@@ -3181,7 +3171,7 @@ dd {
   }
 
   .hero {
-    grid-template-columns: minmax(0, 1fr) minmax(118px, 31vw);
+    grid-template-columns: minmax(0, 1fr) minmax(82px, 24vw);
   }
 
   .split,
@@ -3214,6 +3204,25 @@ dd {
   .method-photo,
   .career-photo {
     height: clamp(214px, 62vw, 286px);
+  }
+}
+
+@media (max-width: 360px) {
+  .mini-nav {
+    padding: 12px 4px;
+  }
+
+  .mini-nav a,
+  .mini-nav.last a {
+    padding-left: 2px;
+    padding-right: 2px;
+    font-size: clamp(0.8rem, 3.72vw, 0.84rem);
+  }
+}
+
+@media (max-width: 340px) {
+  .hero h1 {
+    font-size: clamp(1.42rem, 7.15vw, 1.52rem);
   }
 }
 
