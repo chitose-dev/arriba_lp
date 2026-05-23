@@ -3521,6 +3521,147 @@ dd {
   }
 }
 
+@media (max-width: 900px) {
+  br.soft-break {
+    display: none;
+  }
+
+  .split,
+  .split-reverse,
+  .place-section,
+  .method-section,
+  .career-section,
+  .trial-section,
+  #recruit {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 22px;
+  }
+
+  .split > .section-copy,
+  .split-reverse > .section-copy,
+  .place-copy,
+  .method-copy,
+  .career-copy {
+    display: block;
+  }
+
+  .section-kicker,
+  .split h2,
+  .split-reverse h2,
+  .place-copy > h2,
+  .method-copy > h2,
+  .career-copy > h2,
+  .split .modal-teaser,
+  .split-reverse .modal-teaser,
+  .place-copy > .modal-teaser,
+  .method-copy > .modal-teaser,
+  .career-copy > .modal-teaser,
+  .section-actions,
+  .place-actions,
+  .career-list,
+  .trial-video-wrap,
+  .trial-form-wrap,
+  .flow-list,
+  .recruit-list,
+  .place-list,
+  .trial-list {
+    grid-column: auto;
+  }
+
+  h2,
+  .split h2,
+  .split-reverse h2,
+  .place-copy > h2,
+  .method-copy > h2,
+  .career-copy > h2,
+  #recruit h2 {
+    font-size: clamp(1.72rem, 7.2vw, 2.2rem);
+    line-height: 1.14;
+  }
+
+  .hero h1 {
+    font-size: clamp(1.16rem, 5.2vw, 1.46rem);
+    line-height: 1.16;
+  }
+
+  .hero-lead,
+  .section-copy p,
+  .wide-copy p,
+  .place-copy p,
+  .method-copy p,
+  .career-copy p,
+  .final-section p {
+    font-size: clamp(0.88rem, 3.45vw, 0.96rem);
+    line-height: 1.86;
+    word-break: normal;
+    overflow-wrap: break-word;
+    line-break: strict;
+    text-wrap: pretty;
+  }
+
+  .section-photo,
+  .section-photo.tall,
+  .place-photo,
+  .method-photo,
+  .career-photo {
+    position: relative;
+    top: auto;
+    grid-column: auto;
+    grid-row: auto;
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    aspect-ratio: 16 / 10;
+  }
+
+  .section-photo.tall,
+  .place-photo {
+    aspect-ratio: 4 / 3;
+  }
+
+  .section-photo img,
+  .place-photo img,
+  .method-photo img,
+  .career-photo img {
+    width: 100%;
+    height: 100%;
+  }
+
+  .circle-points,
+  #about .circle-points,
+  #trial .circle-points,
+  #method .circle-points,
+  .method-section .circle-points {
+    grid-column: auto;
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .modal-body p,
+  .modal-body li,
+  .modal-detail-card p {
+    word-break: normal;
+    overflow-wrap: break-word;
+    line-break: strict;
+    text-wrap: pretty;
+  }
+
+  .modal-body p,
+  .modal-body li {
+    font-size: 0.88rem;
+    line-height: 1.9;
+  }
+
+  .modal-detail-card p {
+    font-size: 0.84rem;
+    line-height: 1.88;
+  }
+
+  .modal-detail-card h3 {
+    font-size: 0.9rem;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
