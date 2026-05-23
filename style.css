@@ -62,6 +62,10 @@ img {
   max-width: 100%;
 }
 
+br.soft-break {
+  display: none;
+}
+
 section[id] {
   scroll-margin-top: 88px;
 }
@@ -702,6 +706,10 @@ h3 {
   transform: scale(1.035);
 }
 
+.is-inview .category-main.category-poster img {
+  transform: none;
+}
+
 #about .section-photo img {
   object-position: 56% center;
 }
@@ -771,7 +779,7 @@ h3 {
   position: relative;
   z-index: 2;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(420px, 0.9fr);
+  grid-template-columns: minmax(320px, 0.78fr) minmax(420px, 1fr);
   gap: clamp(32px, 4vw, 56px);
   align-items: start;
 }
@@ -783,6 +791,16 @@ h3 {
   align-self: start;
 }
 
+.category-main.category-poster {
+  width: min(520px, 100%);
+  aspect-ratio: 4 / 5;
+  background: #071018;
+}
+
+.category-main.category-poster img {
+  object-fit: contain;
+}
+
 .category-list {
   display: grid;
   align-content: center;
@@ -791,10 +809,10 @@ h3 {
 
 .category-list button {
   display: grid;
-  grid-template-columns: 220px 1fr;
-  column-gap: 26px;
+  grid-template-columns: 150px 1fr;
+  column-gap: 22px;
   align-items: center;
-  min-height: 168px;
+  min-height: 214px;
   padding: 0 0 22px;
   border: 0;
   background: transparent;
@@ -810,18 +828,24 @@ h3 {
 }
 
 .category-list img {
-  width: 220px;
-  height: 148px;
+  width: 150px;
+  height: 188px;
   object-fit: cover;
+}
+
+.category-list img.category-poster-thumb {
+  object-fit: contain;
+  background: #071018;
 }
 
 .category-text {
   display: grid;
-  gap: 12px;
+  gap: 9px;
+  min-width: 0;
 }
 
 .category-text strong {
-  font-size: 1.35rem;
+  font-size: 1.22rem;
   line-height: 1.35;
   font-weight: 900;
 }
@@ -829,8 +853,8 @@ h3 {
 .category-text small {
   display: block;
   color: var(--muted);
-  font-size: 1.02rem;
-  line-height: 1.55;
+  font-size: 0.94rem;
+  line-height: 1.58;
   font-weight: 700;
 }
 
@@ -1355,6 +1379,16 @@ dd {
   background: #071018;
 }
 
+.modal-panel > img.modal-poster {
+  aspect-ratio: auto;
+  width: min(720px, 100%);
+  max-height: none;
+  margin: 0 auto;
+  object-fit: contain;
+  object-position: center;
+  background: #071018;
+}
+
 .modal-body {
   padding: 42px clamp(22px, 5vw, 64px) 56px;
   opacity: 0;
@@ -1395,6 +1429,10 @@ dd {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 14px;
   margin: 30px 0;
+}
+
+.modal-detail-grid-wide {
+  grid-template-columns: minmax(0, 1fr);
 }
 
 .modal-detail-card {
@@ -2692,6 +2730,12 @@ dd {
     object-position: center top;
   }
 
+  .modal-panel > img.modal-poster {
+    width: 100%;
+    height: auto;
+    max-height: none;
+  }
+
   .modal-body {
     padding: 28px 18px calc(42px + env(safe-area-inset-bottom));
   }
@@ -3347,6 +3391,94 @@ dd {
   .method-photo,
   .career-photo {
     height: clamp(214px, 62vw, 286px);
+  }
+}
+
+@media (max-width: 900px) {
+  br.soft-break {
+    display: initial;
+  }
+
+  .hero-lead,
+  .section-copy p,
+  .wide-copy p,
+  .place-copy p,
+  .method-copy p,
+  .career-copy p,
+  .final-section p {
+    font-size: clamp(0.98rem, 4.05vw, 1.12rem);
+    line-height: 1.68;
+  }
+
+  .category-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+  }
+
+  .category-main.category-poster {
+    justify-self: center;
+    width: min(320px, 86vw);
+    height: auto;
+    aspect-ratio: 4 / 5;
+    box-shadow: var(--shadow);
+  }
+
+  .category-main.category-poster img,
+  .category-list img.category-poster-thumb {
+    object-fit: contain;
+    object-position: center;
+    background: #071018;
+  }
+
+  .category-list {
+    gap: 14px;
+  }
+
+  .category-list button {
+    grid-template-columns: 98px minmax(0, 1fr);
+    column-gap: 14px;
+    min-height: 136px;
+    padding-bottom: 14px;
+  }
+
+  .category-list img,
+  .category-list img.category-poster-thumb {
+    width: 98px;
+    height: 122px;
+  }
+
+  .category-text {
+    gap: 6px;
+  }
+
+  .category-text strong {
+    font-size: clamp(1rem, 4.2vw, 1.14rem);
+    line-height: 1.28;
+  }
+
+  .category-text small {
+    font-size: clamp(0.82rem, 3.45vw, 0.94rem);
+    line-height: 1.5;
+  }
+
+  .modal-body p,
+  .modal-body li {
+    font-size: 0.96rem;
+    line-height: 1.82;
+  }
+
+  .modal-detail-card h3 {
+    font-size: 0.95rem;
+    line-height: 1.38;
+  }
+
+  .modal-detail-card p {
+    font-size: 0.91rem;
+    line-height: 1.78;
+  }
+
+  .modal-detail-card p + p {
+    margin-top: 0.72em;
   }
 }
 
