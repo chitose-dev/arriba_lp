@@ -3562,7 +3562,7 @@ dd {
   .trial-section,
   #recruit {
     grid-template-columns: minmax(0, 1fr);
-    gap: 22px;
+    gap: 0 22px;
   }
 
   .split > .section-copy,
@@ -3633,6 +3633,7 @@ dd {
   .method-photo,
   .career-photo {
     order: 5;
+    margin-top: 22px;
   }
 
   .section-actions,
