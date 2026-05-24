@@ -506,8 +506,16 @@ h3 {
 .final-section p {
   margin: 26px 0 0;
   font-size: 1.13rem;
+  line-height: 1.85;
   font-weight: 700;
   color: #2e343c;
+}
+
+.hero-lead,
+.modal-body p,
+.modal-body li {
+  font-size: 1.13rem;
+  line-height: 1.85;
 }
 
 .read-more {
@@ -1439,7 +1447,7 @@ dd {
 
 .modal-body p,
 .modal-body li {
-  font-size: 1.08rem;
+  font-size: 1.13rem;
   font-weight: 700;
   line-height: 1.85;
   color: #30363d;
@@ -1487,7 +1495,7 @@ dd {
 
 .modal-detail-card p {
   margin: 0;
-  font-size: 0.98rem;
+  font-size: 0.94rem;
   line-height: 1.58;
 }
 
@@ -3738,6 +3746,12 @@ dd {
     text-wrap: pretty;
   }
 
+  .modal-body p,
+  .modal-body li {
+    font-size: clamp(0.88rem, 3.45vw, 0.96rem);
+    line-height: 1.86;
+  }
+
   .section-photo,
   .section-photo.tall,
   .place-photo,
@@ -3787,12 +3801,12 @@ dd {
 
   .modal-body p,
   .modal-body li {
-    font-size: 0.88rem;
-    line-height: 1.85;
+    font-size: clamp(0.88rem, 3.45vw, 0.96rem);
+    line-height: 1.86;
   }
 
   .modal-detail-card p {
-    font-size: 0.84rem;
+    font-size: clamp(0.82rem, 3.45vw, 0.94rem);
     line-height: 1.5;
   }
 
