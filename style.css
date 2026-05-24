@@ -3542,7 +3542,7 @@ dd {
   .place-copy,
   .method-copy,
   .career-copy {
-    display: block;
+    display: contents;
   }
 
   .section-kicker,
@@ -3566,6 +3566,79 @@ dd {
   .place-list,
   .trial-list {
     grid-column: auto;
+    grid-row: auto;
+  }
+
+  .section-kicker {
+    order: 1;
+  }
+
+  .split h2,
+  .split-reverse h2,
+  .place-copy > h2,
+  .method-copy > h2,
+  .career-copy > h2 {
+    order: 2;
+  }
+
+  .split .modal-teaser,
+  .split-reverse .modal-teaser,
+  .place-copy > .modal-teaser,
+  .method-copy > .modal-teaser,
+  .career-copy > .modal-teaser {
+    order: 3;
+  }
+
+  .circle-points,
+  .recruit-list,
+  .place-list,
+  .trial-list,
+  .career-list,
+  .method-lines,
+  .mini-detail {
+    order: 4;
+  }
+
+  .section-photo,
+  .section-photo.tall,
+  .place-photo,
+  .method-photo,
+  .career-photo {
+    order: 5;
+  }
+
+  .section-actions,
+  .place-actions {
+    order: 6;
+  }
+
+  .trial-video-wrap {
+    order: 7;
+  }
+
+  .trial-form-wrap,
+  .flow-list,
+  .line-box {
+    order: 8;
+  }
+
+  .phone-number {
+    order: 4;
+  }
+
+  .phone-section .section-kicker,
+  .phone-section h2,
+  .phone-section .section-copy > p:not(.section-kicker):not(.phone-number),
+  .phone-section .phone-number,
+  .phone-section .section-photo,
+  .phone-section .section-photo.tall,
+  .phone-section .section-actions {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  .phone-section .section-actions {
+    display: grid;
   }
 
   h2,
@@ -3580,8 +3653,54 @@ dd {
   }
 
   .hero h1 {
-    font-size: clamp(1.16rem, 5.2vw, 1.46rem);
+    font-size: clamp(2.05rem, 9.2vw, 2.8rem);
     line-height: 1.16;
+  }
+
+  .hero {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+  }
+
+  .hero-content {
+    display: contents;
+  }
+
+  .hero-kicker {
+    order: 1;
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  .hero h1 {
+    order: 2;
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  .hero-lead {
+    order: 3;
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  .hero-formula {
+    order: 4;
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  .hero-bg {
+    order: 5;
+    grid-column: auto;
+    grid-row: auto;
+    width: 100%;
+  }
+
+  .hero .hero-actions {
+    order: 6;
+    grid-column: auto;
+    grid-row: auto;
   }
 
   .hero-lead,
