@@ -506,7 +506,7 @@ h3 {
 .final-section p {
   margin: 26px 0 0;
   font-size: 1.13rem;
-  line-height: 1.85;
+  line-height: 1.58;
   font-weight: 700;
   color: #2e343c;
 }
@@ -515,7 +515,7 @@ h3 {
 .modal-body p,
 .modal-body li {
   font-size: 1.13rem;
-  line-height: 1.85;
+  line-height: 1.58;
 }
 
 .read-more {
@@ -1449,7 +1449,7 @@ dd {
 .modal-body li {
   font-size: 1.13rem;
   font-weight: 700;
-  line-height: 1.85;
+  line-height: 1.58;
   color: #30363d;
 }
 
@@ -3739,7 +3739,7 @@ dd {
   .career-copy p,
   .final-section p {
     font-size: clamp(0.88rem, 3.45vw, 0.96rem);
-    line-height: 1.86;
+    line-height: 1.5;
     word-break: normal;
     overflow-wrap: break-word;
     line-break: strict;
@@ -3749,7 +3749,7 @@ dd {
   .modal-body p,
   .modal-body li {
     font-size: clamp(0.88rem, 3.45vw, 0.96rem);
-    line-height: 1.86;
+    line-height: 1.5;
   }
 
   .section-photo,
@@ -3802,7 +3802,7 @@ dd {
   .modal-body p,
   .modal-body li {
     font-size: clamp(0.88rem, 3.45vw, 0.96rem);
-    line-height: 1.86;
+    line-height: 1.5;
   }
 
   .modal-detail-card p {
