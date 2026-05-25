@@ -18,10 +18,13 @@ document.documentElement.classList.add("js");
 
 function updateVisualViewportBottom() {
   const viewport = window.visualViewport;
+  const isiOS = /iP(ad|hone|od)/.test(navigator.userAgent)
+    || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+  const iOSFallback = isiOS && window.innerWidth <= 900 ? 196 : 0;
   const bottomOffset = viewport
     ? Math.max(0, window.innerHeight - viewport.height - viewport.offsetTop)
     : 0;
-  document.documentElement.style.setProperty("--visual-viewport-bottom", `${Math.ceil(bottomOffset)}px`);
+  document.documentElement.style.setProperty("--visual-viewport-bottom", `${Math.ceil(Math.max(bottomOffset, iOSFallback))}px`);
 }
 
 updateVisualViewportBottom();
