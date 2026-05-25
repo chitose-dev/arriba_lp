@@ -3747,6 +3747,7 @@ dd {
 
   .hero-formula {
     margin-top: 18px;
+    margin-bottom: 26px;
   }
 
   #recruit h2 {
@@ -3797,6 +3798,7 @@ dd {
     grid-column: auto;
     grid-row: auto;
     width: 100%;
+    height: clamp(250px, 68vw, 330px);
   }
 
   .hero .hero-actions {
