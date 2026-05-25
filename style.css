@@ -791,6 +791,11 @@ h3 {
 
 .category-section {
   background: #fff;
+  overflow: visible;
+}
+
+.category-section .bg-word {
+  display: none;
 }
 
 .wide-copy {
@@ -1529,7 +1534,7 @@ dd {
 
 .modal-footer-actions {
   position: sticky;
-  bottom: 0;
+  bottom: calc(24px + env(safe-area-inset-bottom));
   z-index: 4;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1537,7 +1542,7 @@ dd {
   margin-left: -4px;
   margin-right: -4px;
   padding: 14px 4px 0;
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0), #fff 18px, #fff);
+  background: transparent;
 }
 
 .modal-footer-actions .btn,
@@ -1545,7 +1550,7 @@ dd {
   width: 100%;
   min-height: 58px;
   margin: 0;
-  box-shadow: none;
+  box-shadow: 0 16px 32px rgba(7, 16, 24, 0.18);
 }
 
 .modal-actions {
@@ -1798,9 +1803,22 @@ dd {
     padding-right: max(48px, calc((100vw - 1280px) / 2));
   }
 
+  .hero-content {
+    width: min(620px, 43vw);
+  }
+
   .hero-bg {
     right: max(48px, calc((100vw - 1280px) / 2));
-    width: min(52vw, 680px);
+    width: min(44vw, 630px);
+  }
+
+  .hero h1 {
+    font-size: clamp(2.78rem, 2.95vw, 3rem);
+  }
+
+  .category-main {
+    position: sticky;
+    top: 118px;
   }
 
   .lp-section,
