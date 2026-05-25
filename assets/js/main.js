@@ -16,6 +16,19 @@ let modalPressStart = null;
 
 document.documentElement.classList.add("js");
 
+function updateVisualViewportBottom() {
+  const viewport = window.visualViewport;
+  const bottomOffset = viewport
+    ? Math.max(0, window.innerHeight - viewport.height - viewport.offsetTop)
+    : 0;
+  document.documentElement.style.setProperty("--visual-viewport-bottom", `${Math.ceil(bottomOffset)}px`);
+}
+
+updateVisualViewportBottom();
+window.addEventListener("resize", updateVisualViewportBottom, { passive: true });
+window.visualViewport?.addEventListener("resize", updateVisualViewportBottom, { passive: true });
+window.visualViewport?.addEventListener("scroll", updateVisualViewportBottom, { passive: true });
+
 function scrollToAnchor(hash, smooth = true) {
   if (!hash || hash === "#" || hash.startsWith("#modal-")) return false;
   if (hash === "#top") {
@@ -69,10 +82,12 @@ if (menuToggle && globalMenu) {
 function openModal(id, updateHistory = true) {
   const modal = document.getElementById(id);
   if (!modal) return;
+  updateVisualViewportBottom();
   activeModal = modal;
   activeModalFromPush = updateHistory;
   modal.classList.add("is-open");
   document.body.classList.add("modal-open");
+  window.setTimeout(updateVisualViewportBottom, 80);
   const backButton = modal.querySelector(".modal-back");
   if (backButton) backButton.focus();
   if (updateHistory) {
