@@ -3726,8 +3726,23 @@ dd {
   }
 
   .hero h1 {
-    font-size: clamp(2.05rem, 9.2vw, 2.8rem);
-    line-height: 1.16;
+    font-size: clamp(1.45rem, 6.7vw, 1.72rem);
+    line-height: 1.05;
+    white-space: nowrap;
+  }
+
+  .hero h1 .mobile-line {
+    white-space: nowrap;
+  }
+
+  #recruit h2 {
+    font-size: clamp(2rem, 8.2vw, 2.35rem);
+    line-height: 1.04;
+    white-space: nowrap;
+  }
+
+  #recruit h2 span {
+    display: inline;
   }
 
   .hero {
@@ -3903,6 +3918,9 @@ dd {
     margin-left: 0;
     margin-right: 0;
     padding-top: 12px;
+    padding-bottom: 0;
+    bottom: calc(18px + env(safe-area-inset-bottom));
+    background: transparent;
   }
 
   .modal-footer-actions .btn,
@@ -3910,6 +3928,7 @@ dd {
     min-height: 54px;
     padding-left: 10px;
     padding-right: 10px;
+    box-shadow: 0 12px 24px rgba(7, 16, 24, 0.16);
   }
 }
 
