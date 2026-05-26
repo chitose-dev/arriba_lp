@@ -2804,7 +2804,6 @@ dd {
   .modal-panel {
     width: min(720px, calc(100vw - 32px));
     border-radius: 12px;
-    transform: translateY(96px);
   }
 
   .modal-panel > img {
@@ -3896,14 +3895,20 @@ dd {
   }
 
   .modal-panel {
+    bottom: -96px;
     max-height: calc(100vh - 68px - env(safe-area-inset-bottom));
     border-radius: 14px 14px 0 0;
     overflow-x: hidden;
     overflow-y: auto;
+    transform: none;
+    transition: opacity 0.5s ease, bottom 0.82s cubic-bezier(0.16, 1, 0.3, 1);
     -webkit-overflow-scrolling: touch;
   }
 
-  .modal.is-open .modal-panel,
+  .modal.is-open .modal-panel {
+    bottom: 0;
+  }
+
   .modal.is-open .modal-body {
     transform: none;
   }
