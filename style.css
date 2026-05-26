@@ -1098,15 +1098,6 @@ dd {
   background: linear-gradient(90deg, #fff 0%, rgba(7, 16, 24, 0.045) 100%);
 }
 
-.phone-section h2 {
-  margin-top: 0;
-  line-height: 0.98;
-}
-
-.phone-section .section-copy > p:not(.section-kicker):not(.phone-number) {
-  margin-top: 26px;
-}
-
 .phone-number {
   color: var(--red-dark) !important;
   font-size: 2.4rem !important;
@@ -1518,6 +1509,7 @@ dd {
   position: sticky;
   bottom: calc(68px + env(safe-area-inset-bottom));
   z-index: 4;
+  isolation: isolate;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 12px;
@@ -1527,8 +1519,19 @@ dd {
   background: transparent;
 }
 
+.modal-footer-actions::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  inset: -52px -18px -26px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #fff 46%, #fff 100%);
+  pointer-events: none;
+}
+
 .modal-footer-actions .btn,
 .modal-footer-actions .modal-bottom {
+  position: relative;
+  z-index: 1;
   width: 100%;
   min-height: 58px;
   margin: 0;
@@ -2832,7 +2835,6 @@ dd {
   .modal-detail-grid {
     grid-template-columns: 1fr;
     gap: 10px;
-    padding-bottom: 112px;
   }
 
   .modal-detail-card {
@@ -3694,18 +3696,12 @@ dd {
     display: grid;
   }
 
-  .phone-section .section-kicker {
-    margin-bottom: 8px;
-  }
-
   .phone-section h2 {
-    margin-top: 0;
-    margin-bottom: 0;
-    line-height: 0.98;
+    margin-top: -18px;
   }
 
-  .phone-section .section-copy > p:not(.section-kicker):not(.phone-number) {
-    margin-top: 18px;
+  .phone-section .section-copy > .modal-teaser {
+    margin-top: -3px;
   }
 
   h2,
@@ -3924,7 +3920,6 @@ dd {
   .modal-detail-grid {
     gap: 10px;
     margin: 24px 0;
-    padding-bottom: 120px;
   }
 
   .modal-detail-card {
@@ -3941,10 +3936,10 @@ dd {
     gap: 10px;
     margin-left: 0;
     margin-right: 0;
-    margin-top: 96px;
+    margin-top: 24px;
     padding-top: 12px;
     padding-bottom: 0;
-    bottom: calc(74px + env(safe-area-inset-bottom));
+    bottom: calc(68px + env(safe-area-inset-bottom));
     background: transparent;
   }
 
