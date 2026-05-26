@@ -1098,10 +1098,13 @@ dd {
   background: linear-gradient(90deg, #fff 0%, rgba(7, 16, 24, 0.045) 100%);
 }
 
-.phone-section .section-copy > p:not(.section-kicker):not(.phone-number),
-#modal-phone .modal-body > p,
-#modal-phone .modal-detail-card p {
-  line-height: 1.5;
+.phone-section h2 {
+  margin-top: 0;
+  line-height: 0.98;
+}
+
+.phone-section .section-copy > p:not(.section-kicker):not(.phone-number) {
+  margin-top: 26px;
 }
 
 .phone-number {
@@ -2650,7 +2653,6 @@ dd {
   .phone-section .section-copy > p:not(.section-kicker):not(.phone-number) {
     grid-column: 1;
     min-width: 0;
-    line-height: 1.48;
   }
 
   .phone-section .section-photo {
@@ -3295,7 +3297,6 @@ dd {
 
   .phone-section .section-copy > p:not(.section-kicker):not(.phone-number) {
     grid-column: 1;
-    line-height: 1.48;
   }
 
   .phone-section .section-photo,
@@ -3404,7 +3405,6 @@ dd {
   .phone-section .section-copy > p:not(.section-kicker):not(.phone-number) {
     grid-column: 1;
     grid-row: 4;
-    line-height: 1.46;
   }
 
   .phone-section .section-photo,
@@ -3692,6 +3692,20 @@ dd {
 
   .phone-section .section-actions {
     display: grid;
+  }
+
+  .phone-section .section-kicker {
+    margin-bottom: 8px;
+  }
+
+  .phone-section h2 {
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 0.98;
+  }
+
+  .phone-section .section-copy > p:not(.section-kicker):not(.phone-number) {
+    margin-top: 18px;
   }
 
   h2,
