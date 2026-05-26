@@ -1098,6 +1098,12 @@ dd {
   background: linear-gradient(90deg, #fff 0%, rgba(7, 16, 24, 0.045) 100%);
 }
 
+.phone-section .section-copy > p:not(.section-kicker):not(.phone-number),
+#modal-phone .modal-body > p,
+#modal-phone .modal-detail-card p {
+  line-height: 1.5;
+}
+
 .phone-number {
   color: var(--red-dark) !important;
   font-size: 2.4rem !important;
@@ -1507,7 +1513,7 @@ dd {
 
 .modal-footer-actions {
   position: sticky;
-  bottom: calc(76px + env(safe-area-inset-bottom));
+  bottom: calc(68px + env(safe-area-inset-bottom));
   z-index: 4;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -2644,6 +2650,7 @@ dd {
   .phone-section .section-copy > p:not(.section-kicker):not(.phone-number) {
     grid-column: 1;
     min-width: 0;
+    line-height: 1.48;
   }
 
   .phone-section .section-photo {
@@ -3287,6 +3294,7 @@ dd {
 
   .phone-section .section-copy > p:not(.section-kicker):not(.phone-number) {
     grid-column: 1;
+    line-height: 1.48;
   }
 
   .phone-section .section-photo,
@@ -3395,6 +3403,7 @@ dd {
   .phone-section .section-copy > p:not(.section-kicker):not(.phone-number) {
     grid-column: 1;
     grid-row: 4;
+    line-height: 1.46;
   }
 
   .phone-section .section-photo,
@@ -3918,7 +3927,7 @@ dd {
     margin-right: 0;
     padding-top: 12px;
     padding-bottom: 0;
-    bottom: calc(82px + env(safe-area-inset-bottom));
+    bottom: calc(74px + env(safe-area-inset-bottom));
     background: transparent;
   }
 
