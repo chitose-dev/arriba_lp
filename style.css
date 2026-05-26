@@ -1523,8 +1523,8 @@ dd {
   content: "";
   position: absolute;
   z-index: 0;
-  inset: -52px -18px -26px;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #fff 46%, #fff 100%);
+  inset: -56px -18px -132px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #fff 36%, #fff 100%);
   pointer-events: none;
 }
 
@@ -2825,7 +2825,7 @@ dd {
   }
 
   .modal-body {
-    padding: 28px 18px calc(42px + env(safe-area-inset-bottom));
+    padding: 28px 18px calc(92px + env(safe-area-inset-bottom));
   }
 
   .modal-body h2 {
@@ -3910,7 +3910,7 @@ dd {
   }
 
   .modal-body {
-    padding: 26px 12px 26px;
+    padding: 26px 12px calc(88px + env(safe-area-inset-bottom));
   }
 
   .modal-panel:not(:has(> img)) .modal-body {
