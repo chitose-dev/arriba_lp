@@ -1362,7 +1362,7 @@ dd {
 
 .modal.is-open .modal-panel {
   opacity: 1;
-  transform: translateY(0);
+  transform: none;
 }
 
 .modal-back {
@@ -1438,7 +1438,7 @@ dd {
 
 .modal.is-open .modal-body {
   opacity: 1;
-  transform: translateY(0);
+  transform: none;
 }
 
 .modal-body h2 {
@@ -3898,6 +3898,14 @@ dd {
   .modal-panel {
     max-height: calc(100vh - 68px - env(safe-area-inset-bottom));
     border-radius: 14px 14px 0 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .modal.is-open .modal-panel,
+  .modal.is-open .modal-body {
+    transform: none;
   }
 
   .modal-back {
@@ -3910,7 +3918,8 @@ dd {
   }
 
   .modal-body {
-    padding: 26px 12px calc(88px + env(safe-area-inset-bottom));
+    padding: 26px 12px calc(150px + env(safe-area-inset-bottom));
+    overflow-x: clip;
   }
 
   .modal-panel:not(:has(> img)) .modal-body {
@@ -3933,13 +3942,17 @@ dd {
   }
 
   .modal-footer-actions {
+    position: fixed;
+    left: max(28px, calc((100vw - 720px) / 2 + 28px));
+    right: max(28px, calc((100vw - 720px) / 2 + 28px));
+    z-index: 320;
     gap: 10px;
     margin-left: 0;
     margin-right: 0;
     margin-top: 24px;
     padding-top: 12px;
     padding-bottom: 0;
-    bottom: calc(68px + env(safe-area-inset-bottom));
+    bottom: calc(18px + env(safe-area-inset-bottom));
     background: transparent;
   }
 
