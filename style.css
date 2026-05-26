@@ -1368,7 +1368,7 @@ dd {
 
 .modal.is-open .modal-panel {
   opacity: 1;
-  transform: translateY(0);
+  transform: none;
 }
 
 .modal-back {
@@ -1444,7 +1444,7 @@ dd {
 
 .modal.is-open .modal-body {
   opacity: 1;
-  transform: translateY(0);
+  transform: none;
 }
 
 .modal-body h2 {
@@ -1850,8 +1850,8 @@ dd {
 
 @media (max-width: 900px) {
   :root {
-    --modal-bottom-clearance: max(128px, env(safe-area-inset-bottom), var(--visual-viewport-bottom));
-    --modal-fixed-cta-bottom: max(132px, calc(12px + var(--visual-viewport-bottom)));
+    --modal-bottom-clearance: max(84px, env(safe-area-inset-bottom), var(--visual-viewport-bottom));
+    --modal-fixed-cta-bottom: max(76px, calc(8px + var(--visual-viewport-bottom)));
   }
 
   .site-header {
@@ -2826,7 +2826,7 @@ dd {
   }
 
   .modal-body {
-    padding: 28px 18px calc(132px + var(--modal-bottom-clearance));
+    padding: 28px 18px calc(92px + var(--modal-bottom-clearance));
   }
 
   .modal-footer-actions {
@@ -3916,7 +3916,7 @@ dd {
   }
 
   .modal-body {
-    padding: 26px 12px calc(132px + var(--modal-bottom-clearance));
+    padding: 26px 12px calc(92px + var(--modal-bottom-clearance));
   }
 
   .modal-panel:not(:has(> img)) .modal-body {
