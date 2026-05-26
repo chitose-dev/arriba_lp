@@ -1850,8 +1850,8 @@ dd {
 
 @media (max-width: 900px) {
   :root {
-    --modal-bottom-clearance: max(56px, env(safe-area-inset-bottom), var(--visual-viewport-bottom));
-    --modal-fixed-cta-bottom: max(44px, calc(8px + var(--visual-viewport-bottom)));
+    --modal-bottom-clearance: max(64px, env(safe-area-inset-bottom), var(--visual-viewport-bottom));
+    --modal-fixed-cta-bottom: max(58px, calc(8px + var(--visual-viewport-bottom)));
   }
 
   .site-header {

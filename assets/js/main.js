@@ -20,7 +20,7 @@ function updateVisualViewportBottom() {
   const viewport = window.visualViewport;
   const isiOS = /iP(ad|hone|od)/.test(navigator.userAgent)
     || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
-  const iOSFallback = isiOS && window.innerWidth <= 900 ? 38 : 0;
+  const iOSFallback = isiOS && window.innerWidth <= 900 ? 58 : 0;
   const bottomOffset = viewport
     ? Math.max(0, window.innerHeight - viewport.height - viewport.offsetTop)
     : 0;
