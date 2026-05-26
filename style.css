@@ -2830,6 +2830,7 @@ dd {
   .modal-detail-grid {
     grid-template-columns: 1fr;
     gap: 10px;
+    padding-bottom: 112px;
   }
 
   .modal-detail-card {
@@ -3909,6 +3910,7 @@ dd {
   .modal-detail-grid {
     gap: 10px;
     margin: 24px 0;
+    padding-bottom: 120px;
   }
 
   .modal-detail-card {
@@ -3925,6 +3927,7 @@ dd {
     gap: 10px;
     margin-left: 0;
     margin-right: 0;
+    margin-top: 96px;
     padding-top: 12px;
     padding-bottom: 0;
     bottom: calc(74px + env(safe-area-inset-bottom));
