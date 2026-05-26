@@ -1335,7 +1335,7 @@ dd {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  transition: opacity 0.42s ease, visibility 0.42s ease;
+  transition: opacity 0.28s ease, visibility 0.28s ease;
 }
 
 .modal.is-open {
@@ -1356,7 +1356,7 @@ dd {
   box-shadow: 0 34px 100px rgba(0, 0, 0, 0.42), 0 0 0 1px rgba(255, 255, 255, 0.24);
   opacity: 0;
   transform: translateY(120px);
-  transition: opacity 0.5s ease, transform 0.82s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: opacity 0.34s ease, transform 0.56s cubic-bezier(0.16, 1, 0.3, 1);
   overscroll-behavior: contain;
 }
 
@@ -1523,8 +1523,8 @@ dd {
   content: "";
   position: absolute;
   z-index: 0;
-  inset: -56px 0 -132px;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #fff 18%, #fff 100%);
+  inset: -56px -18px -132px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #fff 36%, #fff 100%);
   pointer-events: none;
 }
 
@@ -2799,17 +2799,12 @@ dd {
 
   .modal {
     padding: max(18px, env(safe-area-inset-top)) 16px calc(34px + env(safe-area-inset-bottom));
-    overflow-x: hidden;
-    overscroll-behavior-x: none;
   }
 
   .modal-panel {
     width: min(720px, calc(100vw - 32px));
     border-radius: 12px;
-    overflow-x: hidden;
-    overscroll-behavior-x: none;
-    touch-action: pan-y;
-    transform: translateY(104px);
+    transform: translateY(48px) scale(0.9);
   }
 
   .modal-panel > img {
@@ -2830,18 +2825,7 @@ dd {
   }
 
   .modal-body {
-    padding: 28px 18px calc(132px + env(safe-area-inset-bottom));
-    max-width: 100%;
-    overflow-x: hidden;
-    overscroll-behavior-x: none;
-  }
-
-  .modal-body > *,
-  .modal-detail-grid,
-  .modal-detail-card,
-  .modal-footer-actions {
-    max-width: 100%;
-    min-width: 0;
+    padding: 28px 18px calc(92px + env(safe-area-inset-bottom));
   }
 
   .modal-body h2 {
@@ -3926,7 +3910,7 @@ dd {
   }
 
   .modal-body {
-    padding: 26px 12px calc(128px + env(safe-area-inset-bottom));
+    padding: 26px 12px calc(88px + env(safe-area-inset-bottom));
   }
 
   .modal-panel:not(:has(> img)) .modal-body {
@@ -3955,7 +3939,7 @@ dd {
     margin-top: 24px;
     padding-top: 12px;
     padding-bottom: 0;
-    bottom: calc(82px + env(safe-area-inset-bottom));
+    bottom: calc(68px + env(safe-area-inset-bottom));
     background: transparent;
   }
 
