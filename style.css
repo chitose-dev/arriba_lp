@@ -2831,11 +2831,11 @@ dd {
 
   .modal-footer-actions {
     position: fixed;
-    left: 16px;
-    right: 16px;
+    left: 34px;
+    right: 34px;
     bottom: var(--modal-fixed-cta-bottom);
     z-index: 320;
-    max-width: 720px;
+    max-width: 684px;
     margin: 0 auto;
     padding: 10px 0 0;
     background: transparent;
@@ -3940,8 +3940,8 @@ dd {
 
   .modal-footer-actions {
     gap: 10px;
-    left: 12px;
-    right: 12px;
+    left: 28px;
+    right: 28px;
     width: auto;
     margin-left: auto;
     margin-right: auto;
