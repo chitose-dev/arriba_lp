@@ -2799,15 +2799,11 @@ dd {
 
   .modal {
     padding: max(18px, env(safe-area-inset-top)) 16px calc(34px + env(safe-area-inset-bottom));
-    overflow-x: hidden;
-    overscroll-behavior-x: none;
   }
 
   .modal-panel {
     width: min(720px, calc(100vw - 32px));
     border-radius: 12px;
-    overflow-x: hidden;
-    overscroll-behavior-x: none;
     transform: translateY(96px);
   }
 
@@ -2830,21 +2826,6 @@ dd {
 
   .modal-body {
     padding: 28px 18px calc(92px + env(safe-area-inset-bottom));
-    max-width: 100%;
-    overflow-x: hidden;
-    overscroll-behavior-x: none;
-  }
-
-  .modal-body > *,
-  .modal-detail-grid,
-  .modal-detail-card,
-  .modal-footer-actions {
-    max-width: 100%;
-    min-width: 0;
-  }
-
-  .modal-footer-actions {
-    overflow-x: hidden;
   }
 
   .modal-body h2 {
