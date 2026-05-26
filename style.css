@@ -1524,6 +1524,10 @@ dd {
   background: transparent;
 }
 
+.modal.is-open .modal-footer-actions {
+  animation: modalCtaRise 0.42s cubic-bezier(0.22, 1, 0.36, 1) 0.16s both;
+}
+
 .modal-footer-actions .btn,
 .modal-footer-actions .modal-bottom {
   width: 100%;
@@ -1774,6 +1778,17 @@ dd {
   }
 }
 
+@keyframes modalCtaRise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @media (min-width: 901px) {
   .hero {
     padding-left: max(48px, calc((100vw - 1280px) / 2));
@@ -1850,8 +1865,8 @@ dd {
 
 @media (max-width: 900px) {
   :root {
-    --modal-bottom-clearance: max(64px, env(safe-area-inset-bottom), var(--visual-viewport-bottom));
-    --modal-fixed-cta-bottom: max(58px, calc(8px + var(--visual-viewport-bottom)));
+    --modal-bottom-clearance: max(88px, env(safe-area-inset-bottom), var(--visual-viewport-bottom));
+    --modal-fixed-cta-bottom: max(82px, calc(8px + var(--visual-viewport-bottom)));
   }
 
   .site-header {
@@ -2802,8 +2817,9 @@ dd {
 
   .modal-panel {
     width: min(720px, calc(100vw - 32px));
-    max-height: calc(100vh - 52px - var(--modal-bottom-clearance));
-    max-height: calc(100dvh - 52px - var(--visual-viewport-bottom));
+    max-height: calc(100vh - 126px - var(--modal-bottom-clearance));
+    max-height: calc(100dvh - 126px - var(--visual-viewport-bottom));
+    margin-bottom: calc(64px + var(--modal-fixed-cta-bottom));
     border-radius: 12px;
     transform: translateY(48px) scale(0.9);
   }
@@ -2826,7 +2842,7 @@ dd {
   }
 
   .modal-body {
-    padding: 28px 18px calc(92px + var(--modal-bottom-clearance));
+    padding: 28px 18px calc(136px + var(--modal-bottom-clearance));
   }
 
   .modal-footer-actions {
@@ -3901,8 +3917,9 @@ dd {
   }
 
   .modal-panel {
-    max-height: calc(100vh - 68px - var(--modal-bottom-clearance));
-    max-height: calc(100dvh - 68px - var(--visual-viewport-bottom));
+    max-height: calc(100vh - 142px - var(--modal-bottom-clearance));
+    max-height: calc(100dvh - 142px - var(--visual-viewport-bottom));
+    margin-bottom: calc(64px + var(--modal-fixed-cta-bottom));
     border-radius: 14px 14px 0 0;
   }
 
@@ -3916,7 +3933,7 @@ dd {
   }
 
   .modal-body {
-    padding: 26px 12px calc(92px + var(--modal-bottom-clearance));
+    padding: 26px 12px calc(136px + var(--modal-bottom-clearance));
   }
 
   .modal-panel:not(:has(> img)) .modal-body {
