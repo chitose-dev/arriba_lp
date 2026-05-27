@@ -14,8 +14,17 @@ let activeModalFromPush = false;
 const modalTapThreshold = 8;
 let modalPressStart = null;
 const modalFooterPositions = new WeakMap();
+let trialFormStarted = false;
 
 document.documentElement.classList.add("js");
+
+function trackEvent(name, params = {}) {
+  if (typeof window.gtag !== "function") return;
+  window.gtag("event", name, {
+    page_location: window.location.href,
+    ...params
+  });
+}
 
 function scrollToAnchor(hash, smooth = true) {
   if (!hash || hash === "#" || hash.startsWith("#modal-")) return false;
@@ -80,6 +89,7 @@ function openModal(id, updateHistory = true) {
   if (updateHistory) {
     history.pushState({ modal: id }, "", `#${id}`);
   }
+  trackEvent("modal_open", { modal_id: id });
 }
 
 function closeModal(updateHistory = true) {
@@ -271,6 +281,7 @@ function closeLineDialog() {
 }
 
 lineOpenButton?.addEventListener("click", () => {
+  trackEvent("line_click", { click_location: "line_dialog", link_url: lineUrl });
   window.location.href = lineUrl;
 });
 
@@ -283,6 +294,12 @@ window.addEventListener("keydown", (event) => {
 });
 
 if (trialForm) {
+  trialForm.addEventListener("input", () => {
+    if (trialFormStarted) return;
+    trialFormStarted = true;
+    trackEvent("trial_form_start", { form_id: "trial-form" });
+  }, { once: true });
+
   trialForm.addEventListener("submit", async (event) => {
     event.preventDefault();
     const status = trialForm.querySelector(".form-status");
@@ -295,6 +312,13 @@ if (trialForm) {
 
     const message = buildTrialMessage(formData);
     let copied = false;
+    trackEvent("trial_form_submit", {
+      form_id: "trial-form",
+      trial_date_selected: getFormValue(formData, "date"),
+      player_grade: getFormValue(formData, "grade"),
+      trial_category: getFormValue(formData, "category"),
+      inquiry_source: getFormValue(formData, "source")
+    });
 
     try {
       await navigator.clipboard.writeText(message);
@@ -313,6 +337,34 @@ if (trialForm) {
     openLineDialog(copied);
   });
 }
+
+document.querySelectorAll('a[href^="#trial"], a[href="#trial-form"]').forEach((link) => {
+  link.addEventListener("click", () => {
+    trackEvent("trial_cta_click", {
+      click_text: link.textContent.trim(),
+      link_url: link.getAttribute("href")
+    });
+  });
+});
+
+document.querySelectorAll('a[href^="tel:"]').forEach((link) => {
+  link.addEventListener("click", () => {
+    trackEvent("phone_click", {
+      click_text: link.textContent.trim(),
+      link_url: link.getAttribute("href")
+    });
+  });
+});
+
+document.querySelectorAll('a[href*="lin.ee"]').forEach((link) => {
+  link.addEventListener("click", () => {
+    trackEvent("line_click", {
+      click_location: "direct_link",
+      click_text: link.textContent.trim(),
+      link_url: link.href
+    });
+  });
+});
 
 const animatedItems = document.querySelectorAll("[data-animate], .bg-word");
 const observer = new IntersectionObserver((entries) => {

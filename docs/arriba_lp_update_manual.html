@@ -1,0 +1,455 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>ARRIBA LP 写真・文言差し替えマニュアル</title>
+  <style>
+    @page {
+      size: A4;
+      margin: 14mm 14mm 16mm;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      color: #111827;
+      background: #fff;
+      font-family: -apple-system, BlinkMacSystemFont, "Noto Sans JP", "Hiragino Sans", "Yu Gothic", sans-serif;
+      font-size: 12px;
+      line-height: 1.65;
+    }
+
+    .page {
+      padding: 0;
+      page-break-after: always;
+    }
+
+    .page:last-child {
+      page-break-after: auto;
+    }
+
+    .cover {
+      display: flex;
+      min-height: 267mm;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 22mm 10mm 10mm;
+      background: linear-gradient(135deg, #ffffff 0%, #f4f6f9 68%, #f8e7e8 100%);
+    }
+
+    .eyebrow {
+      margin: 0 0 12px;
+      color: #c9141d;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+    }
+
+    h1 {
+      margin: 0;
+      color: #071018;
+      font-size: 34px;
+      line-height: 1.25;
+      letter-spacing: 0;
+    }
+
+    .cover-lead {
+      max-width: 148mm;
+      margin: 18px 0 0;
+      color: #374151;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .meta {
+      display: grid;
+      grid-template-columns: 34mm 1fr;
+      gap: 6px 12px;
+      width: 100%;
+      margin-top: 28px;
+      padding: 14px 16px;
+      border: 1px solid #d8dee9;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.84);
+    }
+
+    .meta dt {
+      margin: 0;
+      color: #6b7280;
+      font-weight: 800;
+    }
+
+    .meta dd {
+      margin: 0;
+      color: #111827;
+      font-weight: 700;
+    }
+
+    .content {
+      padding: 0 0 8mm;
+      background: #fff;
+    }
+
+    .section {
+      margin-bottom: 20px;
+      padding: 0 2mm;
+    }
+
+    h2 {
+      margin: 0 0 10px;
+      padding: 0 0 6px;
+      border-bottom: 2px solid #c9141d;
+      color: #071018;
+      font-size: 22px;
+      line-height: 1.35;
+      break-after: avoid;
+    }
+
+    h3 {
+      margin: 18px 0 8px;
+      color: #b5121b;
+      font-size: 15px;
+      line-height: 1.4;
+      break-after: avoid;
+    }
+
+    p {
+      margin: 0 0 9px;
+    }
+
+    ul,
+    ol {
+      margin: 6px 0 12px 18px;
+      padding: 0;
+    }
+
+    li {
+      margin: 0 0 5px;
+    }
+
+    code,
+    pre {
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+    }
+
+    code {
+      padding: 1px 4px;
+      border-radius: 4px;
+      background: #f3f4f6;
+      color: #111827;
+      font-size: 11px;
+    }
+
+    pre {
+      margin: 8px 0 12px;
+      padding: 12px 14px;
+      overflow: hidden;
+      border: 1px solid #d8dee9;
+      border-radius: 8px;
+      background: #f9fafb;
+      color: #111827;
+      font-size: 10.5px;
+      line-height: 1.55;
+      white-space: pre-wrap;
+    }
+
+    table {
+      width: 100%;
+      margin: 8px 0 14px;
+      border-collapse: collapse;
+      table-layout: fixed;
+      font-size: 10.5px;
+    }
+
+    th,
+    td {
+      padding: 8px 9px;
+      border: 1px solid #d8dee9;
+      vertical-align: top;
+      word-break: break-word;
+    }
+
+    th {
+      background: #111827;
+      color: #fff;
+      font-weight: 800;
+      text-align: left;
+    }
+
+    tr:nth-child(even) td {
+      background: #fbfbfd;
+    }
+
+    .note,
+    .warning {
+      margin: 12px 0;
+      padding: 12px 14px;
+      border-radius: 8px;
+      font-weight: 700;
+    }
+
+    .note {
+      border: 1px solid #bfdbfe;
+      background: #eff6ff;
+      color: #1e3a8a;
+    }
+
+    .warning {
+      border: 1px solid #fecaca;
+      background: #fff1f2;
+      color: #9f1239;
+    }
+
+    .shot {
+      width: 100%;
+      margin: 8px 0 16px;
+      overflow: hidden;
+      border: 1px solid #d8dee9;
+      border-radius: 10px;
+      background: #fff;
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+    }
+
+    .shot img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .shot.narrow {
+      width: 48%;
+      margin-right: auto;
+      margin-left: auto;
+    }
+
+    .caption {
+      margin: -8px 0 14px;
+      color: #6b7280;
+      font-size: 10.5px;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .checklist {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px 14px;
+      margin-top: 8px;
+    }
+
+    .check {
+      padding: 8px 10px;
+      border: 1px solid #d8dee9;
+      border-radius: 7px;
+      background: #fff;
+      font-weight: 700;
+    }
+
+    .check::before {
+      content: "□ ";
+      color: #c9141d;
+      font-weight: 900;
+    }
+  </style>
+</head>
+<body>
+  <section class="page cover">
+    <div>
+      <p class="eyebrow">ARRIBA SOCCER CLUB LP</p>
+      <h1>写真・文言差し替え<br>更新マニュアル</h1>
+      <p class="cover-lead">アリバサッカークラブLPを静的HTMLとして更新するための運用メモです。写真・文言の差し替え、ファイル構成、アップロード後の確認項目をまとめています。</p>
+      <dl class="meta">
+        <dt>対象サイト</dt>
+        <dd>https://arriba.club/</dd>
+        <dt>公開ディレクトリ</dt>
+        <dd><code>/home/harmony3/www/arriba.club/</code></dd>
+        <dt>作成日</dt>
+        <dd>2026年5月27日</dd>
+        <dt>管理方針</dt>
+        <dd>WordPress本体は退避済み。公開直下は静的LPのみ。</dd>
+      </dl>
+    </div>
+    <div class="shot">
+      <img src="manual_assets/lp-desktop-top.png" alt="アリバLP PC表示">
+    </div>
+  </section>
+
+  <section class="page content">
+    <div class="section">
+      <h2>1. 現在のファイル構成</h2>
+      <p>通常の更新で触るファイルは、基本的に <code>index.html</code>、<code>style.css</code>、<code>assets/img/</code>、<code>assets/js/main.js</code> です。WordPress本体は公開ディレクトリから退避済みのため、公開側には静的LPのファイルだけが残っています。</p>
+      <div class="shot">
+        <img src="manual_assets/file-structure.png" alt="公開ディレクトリのファイル構成">
+      </div>
+      <table>
+        <thead>
+          <tr><th style="width: 32%;">ファイル/フォルダ</th><th>役割</th><th style="width: 24%;">主な更新内容</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>index.html</code></td><td>LP本文、ページ構造、メタ情報、GA4タグ</td><td>文言変更、リンク変更、タグ追加</td></tr>
+          <tr><td><code>style.css</code></td><td>デザイン、余白、PC/SPレイアウト</td><td>色、文字サイズ、スマホ調整</td></tr>
+          <tr><td><code>assets/img/</code></td><td>LP内で使う写真、ロゴ、OGP画像</td><td>写真差し替え、スポンサー画像追加</td></tr>
+          <tr><td><code>assets/js/main.js</code></td><td>メニュー、モーダル、フォーム、GA4イベント</td><td>動作変更、計測イベント変更</td></tr>
+        </tbody>
+      </table>
+      <div class="warning">注意: <code>wp-admin</code>、<code>wp-content</code>、<code>wp-config.php</code> などのWordPressファイルは公開直下には残していません。復旧が必要な場合は、サーバー内バックアップから戻します。</div>
+    </div>
+
+    <div class="section">
+      <h2>2. 写真ファイル名と表示箇所</h2>
+      <p>写真は同じファイル名で上書きすると、HTMLを書き換えずに差し替えできます。画像サイズは横長写真なら概ね横1200px以上、OGPは現在の比率を維持すると崩れにくいです。</p>
+      <table>
+        <thead>
+          <tr><th style="width: 29%;">ファイル名</th><th>表示箇所</th><th>差し替え時の注意</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>hero.jpg</code></td><td>ファーストビューのメイン写真</td><td>最重要。人物やボールが中央付近にある写真推奨。</td></tr>
+          <tr><td><code>about.jpg</code></td><td>指導理念、アリバとはモーダル</td><td>コーチや練習風景が分かる写真。</td></tr>
+          <tr><td><code>message.jpg</code></td><td>メッセージセクション</td><td>説明・指導中の写真が合います。</td></tr>
+          <tr><td><code>category.jpg</code></td><td>活動カテゴリー</td><td>複数選手が写る写真が見やすいです。</td></tr>
+          <tr><td><code>junior-youth.jpg</code></td><td>ジュニアユース</td><td>中学生年代の写真。</td></tr>
+          <tr><td><code>junior.jpg</code></td><td>ジュニア</td><td>小学生年代の写真。</td></tr>
+          <tr><td><code>school.jpg</code></td><td>スクール</td><td>スクール活動の写真。</td></tr>
+          <tr><td><code>recruit.jpg</code></td><td>募集内容</td><td>選手募集の印象に合う写真。</td></tr>
+          <tr><td><code>place.jpg</code></td><td>練習場所</td><td>グラウンドが分かる写真。</td></tr>
+          <tr><td><code>method.jpg</code></td><td>指導方針</td><td>トレーニング中の写真。</td></tr>
+          <tr><td><code>career.jpg</code></td><td>進路実績</td><td>集合・試合・進路訴求に合う写真。</td></tr>
+          <tr><td><code>trial.jpg</code></td><td>体験会案内</td><td>体験参加を促す明るい写真。</td></tr>
+          <tr><td><code>phone.jpg</code></td><td>電話相談</td><td>相談しやすさが伝わる写真。</td></tr>
+          <tr><td><code>final.jpg</code></td><td>最終CTA</td><td>ページ下部の申込訴求写真。</td></tr>
+          <tr><td><code>ogp-arriba-trial-2027.jpg</code></td><td>SNS共有時のOGP画像</td><td>差し替え後、SNSのキャッシュ更新が必要な場合があります。</td></tr>
+          <tr><td><code>sponsors/</code></td><td>スポンサー一覧</td><td>ロゴ画像を追加し、HTML側にリンクを追加します。</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="page content">
+    <div class="section">
+      <h2>3. 写真の差し替え手順</h2>
+      <ol>
+        <li>差し替えたい表示箇所を決めます。例: ファーストビューなら <code>assets/img/hero.jpg</code>。</li>
+        <li>新しい写真を同じファイル名にリネームします。</li>
+        <li>写真を <code>assets/img/</code> に上書きします。</li>
+        <li>ブラウザで <code>https://arriba.club/?v=check</code> のように末尾へ確認用パラメータを付けて開きます。</li>
+        <li>PCとスマホで写真の切れ方、文字との重なり、横スクロールの有無を確認します。</li>
+      </ol>
+      <div class="note">写真を同名で上書きしたのに変わらない場合は、ブラウザキャッシュの可能性があります。HTML側の画像URLに付いている <code>?v=...</code> を新しい値へ変更すると反映確認しやすくなります。</div>
+      <div class="two-col">
+        <div>
+          <div class="shot">
+            <img src="manual_assets/lp-mobile-top.png" alt="スマホ表示のスクリーンショット">
+          </div>
+          <p class="caption">スマホのファーストビュー。写真の人物位置とCTAの見え方を確認します。</p>
+        </div>
+        <div>
+          <div class="shot">
+            <img src="manual_assets/lp-mobile-modal.png" alt="スマホモーダルのスクリーンショット">
+          </div>
+          <p class="caption">モーダル表示。下部の固定ボタンと本文が重なりすぎないか確認します。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>4. 文言の差し替え手順</h2>
+      <p>文言は主に <code>index.html</code> に入っています。エディタで対象の文言を検索して、必要な箇所だけを書き換えます。</p>
+      <h3>よく変更する文言</h3>
+      <table>
+        <thead>
+          <tr><th style="width: 30%;">探す文字</th><th>変更対象</th><th>注意点</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>無料体験</code></td><td>CTAボタン、申込導線</td><td>複数箇所にあります。意図しないボタンまで変えないよう確認します。</td></tr>
+          <tr><td><code>2026年度</code></td><td>募集年度</td><td>年度更新時に複数箇所を検索します。</td></tr>
+          <tr><td><code>090-9548-4524</code></td><td>表示用電話番号</td><td>電話リンクの <code>tel:09095484524</code> も合わせて確認します。</td></tr>
+          <tr><td><code>https://lin.ee/8yWT6iB</code></td><td>LINEリンク</td><td>リンク変更時は <code>assets/js/main.js</code> の <code>lineUrl</code> も変更します。</td></tr>
+          <tr><td><code>G-5YW0V5NV07</code></td><td>GA4測定ID</td><td>別プロパティへ変更する場合のみ修正します。</td></tr>
+        </tbody>
+      </table>
+      <h3>HTML編集時の注意</h3>
+      <ul>
+        <li><code>&lt;section&gt;</code>、<code>&lt;div&gt;</code>、<code>&lt;a&gt;</code> などのタグは削除しない。</li>
+        <li>改行用の <code>&lt;br class="soft-break"&gt;</code> はスマホ表示調整に使っています。不要に消さない。</li>
+        <li>リンク先を変える場合は <code>href="..."</code> の中身だけを変更する。</li>
+        <li>文言変更後は、PCとスマホで文字がボタンやカードからはみ出していないか確認する。</li>
+      </ul>
+      <div class="shot">
+        <img src="manual_assets/lp-trial-section.png" alt="体験会セクションのスクリーンショット">
+      </div>
+      <p class="caption">体験会セクション。日付、フォーム項目、LINE導線を変更した場合はここを重点確認します。</p>
+    </div>
+  </section>
+
+  <section class="page content">
+    <div class="section">
+      <h2>5. アップロードと確認</h2>
+      <p>公開ディレクトリは <code>/home/harmony3/www/arriba.club/</code> です。更新するファイルだけを上書きします。</p>
+      <pre>例:
+index.html                    → /home/harmony3/www/arriba.club/index.html
+style.css                     → /home/harmony3/www/arriba.club/style.css
+assets/img/hero.jpg           → /home/harmony3/www/arriba.club/assets/img/hero.jpg
+assets/js/main.js             → /home/harmony3/www/arriba.club/assets/js/main.js</pre>
+
+      <h3>公開後チェックリスト</h3>
+      <div class="checklist">
+        <div class="check">トップページが表示される</div>
+        <div class="check">CSSが崩れていない</div>
+        <div class="check">差し替えた写真が表示される</div>
+        <div class="check">スマホで横スクロールがない</div>
+        <div class="check">無料体験ボタンが押せる</div>
+        <div class="check">電話リンクが押せる</div>
+        <div class="check">LINEリンクが開く</div>
+        <div class="check">モーダルの戻るボタンが動く</div>
+        <div class="check">フォーム送信後にLINE案内が出る</div>
+        <div class="check">OGP画像が意図通り</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>6. 計測タグとカスタムイベント</h2>
+      <p>GA4タグは <code>index.html</code> の <code>&lt;head&gt;</code> 内に設置済みです。測定IDは <code>G-5YW0V5NV07</code> です。</p>
+      <table>
+        <thead>
+          <tr><th style="width: 33%;">イベント名</th><th>発火条件</th><th>用途</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>trial_cta_click</code></td><td>無料体験CTAクリック</td><td>体験導線のクリック数確認</td></tr>
+          <tr><td><code>phone_click</code></td><td>電話相談クリック</td><td>電話問い合わせ意欲の確認</td></tr>
+          <tr><td><code>line_click</code></td><td>LINEリンククリック</td><td>LINE問い合わせ意欲の確認</td></tr>
+          <tr><td><code>trial_form_start</code></td><td>体験フォーム入力開始</td><td>フォーム到達後の入力開始確認</td></tr>
+          <tr><td><code>trial_form_submit</code></td><td>問い合わせ内容作成ボタン送信</td><td>主要キーイベント候補</td></tr>
+          <tr><td><code>modal_open</code></td><td>「続き」モーダル開封</td><td>興味セクションの確認</td></tr>
+        </tbody>
+      </table>
+      <div class="note">GA4でキーイベントにする候補は <code>trial_form_submit</code>、<code>line_click</code>、<code>phone_click</code> です。イベント名はLP側から送信されるため、GA4の「コードなしで作成」は必須ではありません。</div>
+    </div>
+
+    <div class="section">
+      <h2>7. 復旧メモ</h2>
+      <p>WordPress本体とデータベースはサーバー内に退避済みです。通常の写真・文言更新では触りません。</p>
+      <pre>WordPressバックアップ:
+/home/harmony3/_backup_wp_arriba_20260527_094451/
+
+含まれるもの:
+wp-admin/
+wp-content/
+wp-includes/
+wp-config.php
+.htaccess
+wp-login.php
+database.sql.gz</pre>
+      <div class="warning">復旧作業は影響範囲が大きいため、通常更新担当者だけで実施しないでください。公開LPを更新するだけなら、静的ファイルの上書きで完結します。</div>
+    </div>
+  </section>
+</body>
+</html>
