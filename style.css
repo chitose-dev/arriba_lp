@@ -1855,6 +1855,12 @@ dd {
 }
 
 @media (max-width: 900px) {
+  html,
+  body {
+    width: 100%;
+    overflow-x: hidden;
+  }
+
   .site-header {
     min-height: 66px;
     padding: calc(10px + env(safe-area-inset-top)) 16px 10px;
@@ -2034,6 +2040,7 @@ dd {
 
   .split,
   .split-reverse,
+  .split-reverse.phone-section,
   .place-section,
   .method-section,
   .career-section,
@@ -2600,6 +2607,7 @@ dd {
 
   .split,
   .split-reverse,
+  .split-reverse.phone-section,
   .place-section,
   .method-section,
   .career-section,
@@ -2896,6 +2904,8 @@ dd {
   .hero-bg,
   .section-photo,
   .section-photo.tall,
+  .phone-section .section-photo,
+  .phone-section .section-photo.tall,
   .place-photo,
   .method-photo,
   .career-photo {
@@ -4001,6 +4011,305 @@ dd {
 
   .inline-more {
     white-space: nowrap;
+  }
+}
+
+@media (max-width: 900px) {
+  .site-header {
+    display: flex !important;
+    justify-content: flex-start;
+    gap: 8px;
+    left: 0;
+    right: auto;
+    width: 100vw;
+    max-width: 100vw;
+    padding-left: 10px;
+    padding-right: 10px;
+    overflow: hidden;
+  }
+
+  .brand {
+    flex: 0 1 148px !important;
+    max-width: 148px;
+    min-width: 0;
+  }
+
+  .brand img {
+    width: 148px !important;
+  }
+
+  .header-trial-cta {
+    flex: 0 0 96px !important;
+    width: 96px !important;
+    max-width: 96px !important;
+    margin-left: auto !important;
+    min-height: 42px;
+    padding: 9px 8px;
+    font-size: clamp(0.68rem, 2.8vw, 0.76rem);
+    line-height: 1.12;
+    white-space: normal;
+    text-align: center;
+  }
+
+  .menu-toggle {
+    flex: 0 0 44px !important;
+    width: 44px !important;
+    height: 44px !important;
+    padding: 11px;
+  }
+
+  .mini-nav {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0;
+    overflow: visible;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .mini-nav a {
+    min-width: 0;
+    padding-left: 4px;
+    padding-right: 4px;
+    text-align: center;
+  }
+
+  .mobile-fixed {
+    left: 0;
+    right: auto;
+    width: 100vw;
+    max-width: 100vw;
+  }
+
+  .hero h1,
+  .hero h1 .mobile-line,
+  .split h2,
+  .split-reverse h2,
+  .place-copy > h2,
+  .method-copy > h2,
+  .career-copy > h2,
+  #recruit h2,
+  .final-section h2 {
+    white-space: normal;
+    overflow-wrap: anywhere;
+    word-break: keep-all;
+  }
+
+  .hero,
+  .split,
+  .split-reverse,
+  .split-reverse.phone-section,
+  .place-section,
+  .method-section,
+  .career-section,
+  .trial-section,
+  #recruit {
+    display: grid;
+    grid-template-columns: minmax(0, 3fr) minmax(112px, 2fr);
+    gap: 14px 12px;
+    align-items: start;
+  }
+
+  .hero-content,
+  .split > .section-copy,
+  .split-reverse > .section-copy,
+  .place-copy,
+  .method-copy,
+  .career-copy {
+    display: flex;
+    flex-direction: column;
+    grid-column: 1;
+    grid-row: 1;
+    min-width: 0;
+  }
+
+  .hero-bg,
+  .section-photo,
+  .section-photo.tall,
+  .phone-section .section-photo,
+  .phone-section .section-photo.tall,
+  .place-photo,
+  .method-photo,
+  .career-photo {
+    position: relative;
+    top: auto;
+    right: auto;
+    bottom: auto;
+    grid-column: 2;
+    grid-row: 1;
+    order: initial;
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    margin: 0;
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+  }
+
+  .hero-bg img,
+  .section-photo img,
+  .phone-section .section-photo img,
+  .place-photo img,
+  .method-photo img,
+  .career-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .hero .hero-actions,
+  .section-actions,
+  .phone-section .section-actions,
+  .place-actions {
+    grid-column: 1;
+    grid-row: auto;
+    width: 100%;
+  }
+
+  .hero-actions:has(.btn + .btn),
+  .section-actions:has(.btn + .btn),
+  .place-actions:has(.btn + .btn),
+  .final-actions:has(.btn + .btn) {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .hero-actions .btn,
+  .section-actions .btn,
+  .place-actions .btn,
+  .final-actions .btn {
+    white-space: normal;
+    overflow-wrap: anywhere;
+    line-height: 1.2;
+  }
+
+  .phone-section h2 {
+    margin-top: 0;
+  }
+
+  .circle-points,
+  .recruit-list,
+  .place-list,
+  .trial-list,
+  .career-list,
+  .method-lines,
+  .mini-detail,
+  .flow-list,
+  .line-box {
+    grid-column: 1;
+    width: 100%;
+  }
+
+  .category-section {
+    display: grid;
+    grid-template-columns: minmax(0, 3fr) minmax(112px, 2fr);
+    gap: 14px 12px;
+    align-items: start;
+  }
+
+  .category-section .wide-copy {
+    display: flex;
+    flex-direction: column;
+    grid-column: 1;
+    grid-row: 1;
+    min-width: 0;
+  }
+
+  .category-layout {
+    display: contents;
+  }
+
+  .category-main {
+    grid-column: 2;
+    grid-row: 1;
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    margin: 0;
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+  }
+
+  .category-main img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .category-list {
+    grid-column: 1 / 3;
+    width: 100%;
+  }
+
+  .category-list button {
+    grid-template-columns: minmax(0, 1fr) minmax(92px, 34vw);
+    gap: 12px;
+    align-items: stretch;
+  }
+
+  .category-list img,
+  .category-list img.category-poster-thumb {
+    grid-column: 2;
+    order: 2;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+  }
+
+  .category-text {
+    grid-column: 1;
+    order: 1;
+    min-width: 0;
+  }
+
+  .final-section {
+    display: grid;
+    grid-template-columns: minmax(0, 3fr) minmax(112px, 2fr);
+    gap: 14px 12px;
+    min-height: auto;
+    padding: 44px 20px;
+    background: var(--black);
+  }
+
+  .final-bg {
+    position: relative;
+    inset: auto;
+    grid-column: 2;
+    grid-row: 1;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    opacity: 1;
+  }
+
+  .final-section::after {
+    content: none;
+  }
+
+  .final-inner {
+    grid-column: 1;
+    grid-row: 1;
+    width: 100%;
+    min-width: 0;
+  }
+}
+
+@media (max-width: 420px) {
+  .hero,
+  .split,
+  .split-reverse,
+  .split-reverse.phone-section,
+  .place-section,
+  .method-section,
+  .career-section,
+  .trial-section,
+  #recruit,
+  .category-section,
+  .final-section {
+    grid-template-columns: minmax(0, 3fr) minmax(104px, 2fr);
+    gap: 12px 10px;
   }
 }
 

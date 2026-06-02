@@ -2,19 +2,12 @@ const menuToggle = document.querySelector(".menu-toggle");
 const globalMenu = document.querySelector(".global-menu");
 const modalTriggers = document.querySelectorAll("[data-modal]");
 const modals = document.querySelectorAll(".modal");
-const trialForm = document.getElementById("trial-form");
-const lineDialog = document.getElementById("line-dialog");
-const lineDialogTitle = document.getElementById("line-dialog-title");
-const lineDialogMessage = document.getElementById("line-dialog-message");
-const lineOpenButton = document.querySelector("[data-line-open]");
-const lineCloseButton = document.querySelector("[data-line-close]");
 const lineUrl = "https://lin.ee/8yWT6iB";
 let activeModal = null;
 let activeModalFromPush = false;
 const modalTapThreshold = 8;
 let modalPressStart = null;
 const modalFooterPositions = new WeakMap();
-let trialFormStarted = false;
 
 document.documentElement.classList.add("js");
 
@@ -76,37 +69,26 @@ if (menuToggle && globalMenu) {
   });
 }
 
-function openModal(id, updateHistory = true) {
+function openModal(id) {
   const modal = document.getElementById(id);
   if (!modal) return;
   activeModal = modal;
-  activeModalFromPush = updateHistory;
+  activeModalFromPush = false;
   detachMobileModalFooter(modal);
   modal.classList.add("is-open");
   document.body.classList.add("modal-open");
   const backButton = modal.querySelector(".modal-back");
   if (backButton) backButton.focus();
-  if (updateHistory) {
-    history.pushState({ modal: id }, "", `#${id}`);
-  }
   trackEvent("modal_open", { modal_id: id });
 }
 
-function closeModal(updateHistory = true) {
+function closeModal() {
   if (!activeModal) return;
-  const shouldGoBack = activeModalFromPush;
   restoreMobileModalFooter(activeModal);
   activeModal.classList.remove("is-open");
   activeModal = null;
   activeModalFromPush = false;
   document.body.classList.remove("modal-open");
-  if (updateHistory && location.hash.startsWith("#modal-")) {
-    if (shouldGoBack) {
-      history.back();
-    } else {
-      history.replaceState(null, "", `${location.pathname}${location.search}`);
-    }
-  }
 }
 
 function shouldDetachModalFooter() {
@@ -195,16 +177,11 @@ window.addEventListener("popstate", () => {
     activeModal = null;
     activeModalFromPush = false;
     document.body.classList.remove("modal-open");
-    return;
-  }
-
-  if (location.hash.startsWith("#modal-")) {
-    openModal(location.hash.slice(1), false);
   }
 });
 
 if (location.hash.startsWith("#modal-")) {
-  openModal(location.hash.slice(1), false);
+  history.replaceState(null, "", `${location.pathname}${location.search}`);
 }
 
 document.querySelectorAll('a[href^="#"]').forEach((link) => {
@@ -234,111 +211,7 @@ window.addEventListener("load", () => {
   }
 });
 
-function getFormValue(formData, key) {
-  return String(formData.get(key) || "").trim();
-}
-
-function buildTrialMessage(formData) {
-  return [
-    "アリバサッカークラブ 体験会申込",
-    "",
-    `体験会の日付: ${getFormValue(formData, "date")}`,
-    `名前: ${getFormValue(formData, "name")}`,
-    `ふりがな: ${getFormValue(formData, "kana")}`,
-    `学年: ${getFormValue(formData, "grade")}`,
-    `希望: ${getFormValue(formData, "category")}`,
-    `市町村: ${getFormValue(formData, "city")}`,
-    `現在所属チーム: ${getFormValue(formData, "team")}`,
-    `電話番号: ${getFormValue(formData, "tel")}`,
-    `メールアドレス: ${getFormValue(formData, "email")}`,
-    `保護者氏名: ${getFormValue(formData, "parent")}`,
-    `体験会を知ったきっかけ: ${getFormValue(formData, "source")}`,
-    `備考: ${getFormValue(formData, "message") || "なし"}`
-  ].join("\n");
-}
-
-function openLineDialog(copied) {
-  if (!lineDialog) return;
-  if (lineDialogTitle) {
-    lineDialogTitle.textContent = copied
-      ? "問い合わせ内容をコピーしました"
-      : "問い合わせ内容を作成しました";
-  }
-  if (lineDialogMessage) {
-    lineDialogMessage.textContent = copied
-      ? "LINEが開いたら、そのまま貼り付けて送信してください。"
-      : "問い合わせ内容を作成しました。LINEが開いたら、入力内容を確認して送信してください。";
-  }
-  lineDialog.hidden = false;
-  document.body.classList.add("line-dialog-open");
-  lineOpenButton?.focus();
-}
-
-function closeLineDialog() {
-  if (!lineDialog) return;
-  lineDialog.hidden = true;
-  document.body.classList.remove("line-dialog-open");
-}
-
-lineOpenButton?.addEventListener("click", () => {
-  trackEvent("line_click", { click_location: "line_dialog", link_url: lineUrl });
-  window.location.href = lineUrl;
-});
-
-lineCloseButton?.addEventListener("click", closeLineDialog);
-
-window.addEventListener("keydown", (event) => {
-  if (event.key === "Escape" && lineDialog && !lineDialog.hidden) {
-    closeLineDialog();
-  }
-});
-
-if (trialForm) {
-  trialForm.addEventListener("input", () => {
-    if (trialFormStarted) return;
-    trialFormStarted = true;
-    trackEvent("trial_form_start", { form_id: "trial-form" });
-  }, { once: true });
-
-  trialForm.addEventListener("submit", async (event) => {
-    event.preventDefault();
-    const status = trialForm.querySelector(".form-status");
-    const formData = new FormData(trialForm);
-
-    if (!trialForm.checkValidity()) {
-      trialForm.reportValidity();
-      return;
-    }
-
-    const message = buildTrialMessage(formData);
-    let copied = false;
-    trackEvent("trial_form_submit", {
-      form_id: "trial-form",
-      trial_date_selected: getFormValue(formData, "date"),
-      player_grade: getFormValue(formData, "grade"),
-      trial_category: getFormValue(formData, "category"),
-      inquiry_source: getFormValue(formData, "source")
-    });
-
-    try {
-      await navigator.clipboard.writeText(message);
-      copied = true;
-      if (status) {
-        status.textContent = "";
-        status.classList.remove("is-error");
-      }
-    } catch {
-      if (status) {
-        status.textContent = "";
-        status.classList.remove("is-error");
-      }
-    }
-
-    openLineDialog(copied);
-  });
-}
-
-document.querySelectorAll('a[href^="#trial"], a[href="#trial-form"]').forEach((link) => {
+document.querySelectorAll('a[href^="#trial"], a[href="/practice_session/"], a[href="https://arriba.club/practice_session/"]').forEach((link) => {
   link.addEventListener("click", () => {
     trackEvent("trial_cta_click", {
       click_text: link.textContent.trim(),

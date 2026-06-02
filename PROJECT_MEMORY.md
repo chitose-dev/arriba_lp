@@ -1,6 +1,6 @@
 # ARRIBA LP Project Memory
 
-Last updated: 2026-05-28
+Last updated: 2026-05-30
 
 ## Current Production State
 
@@ -11,8 +11,14 @@ Last updated: 2026-05-28
   - `index.html`
   - `style.css`
   - `assets/`
+  - `practice_session/`
 - WordPress is no longer exposed from the public root.
 - `https://arriba.club/wp-login.php` should return 404.
+- Verified on 2026-05-28 10:28 JST:
+  - Production `index.html`, `style.css`, and `assets/js/main.js` match local SHA-256 hashes.
+  - `https://arriba.club/` returns 200.
+  - `https://arriba.club/wp-login.php` returns 404.
+  - Local static preview at `http://127.0.0.1:8088/` returns 200.
 
 ## WordPress Backup
 
@@ -37,11 +43,11 @@ WordPress files and database were moved out of the public root and backed up on 
   - `trial_cta_click`
   - `phone_click`
   - `line_click`
-  - `trial_form_start`
-  - `trial_form_submit`
   - `modal_open`
+- LP CTA clicks to `/practice_session/` are tracked as `trial_cta_click`.
+- The old embedded LP trial form and LINE copy dialog were removed from the LP on 2026-05-30.
 - Recommended GA4 key events:
-  - `trial_form_submit`
+  - `trial_cta_click`
   - `line_click`
   - `phone_click`
 
@@ -61,4 +67,52 @@ WordPress files and database were moved out of the public root and backed up on 
   - `/home/harmony3/www/arriba.club/index.html`
   - `/home/harmony3/www/arriba.club/style.css`
   - `/home/harmony3/www/arriba.club/assets/`
+  - `/home/harmony3/www/arriba.club/practice_session/`
 - Do not commit credentials, password-bearing PDFs, temporary deploy plugins, or ZIP upload bundles.
+
+## Practice Session Form
+
+- Rebuilt and deployed `/practice_session/` on 2026-05-30 after the old WordPress page returned 404.
+- Current files:
+  - `practice_session/index.php`
+  - `practice_session/submit.php`
+  - `practice_session/style.css`
+- The existing LP no longer contains an embedded application form.
+- All public LP application CTAs now point to `/practice_session/`.
+- Form behavior:
+  - Normal server-side PHP form post to `practice_session/submit.php`.
+  - Admin notification is sent to `info@arriba.club`.
+  - Applicant confirmation email is sent to the submitted email address.
+  - Submissions are also appended to `practice_session/submissions/applications.csv` on production when writable.
+  - Mail send results are appended to `practice_session/submissions/mail_results.log` on production when writable.
+- Mail delivery notes:
+  - Uses `mb_send_mail()`.
+  - Uses `From: info@arriba.club` and envelope sender `-finfo@arriba.club`.
+  - If applicant confirmation mail still fails to arrive despite `customer=ok` in `mail_results.log`, switch to authenticated SMTP using the `info@arriba.club` mailbox.
+- Form fields include:
+  - calendar date field for `event_date`.
+  - applicant name, furigana, grade, preference, city, current team, phone, email, email confirmation, guardian name, source, and notes.
+- 2027 junior youth preference text is `2027年度ジュニアユース体験会`; do not add grade text there unless explicitly requested.
+- Header/back links use `トップへ戻る`, not `LPへ戻る`.
+- Result page primary button is `トップへ戻る`; smaller secondary button is `フォームへ戻る`.
+- Current practice form CSS cache version: `style.css?v=20260530-3`.
+- Production verification on 2026-05-30:
+  - `https://arriba.club/practice_session/` returns 200.
+  - PHP lint passed for `practice_session/index.php` and `practice_session/submit.php`.
+  - POST test returned the success screen.
+  - Server mail log showed `admin=ok customer=ok` for a Gmail test submission.
+- Production backup before the 2026-05-30 form rebuild:
+  - `/home/harmony3/_backup_static_arriba_20260530_180032`
+
+## Document Download Pages
+
+- Added local static document download pages on 2026-05-28:
+  - `/arriba/` entrance page.
+  - `/2026JY/`, `/2026J/`, `/2027JY/`, `/hana/`, `/kojin/` category pages.
+  - PDF files live under each category's `files/` directory with URL-safe English filenames.
+- Category pages and `robots.txt` include noindex/disallow signals; the public LP does not link to these pages.
+- Deployed these pages and files to production on 2026-05-28.
+- Production verification:
+  - `https://arriba.club/arriba/` originally used Basic authentication, then authentication was removed on request.
+  - `https://arriba.club/arriba/` returns 200 without authentication after removal.
+  - Category pages and sample PDF return 200.

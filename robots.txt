@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /arriba/
+Disallow: /2026JY/
+Disallow: /2026J/
+Disallow: /2027JY/
+Disallow: /hana/
+Disallow: /kojin/

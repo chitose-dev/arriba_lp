@@ -1,0 +1,192 @@
+:root {
+  color-scheme: light;
+  --ink: #172033;
+  --muted: #667085;
+  --line: #d9dee8;
+  --soft: #f5f7fb;
+  --brand: #d71920;
+  --brand-dark: #a91117;
+  --navy: #16233f;
+  --white: #fff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--soft);
+  color: var(--ink);
+  font-family: "Noto Sans JP", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 1.75;
+}
+
+body {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+}
+
+.download-page {
+  min-height: 100vh;
+  padding: 32px 18px 56px;
+}
+
+.download-shell {
+  width: min(940px, 100%);
+  margin: 0 auto;
+}
+
+.download-header {
+  padding: 28px 0 22px;
+}
+
+.download-kicker {
+  margin: 0 0 10px;
+  color: var(--brand);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: .08em;
+}
+
+.download-header h1 {
+  margin: 0;
+  color: var(--navy);
+  font-size: clamp(28px, 5vw, 44px);
+  line-height: 1.25;
+  letter-spacing: 0;
+}
+
+.download-lead {
+  max-width: 720px;
+  margin: 16px 0 0;
+  color: var(--muted);
+  font-size: 16px;
+}
+
+.download-panel {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: 0 18px 40px rgba(22, 35, 63, .08);
+  overflow: hidden;
+}
+
+.category-list,
+.file-list {
+  display: grid;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.category-list li,
+.file-list li {
+  border-top: 1px solid var(--line);
+}
+
+.category-list li:first-child,
+.file-list li:first-child {
+  border-top: 0;
+}
+
+.category-link,
+.file-link {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 16px;
+  align-items: center;
+  min-height: 76px;
+  padding: 18px 22px;
+  text-decoration: none;
+}
+
+.category-link:hover,
+.file-link:hover {
+  background: #fafbfe;
+}
+
+.category-title,
+.file-title {
+  display: block;
+  color: var(--ink);
+  font-size: 17px;
+  font-weight: 800;
+}
+
+.category-url,
+.file-meta {
+  display: block;
+  margin-top: 3px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.download-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 112px;
+  min-height: 42px;
+  padding: 9px 16px;
+  border-radius: 6px;
+  background: var(--brand);
+  color: var(--white);
+  font-size: 14px;
+  font-weight: 800;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.category-link .download-button {
+  background: var(--navy);
+}
+
+.download-note {
+  margin: 18px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.back-link {
+  display: inline-flex;
+  margin: 0 0 18px;
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.back-link:hover {
+  color: var(--brand-dark);
+}
+
+.download-footer {
+  margin-top: 24px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+@media (max-width: 640px) {
+  .download-page {
+    padding: 20px 14px 40px;
+  }
+
+  .download-header {
+    padding-top: 18px;
+  }
+
+  .category-link,
+  .file-link {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 17px 16px;
+  }
+
+  .download-button {
+    width: 100%;
+  }
+}
