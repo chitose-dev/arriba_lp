@@ -4618,10 +4618,27 @@ dd {
     padding-top: 84px;
   }
 
+  .phone-section .phone-number {
+    display: block;
+    width: 100%;
+    max-width: none;
+    font-size: clamp(2rem, 6vw, 3.25rem) !important;
+    line-height: 1;
+    white-space: nowrap;
+    word-break: keep-all;
+    overflow-wrap: normal;
+  }
+
+  .trial-section .section-actions {
+    width: calc(100vw - 32px);
+    max-width: none;
+  }
+
   .hero-actions:has(.btn + .btn),
   .section-actions:has(.btn + .btn),
   .place-actions:has(.btn + .btn),
   .final-actions:has(.btn + .btn) {
+    grid-column: 1 / 3;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     width: 100%;
     max-width: none;
@@ -4633,6 +4650,35 @@ dd {
   .place-actions .btn,
   .final-actions .btn {
     min-width: 0;
-    white-space: normal;
+    white-space: nowrap;
+    overflow-wrap: normal;
+    font-size: clamp(0.74rem, 2.7vw, 0.88rem);
+  }
+
+  .trial-section .section-actions:has(.btn + .btn) {
+    width: calc(100vw - 32px);
+  }
+}
+
+@media (min-width: 601px) and (max-width: 900px) {
+  .trial-section .section-actions {
+    margin-top: 150px;
+  }
+}
+
+@media (max-width: 600px) {
+  .phone-section .phone-number {
+    width: calc(100vw - 32px);
+  }
+
+  #trial .circle-points {
+    width: calc(100vw - 32px);
+    max-width: none;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 4px;
+  }
+
+  #trial .circle-points li {
+    font-size: clamp(0.64rem, 2.45vw, 0.78rem);
   }
 }
