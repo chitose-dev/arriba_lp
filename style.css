@@ -5502,3 +5502,50 @@ dd {
     margin-top: 55px !important;
   }
 }
+
+@media (max-width: 900px) {
+  .site-header {
+    gap: 8px;
+  }
+
+  .brand {
+    flex: 0 1 174px !important;
+    max-width: 174px !important;
+  }
+
+  .brand img {
+    width: 174px !important;
+  }
+}
+
+@media (max-width: 360px) {
+  .site-header {
+    gap: 5px;
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  .brand {
+    flex-basis: 156px !important;
+    max-width: 156px !important;
+  }
+
+  .brand img {
+    width: 156px !important;
+  }
+
+  .header-trial-cta {
+    flex-basis: 82px !important;
+    width: 82px !important;
+    max-width: 82px !important;
+    padding-left: 6px;
+    padding-right: 6px;
+  }
+
+  .menu-toggle {
+    flex-basis: 39px !important;
+    width: 39px !important;
+    height: 39px !important;
+    padding: 10px;
+  }
+}
