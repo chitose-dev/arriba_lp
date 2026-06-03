@@ -4612,7 +4612,7 @@ dd {
   .category-section,
   .final-section {
     display: grid !important;
-    grid-template-columns: minmax(0, 58fr) minmax(112px, 42fr);
+    grid-template-columns: minmax(0, 1fr) minmax(124px, 34vw);
     gap: 10px;
     align-items: start;
   }
@@ -4728,6 +4728,10 @@ dd {
   }
 
   .circle-points,
+  #about .circle-points,
+  #trial .circle-points,
+  #method .circle-points,
+  .method-section .circle-points,
   .recruit-list,
   .place-list,
   .trial-list,
@@ -4737,6 +4741,40 @@ dd {
   .flow-list,
   .line-box {
     width: 100%;
+  }
+
+  .circle-points,
+  #about .circle-points,
+  #trial .circle-points,
+  #method .circle-points,
+  .method-section .circle-points {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(68px, 1fr));
+    gap: 8px;
+    margin-top: 18px;
+  }
+
+  .circle-points li,
+  #about .circle-points li,
+  #trial .circle-points li,
+  #method .circle-points li,
+  .method-section .circle-points li {
+    width: auto !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    height: auto !important;
+    aspect-ratio: 1;
+    padding: 0 4px;
+    font-size: clamp(0.72rem, 2.2vw, 0.9rem) !important;
+    line-height: 1.15;
+    word-break: keep-all;
+    overflow-wrap: normal;
+  }
+
+  .mini-nav {
+    position: relative;
+    z-index: 40;
+    background: #fff;
   }
 
   .final-section {
@@ -4796,7 +4834,7 @@ dd {
   #recruit,
   .category-section,
   .final-section {
-    grid-template-columns: minmax(0, 58fr) minmax(104px, 42fr);
+    grid-template-columns: minmax(0, 1fr) minmax(116px, 38vw);
   }
 
   .hero,
