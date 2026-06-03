@@ -5380,3 +5380,125 @@ dd {
     aspect-ratio: 16 / 9;
   }
 }
+
+@media (max-width: 1100px) {
+  .hero-lead,
+  .section-copy > .modal-teaser,
+  .place-copy > .modal-teaser,
+  .method-copy > .modal-teaser,
+  .career-copy > .modal-teaser,
+  .category-section .wide-copy > .modal-teaser,
+  .final-inner > .modal-teaser {
+    line-height: 1.68;
+  }
+
+  .hero-lead {
+    margin-top: 14px;
+  }
+
+  .hero {
+    padding-top: 80px;
+  }
+
+  .hero-formula {
+    margin-top: 16px;
+  }
+
+  .hero .hero-actions {
+    margin-top: 18px;
+  }
+
+  .phone-section {
+    row-gap: 16px !important;
+  }
+
+  .phone-section .section-copy > p:not(.section-kicker):not(.phone-number) {
+    margin-top: 16px !important;
+    line-height: 1.68;
+  }
+
+  .phone-section .section-actions {
+    margin-top: 14px !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-lead,
+  .section-copy > .modal-teaser,
+  .place-copy > .modal-teaser,
+  .method-copy > .modal-teaser,
+  .career-copy > .modal-teaser,
+  .category-section .wide-copy > .modal-teaser,
+  .final-inner > .modal-teaser {
+    line-height: 1.64;
+  }
+
+  .hero-lead {
+    margin-top: 12px;
+  }
+
+  .hero {
+    padding-top: 72px;
+  }
+
+  .hero-formula {
+    margin-top: 14px;
+  }
+
+  .hero .hero-actions {
+    margin-top: 16px;
+  }
+
+  .phone-section {
+    row-gap: 14px !important;
+  }
+
+  .phone-section .section-copy > p:not(.section-kicker):not(.phone-number) {
+    margin-top: 14px !important;
+    line-height: 1.64;
+  }
+
+  .phone-section .section-actions {
+    margin-top: 12px !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .split > .section-photo,
+  .split-reverse > .section-photo,
+  .place-photo,
+  .method-photo,
+  .career-photo,
+  .phone-section .section-photo,
+  .phone-section .section-photo.tall {
+    margin-top: 36px !important;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 900px) {
+  .split > .section-photo,
+  .split-reverse > .section-photo,
+  .place-photo,
+  .method-photo,
+  .career-photo,
+  .phone-section .section-photo,
+  .phone-section .section-photo.tall {
+    margin-top: 39px !important;
+  }
+}
+
+@media (min-width: 901px) and (max-width: 1100px) {
+  .hero {
+    padding-top: 92px;
+  }
+
+  .split > .section-photo,
+  .split-reverse > .section-photo,
+  .place-photo,
+  .method-photo,
+  .career-photo,
+  .phone-section .section-photo,
+  .phone-section .section-photo.tall {
+    margin-top: 55px !important;
+  }
+}
