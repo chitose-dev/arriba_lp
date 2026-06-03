@@ -307,6 +307,10 @@ section[id] {
   display: block;
 }
 
+.message-title span {
+  display: inline;
+}
+
 .hero-lead {
   max-width: 480px;
   margin: 28px 0 0;
@@ -4826,6 +4830,9 @@ dd {
 
   .mini-nav a {
     min-width: 0;
+    min-height: 52px;
+    padding-top: 0;
+    padding-bottom: 0;
     opacity: 1 !important;
     visibility: visible !important;
     transform: none !important;
@@ -4982,6 +4989,9 @@ dd {
   .hero-formula,
   .phone-number,
   .circle-points,
+  #method .circle-points,
+  .method-section .circle-points,
+  #trial .circle-points,
   .recruit-list,
   .place-list,
   .trial-list,
@@ -4994,6 +5004,25 @@ dd {
     grid-column: 1 / -1;
     width: 100%;
     max-width: none;
+  }
+
+  #method .circle-points,
+  .method-section .circle-points,
+  #trial .circle-points {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    justify-content: stretch;
+    gap: 10px;
+    margin-left: 0;
+  }
+
+  #method .circle-points li,
+  .method-section .circle-points li,
+  #trial .circle-points li {
+    width: 100%;
+    max-width: none;
+    min-width: 0;
+    aspect-ratio: 1;
   }
 
   .hero-actions,
@@ -5035,6 +5064,7 @@ dd {
     width: 100%;
     min-width: 0;
     min-height: 56px;
+    font-size: clamp(1rem, 2vw, 1.16rem);
     text-align: center;
   }
 
@@ -5045,7 +5075,28 @@ dd {
   .final-actions:has(.btn + .btn) .btn {
     white-space: nowrap;
     overflow-wrap: normal;
-    font-size: clamp(0.72rem, 2.4vw, 0.95rem);
+    font-size: clamp(1rem, 2.1vw, 1.16rem);
+  }
+
+  .phone-section {
+    row-gap: 0 !important;
+  }
+
+  .header-trial-cta {
+    font-size: 0.9rem !important;
+  }
+
+  #recruit h2 span {
+    display: block;
+  }
+
+  .phone-section .phone-number {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+
+  .phone-section .section-actions {
+    margin-top: 0 !important;
   }
 
   [data-animate],
@@ -5126,7 +5177,15 @@ dd {
   .final-actions:has(.btn + .btn) .btn {
     padding-left: 6px;
     padding-right: 6px;
-    font-size: clamp(0.68rem, 2.6vw, 0.82rem);
+    font-size: clamp(0.92rem, 3.9vw, 1.05rem);
+  }
+
+  .header-trial-cta {
+    font-size: 0.9rem !important;
+  }
+
+  .phone-section {
+    row-gap: 0 !important;
   }
 
   .circle-points {
@@ -5145,5 +5204,38 @@ dd {
   .place-actions .btn,
   .final-actions .btn {
     min-height: 50px;
+  }
+
+  #message .message-title span {
+    display: block;
+  }
+
+  #recruit h2 span {
+    display: block;
+  }
+
+  #method .circle-points,
+  .method-section .circle-points {
+    width: 100%;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .phone-section .phone-number {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+
+  .phone-section .section-actions {
+    margin-top: 0 !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .modal-footer-actions .btn,
+  .modal-bottom,
+  .modal-body > .btn,
+  .modal-actions .btn {
+    font-size: 0.9rem;
   }
 }
