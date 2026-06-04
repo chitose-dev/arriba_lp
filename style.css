@@ -5622,3 +5622,48 @@ dd {
     grid-template-columns: 1fr;
   }
 }
+
+.section-photo:has(> img[src*="arriba-2026"]),
+.place-photo:has(> img[src*="arriba-2026"]),
+.career-photo:has(> img[src*="arriba-2026"]),
+.category-main:has(> img[src*="arriba-2026"]) {
+  aspect-ratio: 4 / 5 !important;
+  background: #fff;
+}
+
+.section-photo > img[src*="arriba-2026"],
+.place-photo > img[src*="arriba-2026"],
+.career-photo > img[src*="arriba-2026"],
+.category-main > img[src*="arriba-2026"],
+.hero-bg > img[src*="arriba-2026"] {
+  object-fit: contain !important;
+  object-position: center !important;
+  transform: none !important;
+}
+
+.is-inview .section-photo > img[src*="arriba-2026"],
+.is-inview .place-photo > img[src*="arriba-2026"],
+.is-inview .career-photo > img[src*="arriba-2026"],
+.is-inview .category-main > img[src*="arriba-2026"],
+.is-inview .hero-bg > img[src*="arriba-2026"] {
+  transform: none !important;
+}
+
+@media (min-width: 901px) {
+  .hero-content {
+    width: min(560px, 39vw);
+  }
+
+  .hero h1 {
+    font-size: clamp(2.42rem, 2.52vw, 2.85rem);
+  }
+
+  .hero h1 .desktop-line {
+    white-space: normal;
+  }
+
+  .hero-lead,
+  .hero-formula {
+    max-width: 560px;
+  }
+}
