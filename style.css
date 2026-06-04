@@ -5667,3 +5667,44 @@ dd {
     max-width: 560px;
   }
 }
+
+@media (max-width: 600px) {
+  .hero-actions,
+  .section-actions,
+  .place-actions,
+  .final-actions,
+  .modal-actions {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    width: 100% !important;
+    gap: 10px !important;
+    justify-content: stretch !important;
+    justify-items: stretch !important;
+  }
+
+  .modal-footer-actions {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    width: auto !important;
+    gap: 10px !important;
+    justify-content: stretch !important;
+    justify-items: stretch !important;
+  }
+
+  .hero .hero-actions {
+    width: calc(100vw - 32px) !important;
+    max-width: none !important;
+  }
+
+  .hero-actions .btn,
+  .section-actions .btn,
+  .place-actions .btn,
+  .final-actions .btn,
+  .modal-footer-actions .btn,
+  .modal-footer-actions .modal-bottom,
+  .modal-actions .btn {
+    width: 100% !important;
+    min-width: 0 !important;
+    justify-self: stretch !important;
+  }
+}
