@@ -5668,6 +5668,15 @@ dd {
   }
 }
 
+.hero-entry-nav a {
+  color: var(--red) !important;
+  font-size: clamp(0.9rem, 3.8vw, 1.08rem) !important;
+  font-weight: 900 !important;
+  line-height: 1.05 !important;
+  padding-left: 1px !important;
+  padding-right: 1px !important;
+}
+
 @media (max-width: 600px) {
   .hero-actions,
   .section-actions,
@@ -5706,6 +5715,20 @@ dd {
     width: 100% !important;
     min-width: 0 !important;
     justify-self: stretch !important;
+  }
+
+  .hero .hero-actions {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 8px !important;
+  }
+
+  .hero .hero-actions .btn {
+    width: 100% !important;
+    min-width: 0 !important;
+    min-height: 50px !important;
+    padding: 0 6px !important;
+    font-size: clamp(0.78rem, 3.45vw, 0.95rem) !important;
+    white-space: nowrap !important;
   }
 
   .circle-points,
