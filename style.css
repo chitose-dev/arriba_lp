@@ -5739,6 +5739,8 @@ dd {
   }
 
   .hero-formula {
+    width: calc(100vw - 32px) !important;
+    max-width: none !important;
     white-space: normal !important;
     overflow-wrap: normal !important;
     word-break: normal !important;
