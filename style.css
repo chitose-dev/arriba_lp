@@ -615,6 +615,7 @@ h3 {
   line-height: 1.35;
   font-weight: 900;
   background: rgba(255, 253, 248, 0.52);
+  white-space: nowrap;
   cursor: default;
   pointer-events: none;
   user-select: none;
@@ -5677,6 +5678,12 @@ dd {
   padding-right: 1px !important;
 }
 
+@media (min-width: 901px) and (max-width: 1280px) {
+  #about .circle-points li {
+    font-size: 0.92rem;
+  }
+}
+
 @media (max-width: 600px) {
   .hero-actions,
   .section-actions,
@@ -5731,6 +5738,13 @@ dd {
     white-space: nowrap !important;
   }
 
+  .hero-formula {
+    white-space: normal !important;
+    overflow-wrap: normal !important;
+    word-break: normal !important;
+    line-height: 1.28 !important;
+  }
+
   .circle-points,
   #about .circle-points,
   #method .circle-points,
@@ -5755,7 +5769,8 @@ dd {
     max-width: none !important;
     aspect-ratio: 1 / 1 !important;
     padding: 0 2px !important;
-    font-size: clamp(0.56rem, 2.6vw, 0.72rem) !important;
+    font-size: clamp(0.6rem, 2.85vw, 0.78rem) !important;
     line-height: 1.15 !important;
+    white-space: nowrap !important;
   }
 }
