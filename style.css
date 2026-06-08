@@ -1274,6 +1274,11 @@ dd {
   color: rgba(255, 255, 255, 0.62);
 }
 
+.site-footer p:nth-of-type(2) {
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.62);
+}
+
 .mobile-fixed {
   display: none;
 }
@@ -5625,6 +5630,7 @@ dd {
   line-height: 1.3;
   font-weight: 900;
   text-align: center;
+  overflow-wrap: anywhere;
 }
 
 .entry-link-grid {
@@ -5681,12 +5687,14 @@ dd {
 }
 
 .footer-info-button {
+  grid-column: 2;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
+  width: fit-content;
   min-height: 46px;
-  margin-top: 18px;
+  margin-top: 8px;
   padding: 10px 18px;
   border: 1px solid rgba(255, 255, 255, 0.32);
   border-radius: 999px;
@@ -5697,13 +5705,30 @@ dd {
   cursor: pointer;
 }
 
-.footer-info-button .inline-more {
+.footer-info-button span {
   color: #fff;
 }
 
 @media (max-width: 600px) {
   .modal-related-buttons {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 5px;
+  }
+
+  .modal-related {
+    padding: 12px 8px;
+  }
+
+  .modal-related-buttons a {
+    min-width: 0;
+    min-height: 58px;
+    padding: 7px 3px;
+    font-size: clamp(
+      0.58rem,
+      calc(1.05rem - (var(--label-length, 4) * 0.055rem)),
+      0.78rem
+    );
+    line-height: 1.18;
   }
 }
 
@@ -5916,8 +5941,68 @@ dd {
 }
 
 @media (max-width: 600px) {
+  .site-footer {
+    grid-template-columns: 52px minmax(0, 1fr) !important;
+    grid-template-rows: auto auto auto !important;
+    gap: 8px 14px !important;
+    min-height: 0 !important;
+    padding: 30px 18px calc(104px + env(safe-area-inset-bottom)) !important;
+    overflow: hidden;
+  }
+
+  .site-footer img {
+    grid-column: 1 !important;
+    grid-row: 1 / 3 !important;
+    align-self: start;
+    width: 52px !important;
+  }
+
+  .site-footer p {
+    grid-column: 2 !important;
+    width: auto !important;
+    max-width: none !important;
+    writing-mode: horizontal-tb !important;
+    overflow-wrap: anywhere;
+  }
+
+  .site-footer p:first-of-type {
+    grid-row: 1 !important;
+  }
+
+  .site-footer p:nth-of-type(2) {
+    grid-row: 2 !important;
+  }
+
+  .footer-info-button {
+    position: static !important;
+    grid-column: 1 / -1 !important;
+    grid-row: 3 !important;
+    width: 100% !important;
+    min-height: 48px !important;
+    margin: 12px 0 0 !important;
+    padding: 10px 16px !important;
+    border-radius: 8px !important;
+    writing-mode: horizontal-tb !important;
+    white-space: nowrap;
+    transform: none !important;
+  }
+
   .hero h1 {
     font-size: clamp(1.05rem, 4.75vw, 1.2rem) !important;
     letter-spacing: -0.11em !important;
+  }
+
+  .modal-footer-actions {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 8px !important;
+  }
+
+  .modal-footer-actions .btn,
+  .modal-footer-actions .modal-bottom {
+    width: 100% !important;
+    min-width: 0 !important;
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+    white-space: nowrap;
   }
 }

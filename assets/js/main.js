@@ -11,6 +11,11 @@ const modalFooterPositions = new WeakMap();
 
 document.documentElement.classList.add("js");
 
+document.querySelectorAll(".modal-related-buttons a").forEach((link) => {
+  const labelLength = Array.from(link.textContent.trim()).length;
+  link.style.setProperty("--label-length", String(labelLength));
+});
+
 function trackEvent(name, params = {}) {
   if (typeof window.gtag !== "function") return;
   window.gtag("event", name, {
