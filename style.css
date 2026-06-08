@@ -142,11 +142,12 @@ section[id] {
 }
 
 @media (min-width: 901px) {
-  .global-menu a:nth-child(2),
-  .global-menu a:nth-child(3),
-  .global-menu a:nth-child(4),
-  .global-menu a:nth-child(5),
   .global-menu a:nth-child(6),
+  .global-menu a:nth-child(7),
+  .global-menu a:nth-child(8),
+  .global-menu a:nth-child(9),
+  .global-menu a:nth-child(10),
+  .global-menu a:nth-child(11),
   .global-menu a:nth-child(13) {
     display: none;
   }
@@ -1430,6 +1431,15 @@ dd {
   background: #071018;
 }
 
+.modal-panel > img.modal-wide {
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  object-position: center;
+  background: #071018;
+}
+
 .modal-body {
   padding: 42px clamp(22px, 5vw, 64px) 56px;
   opacity: 0;
@@ -1824,9 +1834,8 @@ dd {
 }
 
 @media (min-width: 901px) and (max-width: 1180px) {
-  .global-menu a:nth-child(9),
-  .global-menu a:nth-child(10),
-  .global-menu a:nth-child(14) {
+  .global-menu a:nth-child(4),
+  .global-menu a:nth-child(5) {
     display: none;
   }
 }
@@ -5618,9 +5627,105 @@ dd {
   text-align: center;
 }
 
+.entry-link-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  width: min(1100px, 100%);
+  margin: 34px auto 0;
+}
+
+.entry-link-grid a {
+  display: grid;
+  gap: 8px;
+  min-height: 170px;
+  padding: 22px;
+  background: #fff;
+  border: 1px solid rgba(18, 20, 23, 0.1);
+  border-top: 4px solid var(--red);
+  box-shadow: 0 18px 38px rgba(7, 16, 24, 0.08);
+  align-content: center;
+}
+
+.entry-link-grid strong {
+  font-size: clamp(1.25rem, 2vw, 1.75rem);
+  line-height: 1.2;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+}
+
+.entry-link-grid small {
+  color: #606873;
+  font-size: 1rem;
+  line-height: 1.35;
+  font-weight: 900;
+}
+
+.entry-link-grid span {
+  color: var(--ink);
+  font-size: 1.15rem;
+  font-weight: 900;
+}
+
+.section-photo:has(> img[src*="block-"]) {
+  aspect-ratio: 5 / 6 !important;
+  padding: 0;
+  background: #071018;
+}
+
+.section-photo > img[src*="block-"] {
+  width: 100%;
+  height: 100%;
+  object-fit: cover !important;
+  object-position: center !important;
+}
+
+.footer-info-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 46px;
+  margin-top: 18px;
+  padding: 10px 18px;
+  border: 1px solid rgba(255, 255, 255, 0.32);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  font: inherit;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.footer-info-button .inline-more {
+  color: #fff;
+}
+
 @media (max-width: 600px) {
   .modal-related-buttons {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 900px) {
+  .entry-link-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .entry-link-grid a {
+    min-height: 132px;
+    padding: 16px;
+  }
+}
+
+@media (max-width: 600px) {
+  .entry-link-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .entry-link-grid a {
+    min-height: 112px;
   }
 }
 
@@ -5774,5 +5879,45 @@ dd {
     font-size: clamp(0.6rem, 2.85vw, 0.78rem) !important;
     line-height: 1.15 !important;
     white-space: nowrap !important;
+  }
+}
+
+/* New 2026 recruitment posters and modal graphics */
+.section-photo:has(> img[src*="block-"]) {
+  aspect-ratio: 5 / 6 !important;
+  background: #071018 !important;
+}
+
+.section-photo > img[src*="block-"],
+.is-inview .section-photo > img[src*="block-"] {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  transform: none !important;
+}
+
+.modal-panel > img.modal-wide {
+  aspect-ratio: 16 / 9 !important;
+  width: 100% !important;
+  height: auto !important;
+  object-fit: cover !important;
+  object-position: center !important;
+}
+
+/* Keep the first-view title on one line and emphasize it with color. */
+.hero h1 {
+  color: #005bac !important;
+  font-size: clamp(2rem, 3.2vw, 3.05rem) !important;
+  line-height: 1.05 !important;
+  letter-spacing: -0.09em !important;
+  white-space: nowrap !important;
+  text-shadow: 0 10px 26px rgba(0, 91, 172, 0.16);
+}
+
+@media (max-width: 600px) {
+  .hero h1 {
+    font-size: clamp(1.05rem, 4.75vw, 1.2rem) !important;
+    letter-spacing: -0.11em !important;
   }
 }

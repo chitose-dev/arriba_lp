@@ -1,6 +1,6 @@
 # ARRIBA LP Project Memory
 
-Last updated: 2026-05-30
+Last updated: 2026-06-08
 
 ## Current Production State
 
@@ -31,9 +31,9 @@ WordPress files and database were moved out of the public root and backed up on 
 ## Source Control
 
 - GitHub remote: `https://github.com/chitose-dev/arriba_lp.git`
-- Main branch contains the deployed GA4 tag/events and the non-credentialed update manual.
-- Latest pushed commit after GA4/manual work: `4e87c6b Add GA4 events and update manual`
-- Production `index.html` and `assets/js/main.js` were verified to match local hashes after deployment.
+- Main branch contains the deployed GA4 tag/events, the non-credentialed update manual, and the June 2026 LP content/layout rebuild.
+- Current local and `origin/main` head at the 2026-06-08 check: `0f3b05a Use current sixth grade wording`.
+- Production `index.html` and `assets/js/main.js` were verified to match local hashes after the GA4/manual deployment; production has not been re-verified in this memory after the June LP rebuild.
 
 ## GA4
 
@@ -50,6 +50,24 @@ WordPress files and database were moved out of the public root and backed up on 
   - `trial_cta_click`
   - `line_click`
   - `phone_click`
+
+## June 2026 LP Rebuild
+
+- The LP was updated on 2026-06-04 and 2026-06-05 with revised recruitment copy, new `assets/img/arriba-2026/` images, modal-heavy detail sections, and mobile hero/CTA refinements.
+- Current top-level LP copy uses audience labels such as `現在中学生`, `現在6年生`, `現在小学生`, and `スクール希望`.
+- Current stylesheet and script cache versions in `index.html` are `20260604-arriba-rebuild`.
+- Local verification on 2026-06-08:
+  - `git status --short` was clean before this memory update.
+  - `http://127.0.0.1:8088/` returned 200 via `python3 -m http.server`.
+  - `node --check assets/js/main.js` passed.
+  - Local referenced assets/pages, page anchors, and modal `data-modal` targets all resolved.
+  - PHP CLI was not installed locally, so `practice_session/*.php` lint could not be run on this machine.
+- Additional local update on 2026-06-08:
+  - Four recruitment entry items were moved into independent blocks in this order: `ジュニアユース募集`, `2027年度体験会`, `ジュニア募集`, `花屋敷校スクール`.
+  - New downloaded images were copied into `assets/img/arriba-2026/` with ASCII filenames.
+  - Modal hero images use `modal-*.jpg` assets at a 16:9 layout with no letterbox padding from CSS.
+  - Added modal triggers/assets for FAQ, final CTA, and footer club information.
+  - Local checks passed for HTML references, modal targets, anchor targets, `node --check assets/js/main.js`, and Playwright screenshots for desktop/mobile views.
 
 ## Update Manuals
 
