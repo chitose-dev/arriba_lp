@@ -16,6 +16,100 @@ document.querySelectorAll(".modal-related-buttons a").forEach((link) => {
   link.style.setProperty("--label-length", String(labelLength));
 });
 
+function escapeArticleHtml(value) {
+  return value
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;");
+}
+
+function renderArticleInline(value) {
+  return escapeArticleHtml(value)
+    .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
+    .replace(/__(.+?)__/g, '<span class="article-underline">$1</span>')
+    .replace(/==(.+?)==/g, "<mark>$1</mark>")
+    .replace(/\^\^(.+?)\^\^/g, '<span class="article-blue">$1</span>');
+}
+
+function renderModalArticle(markdown) {
+  const output = [];
+  let listItems = [];
+
+  const flushList = () => {
+    if (!listItems.length) return;
+    output.push(`<ul>${listItems.join("")}</ul>`);
+    listItems = [];
+  };
+
+  markdown.trim().split(/\r?\n/).forEach((rawLine) => {
+    const line = rawLine.trim();
+    if (!line) {
+      flushList();
+      return;
+    }
+    if (line.startsWith("- ")) {
+      listItems.push(`<li>${renderArticleInline(line.slice(2))}</li>`);
+      return;
+    }
+
+    flushList();
+    if (line.startsWith("### ")) {
+      output.push(`<h3>${renderArticleInline(line.slice(4))}</h3>`);
+    } else if (line.startsWith("> ")) {
+      output.push(`<p class="modal-article-lead">${renderArticleInline(line.slice(2))}</p>`);
+    } else if (line.startsWith("! ")) {
+      output.push(`<p class="modal-article-note">${renderArticleInline(line.slice(2))}</p>`);
+    } else {
+      output.push(`<p>${renderArticleInline(line)}</p>`);
+    }
+  });
+  flushList();
+  return output.join("");
+}
+
+function parseModalArticles(source) {
+  const articles = new Map();
+  const sectionPattern = /<!--\s*modal:([\w-]+)\s*-->([\s\S]*?)(?=<!--\s*modal:|$)/g;
+  let match;
+
+  while ((match = sectionPattern.exec(source)) !== null) {
+    articles.set(match[1], match[2].trim());
+  }
+  return articles;
+}
+
+function replaceModalIntro(modal, markdown) {
+  const body = modal.querySelector(".modal-body");
+  const heading = body?.querySelector(":scope > h2");
+  if (!body || !heading || !markdown) return;
+
+  const fallbackParagraphs = [];
+  let sibling = heading.nextElementSibling;
+  while (sibling?.tagName === "P") {
+    fallbackParagraphs.push(sibling);
+    sibling = sibling.nextElementSibling;
+  }
+
+  const article = document.createElement("div");
+  article.className = "modal-article";
+  article.innerHTML = renderModalArticle(markdown);
+  heading.insertAdjacentElement("afterend", article);
+  fallbackParagraphs.forEach((paragraph) => paragraph.remove());
+}
+
+fetch("./assets/content/modal-articles.md?v=20260609-rich-copy")
+  .then((response) => {
+    if (!response.ok) throw new Error(`Modal article load failed: ${response.status}`);
+    return response.text();
+  })
+  .then((source) => {
+    const articles = parseModalArticles(source);
+    modals.forEach((modal) => replaceModalIntro(modal, articles.get(modal.id)));
+  })
+  .catch(() => {
+    // The original HTML paragraphs remain as a fallback if the copy file cannot load.
+  });
+
 function trackEvent(name, params = {}) {
   if (typeof window.gtag !== "function") return;
   window.gtag("event", name, {
