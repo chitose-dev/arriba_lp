@@ -6468,16 +6468,42 @@ dd {
 /* Use the first-view blue for every main-page section title. */
 main > section h2 {
   color: #005bac !important;
-  font-size: clamp(2rem, 3.2vw, 3.05rem) !important;
+  font-size: var(
+    --heading-fit-size,
+    clamp(
+      2.2rem,
+      min(3.7vw, calc(4.2rem - (var(--heading-length, 8) * 0.075rem))),
+      3.55rem
+    )
+  ) !important;
   line-height: 1.05 !important;
   font-weight: 900;
   letter-spacing: -0.09em !important;
   text-shadow: 0 8px 22px rgba(0, 91, 172, 0.12);
 }
 
+main > section h2:not(.recruit-title) {
+  white-space: nowrap;
+}
+
+#final h2 {
+  white-space: normal;
+}
+
 @media (max-width: 600px) {
   main > section h2 {
-    font-size: clamp(1.05rem, 4.75vw, 1.2rem) !important;
+    font-size: var(
+      --heading-fit-size,
+      clamp(
+        1.08rem,
+        min(5.8vw, calc(1.72rem - (var(--heading-length, 8) * 0.035rem))),
+        1.5rem
+      )
+    ) !important;
     letter-spacing: -0.11em !important;
+  }
+
+  #entries {
+    grid-template-columns: minmax(0, 74fr) minmax(80px, 26fr);
   }
 }

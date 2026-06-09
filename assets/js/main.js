@@ -15,6 +15,40 @@ document.querySelectorAll(".modal-related-buttons a").forEach((link) => {
   link.style.setProperty("--label-length", String(labelLength));
 });
 
+const sectionHeadings = document.querySelectorAll("main > section h2");
+
+sectionHeadings.forEach((heading) => {
+  const lines = heading.classList.contains("recruit-title")
+    ? Array.from(heading.querySelectorAll(":scope > span"), (span) => span.textContent.trim())
+    : [heading.textContent.trim()];
+  const headingLength = Math.max(...lines.map((line) => Array.from(line).length));
+  heading.style.setProperty("--heading-length", String(headingLength));
+});
+
+function fitSingleLineSectionHeadings() {
+  sectionHeadings.forEach((heading) => {
+    heading.style.removeProperty("--heading-fit-size");
+    if (heading.classList.contains("recruit-title") || heading.closest("#final")) return;
+
+    const availableWidth = heading.clientWidth;
+    const requiredWidth = heading.scrollWidth;
+    if (!availableWidth || requiredWidth <= availableWidth) return;
+
+    const baseSize = Number.parseFloat(getComputedStyle(heading).fontSize);
+    const fittedSize = Math.max(15.5, baseSize * (availableWidth / requiredWidth) * 0.98);
+    heading.style.setProperty("--heading-fit-size", `${fittedSize}px`);
+  });
+}
+
+requestAnimationFrame(fitSingleLineSectionHeadings);
+document.fonts?.ready.then(fitSingleLineSectionHeadings);
+
+let headingResizeFrame = null;
+window.addEventListener("resize", () => {
+  cancelAnimationFrame(headingResizeFrame);
+  headingResizeFrame = requestAnimationFrame(fitSingleLineSectionHeadings);
+});
+
 function prepareModalPanel(modal) {
   const panel = modal.querySelector(".modal-panel");
   const body = panel?.querySelector(":scope > .modal-body");
