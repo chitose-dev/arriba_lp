@@ -166,9 +166,6 @@ section[id] {
 
 @media (max-width: 600px) {
   .recruit-title {
-    font-size: clamp(1.05rem, 4.75vw, 1.2rem) !important;
-    line-height: 1.08 !important;
-    letter-spacing: -0.09em;
     overflow-wrap: normal;
     word-break: keep-all;
   }
@@ -6471,5 +6468,16 @@ dd {
 /* Use the first-view blue for every main-page section title. */
 main > section h2 {
   color: #005bac !important;
+  font-size: clamp(2rem, 3.2vw, 3.05rem) !important;
+  line-height: 1.05 !important;
+  font-weight: 900;
+  letter-spacing: -0.09em !important;
   text-shadow: 0 8px 22px rgba(0, 91, 172, 0.12);
+}
+
+@media (max-width: 600px) {
+  main > section h2 {
+    font-size: clamp(1.05rem, 4.75vw, 1.2rem) !important;
+    letter-spacing: -0.11em !important;
+  }
 }
