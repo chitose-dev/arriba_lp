@@ -6376,3 +6376,73 @@ dd {
     pointer-events: none;
   }
 }
+
+/* Desktop modal reading layout. Mobile modal rules stay unchanged. */
+@media (min-width: 901px) {
+  .modal {
+    padding: 24px 32px;
+  }
+
+  .modal-panel {
+    width: min(1080px, calc(100vw - 64px));
+    max-height: calc(100vh - 48px);
+    max-height: calc(100dvh - 48px);
+    border-radius: 14px;
+  }
+
+  .modal-scroll > img.modal-wide {
+    width: 100% !important;
+    height: clamp(220px, 30dvh, 310px) !important;
+    aspect-ratio: auto !important;
+    object-fit: cover !important;
+    object-position: center 42% !important;
+  }
+
+  .modal-body {
+    width: min(900px, 100%);
+    margin: 0 auto;
+    padding: 32px 58px 48px;
+  }
+
+  .modal-body h2 {
+    margin: 0;
+    font-size: clamp(2rem, 3vw, 2.55rem);
+    line-height: 1.16;
+  }
+
+  .modal-article {
+    gap: 16px;
+    max-width: 780px;
+    margin: 22px auto 28px;
+  }
+
+  .modal-article p {
+    font-size: 1rem;
+    line-height: 1.85;
+  }
+
+  .modal-article .modal-article-lead {
+    padding: 18px 22px 18px 25px;
+    font-size: clamp(1.08rem, 1.5vw, 1.28rem);
+    line-height: 1.7;
+  }
+
+  .modal-article h3 {
+    font-size: clamp(1.08rem, 1.5vw, 1.3rem);
+  }
+
+  .modal-article li {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 0.96rem;
+  }
+
+  .modal-detail-grid,
+  .modal-map,
+  .modal-related,
+  .modal-footer-actions {
+    max-width: 780px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
