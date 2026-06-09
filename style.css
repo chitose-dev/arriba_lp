@@ -1391,6 +1391,10 @@ dd {
   overscroll-behavior: contain;
 }
 
+.modal-scroll {
+  min-height: 0;
+}
+
 .modal.is-open .modal-panel {
   opacity: 1;
   transform: none;
@@ -1424,7 +1428,7 @@ dd {
   outline-offset: 3px;
 }
 
-.modal-panel > img {
+.modal-scroll > img {
   width: 100%;
   aspect-ratio: 16 / 9;
   object-fit: cover;
@@ -1433,12 +1437,12 @@ dd {
   transition: opacity 0.42s ease 0.08s, transform 0.62s ease 0.08s;
 }
 
-.modal.is-open .modal-panel > img {
+.modal.is-open .modal-scroll > img {
   opacity: 1;
   transform: scale(1);
 }
 
-.modal-panel > img.modal-portrait {
+.modal-scroll > img.modal-portrait {
   aspect-ratio: 4 / 5;
   max-height: 720px;
   object-fit: contain;
@@ -1446,7 +1450,7 @@ dd {
   background: #071018;
 }
 
-.modal-panel > img.modal-poster {
+.modal-scroll > img.modal-poster {
   aspect-ratio: auto;
   width: min(720px, 100%);
   max-height: none;
@@ -1456,7 +1460,7 @@ dd {
   background: #071018;
 }
 
-.modal-panel > img.modal-wide {
+.modal-scroll > img.modal-wide {
   aspect-ratio: 16 / 9;
   width: 100%;
   height: auto;
@@ -1472,7 +1476,7 @@ dd {
   transition: opacity 0.34s ease 0.14s, transform 0.42s cubic-bezier(0.22, 1, 0.36, 1) 0.14s;
 }
 
-.modal-panel:not(:has(> img)) .modal-body {
+.modal-scroll:not(:has(> img)) .modal-body {
   padding-top: 72px;
 }
 
@@ -2847,18 +2851,18 @@ dd {
     border-radius: 12px;
   }
 
-  .modal-panel > img {
+  .modal-scroll > img {
     height: clamp(190px, 52vw, 310px);
     aspect-ratio: auto;
   }
 
-  .modal-panel > img.modal-portrait {
+  .modal-scroll > img.modal-portrait {
     height: clamp(300px, 94vw, 520px);
     aspect-ratio: auto;
     object-position: center top;
   }
 
-  .modal-panel > img.modal-poster {
+  .modal-scroll > img.modal-poster {
     width: 100%;
     height: auto;
     max-height: none;
@@ -3939,13 +3943,23 @@ dd {
 
   .modal-panel {
     bottom: -96px;
+    display: flex;
+    flex-direction: column;
     max-height: calc(100vh - 68px - env(safe-area-inset-bottom));
     max-height: calc(100dvh - 68px - env(safe-area-inset-bottom));
     border-radius: 14px 14px 0 0;
-    overflow-x: hidden;
-    overflow-y: auto;
+    overflow: hidden;
     transform: none;
     transition: opacity 0.5s ease, bottom 0.82s cubic-bezier(0.16, 1, 0.3, 1);
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .modal-scroll {
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior: contain;
     -webkit-overflow-scrolling: touch;
   }
 
@@ -3971,7 +3985,7 @@ dd {
     overflow-x: clip;
   }
 
-  .modal-panel:not(:has(> img)) .modal-body {
+  .modal-scroll:not(:has(> img)) .modal-body {
     padding-top: 58px;
   }
 
@@ -3992,9 +4006,13 @@ dd {
 
   .modal-footer-actions {
     position: static;
+    flex: 0 0 auto;
     gap: 10px;
-    margin: 28px 0 0;
-    padding: 0 0 env(safe-area-inset-bottom);
+    margin: 0;
+    padding: 12px 12px calc(12px + env(safe-area-inset-bottom));
+    background: #fff;
+    border-top: 1px solid rgba(18, 20, 23, 0.12);
+    box-shadow: 0 -14px 30px rgba(7, 16, 24, 0.08);
   }
 
   .modal-footer-actions::before {
@@ -5766,6 +5784,10 @@ dd {
 }
 
 @media (min-width: 901px) {
+  .modal-scroll {
+    display: contents;
+  }
+
   .modal-footer-actions {
     position: static;
     margin-top: 34px;
@@ -6125,7 +6147,7 @@ dd {
   transform: none !important;
 }
 
-.modal-panel > img.modal-wide {
+.modal-scroll > img.modal-wide {
   aspect-ratio: 16 / 9 !important;
   width: 100% !important;
   height: auto !important;

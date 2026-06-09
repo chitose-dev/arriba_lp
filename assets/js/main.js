@@ -15,6 +15,23 @@ document.querySelectorAll(".modal-related-buttons a").forEach((link) => {
   link.style.setProperty("--label-length", String(labelLength));
 });
 
+function prepareModalPanel(modal) {
+  const panel = modal.querySelector(".modal-panel");
+  const body = panel?.querySelector(":scope > .modal-body");
+  const footer = body?.querySelector(":scope > .modal-footer-actions");
+  const image = panel?.querySelector(":scope > img");
+  if (!panel || !body || !footer || panel.querySelector(":scope > .modal-scroll")) return;
+
+  const scrollArea = document.createElement("div");
+  scrollArea.className = "modal-scroll";
+  panel.insertBefore(scrollArea, body);
+  if (image) scrollArea.appendChild(image);
+  scrollArea.appendChild(body);
+  panel.appendChild(footer);
+}
+
+modals.forEach(prepareModalPanel);
+
 function escapeArticleHtml(value) {
   return value
     .replace(/&/g, "&amp;")
