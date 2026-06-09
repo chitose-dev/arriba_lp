@@ -6467,3 +6467,9 @@ dd {
     margin-right: auto;
   }
 }
+
+/* Use the first-view blue for every main-page section title. */
+main > section h2 {
+  color: #005bac !important;
+  text-shadow: 0 8px 22px rgba(0, 91, 172, 0.12);
+}
