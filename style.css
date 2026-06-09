@@ -6479,6 +6479,7 @@ main > section h2 {
   line-height: 1.05 !important;
   font-weight: 900;
   letter-spacing: -0.09em !important;
+  margin-bottom: 0 !important;
   text-shadow: 0 8px 22px rgba(0, 91, 172, 0.12);
 }
 
@@ -6486,8 +6487,18 @@ main > section h2:not(.recruit-title) {
   white-space: nowrap;
 }
 
+main > section:not(#final) h2 + .modal-teaser {
+  margin-top: 28px !important;
+}
+
 #final h2 {
   white-space: normal;
+}
+
+@media (max-width: 1100px) {
+  main > section:not(#final) h2 + .modal-teaser {
+    margin-top: 14px !important;
+  }
 }
 
 @media (max-width: 600px) {
@@ -6505,5 +6516,9 @@ main > section h2:not(.recruit-title) {
 
   #entries {
     grid-template-columns: minmax(0, 74fr) minmax(80px, 26fr);
+  }
+
+  main > section:not(#final) h2 + .modal-teaser {
+    margin-top: 12px !important;
   }
 }

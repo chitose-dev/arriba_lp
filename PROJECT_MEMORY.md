@@ -57,7 +57,7 @@ WordPress files and database were moved out of the public root and backed up on 
 - The LP was updated through 2026-06-09 with revised recruitment copy, new `assets/img/arriba-2026/` images, modal-heavy detail sections, and responsive layout refinements.
 - Current top-level LP copy uses audience labels such as `現在中学生`, `現在6年生`, `現在小学生`, and `スクール希望`.
 - Current cache versions in `index.html`:
-  - CSS: `20260609-larger-section-headings`
+  - CSS: `20260609-section-heading-spacing`
   - JavaScript: `20260609-section-heading-length`
   - Modal article fetch: `20260609-school-name`
 - Local verification on 2026-06-08:
@@ -85,6 +85,7 @@ WordPress files and database were moved out of the public root and backed up on 
   - Every main-page section `h2` uses the same first-view blue `#005bac`, responsive font size, line height, weight, and letter spacing as the hero title. This applies to all 14 page sections. Modal article headings remain black.
   - Main-page section headings are larger than the earlier hero-matched baseline. JavaScript sets `--heading-length` and, when needed, `--heading-fit-size` from the actual rendered width so longer titles scale down only enough to fit.
   - Non-recruitment headings do not wrap except the long final CTA, which may wrap naturally on narrow screens. The ENTRY title is forced to one line, and its mobile text column is widened so it remains prominent at 320px. Recruitment headings retain their intentional title/target structure.
+  - Main section title-to-copy spacing follows the hero rhythm: 12px on phones, 14px through 1100px, and 28px on wide desktop. Section-heading bottom margins are reset so they do not stack with paragraph margins.
   - Current confirmed practice schedule:
     - 火・水・金: 小学生低学年 17:30-19:00、小学生高学年 18:00-20:00、中学生 18:00-20:00
     - 日・休・祝: 主に近隣のグラウンドにて試合
