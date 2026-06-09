@@ -32,7 +32,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/img/favicon-32.png">
   <link rel="icon" type="image/png" sizes="192x192" href="./assets/img/favicon-192.png">
   <link rel="apple-touch-icon" sizes="180x180" href="./assets/img/apple-touch-icon.png">
-  <link rel="stylesheet" href="./style.css?v=20260608-modal-buttons">
+  <link rel="stylesheet" href="./style.css?v=20260609-entry-place-modal">
 </head>
 <body>
   <header class="site-header" id="top">
@@ -92,11 +92,28 @@
         <h2>学年・目的別に<br>入口を選ぶ</h2>
         <p class="modal-teaser" role="button" tabindex="0" data-modal="modal-category">アリバでは、現在中学生、現在6年生、現在小学生、スクール希望者で案内内容を分けています。同じサッカーでも、今必要な環境、体験の目的、申し込む理由は違います。<span class="inline-more">続き ＞</span></p>
       </div>
-      <div class="entry-link-grid" data-animate="slideRight">
-        <a href="#junior-youth"><strong>ジュニアユース募集</strong><small>現在中学生</small><span>続き ＞</span></a>
-        <a href="#trial-2027"><strong>2027年度体験会</strong><small>現在6年生</small><span>続き ＞</span></a>
-        <a href="#junior"><strong>ジュニア募集</strong><small>現在小学生</small><span>続き ＞</span></a>
-        <a href="#school"><strong>花屋敷校スクール</strong><small>火曜・水曜</small><span>続き ＞</span></a>
+      <div class="category-layout" data-animate="slideRight">
+        <figure class="category-main">
+          <img src="./assets/img/arriba-2026/entries.jpg" alt="学年・目的別に選べるアリバサッカークラブの募集入口">
+        </figure>
+        <div class="category-list">
+          <a class="entry-choice" href="#junior-youth">
+            <img class="category-poster-thumb" src="./assets/img/arriba-2026/junior-youth-current.jpg" alt="">
+            <span class="category-text"><strong>ジュニアユース募集</strong><small>現在中学生<br>途中入部・移籍相談。<span class="text-more">続き ＞</span></small></span>
+          </a>
+          <a class="entry-choice" href="#trial-2027">
+            <img class="category-poster-thumb" src="./assets/img/arriba-2026/trial-2027.jpg" alt="">
+            <span class="category-text"><strong>2027年度体験会</strong><small>現在6年生<br>新中1準備。<span class="text-more">続き ＞</span></small></span>
+          </a>
+          <a class="entry-choice" href="#junior">
+            <img class="category-poster-thumb" src="./assets/img/arriba-2026/junior.jpg" alt="">
+            <span class="category-text"><strong>ジュニア募集</strong><small>現在小学生<br>中学年代への土台作り。<span class="text-more">続き ＞</span></small></span>
+          </a>
+          <a class="entry-choice" href="#school">
+            <img class="category-poster-thumb" src="./assets/img/arriba-2026/hanayashiki-school.jpg" alt="">
+            <span class="category-text"><strong>花屋敷校スクール</strong><small>火曜・水曜<br>送迎あり・当番なし。<span class="text-more">続き ＞</span></small></span>
+          </a>
+        </div>
       </div>
     </section>
 
@@ -330,7 +347,16 @@
       <figure class="place-photo" data-animate="slideRight"><img src="./assets/img/arriba-2026/place.jpg" alt="花屋敷グラウンド"></figure>
       <dl class="place-list">
         <div><dt>住所</dt><dd>宝塚市花屋敷荘園4-2-35</dd></div>
-        <div><dt>通常練習</dt><dd>火・水・金 18:00〜20:00</dd></div>
+        <div>
+          <dt>通常練習</dt>
+          <dd>
+            <strong>火・水・金</strong>
+            <span>小学生低学年 17:30-19:00</span>
+            <span>小学生高学年 18:00-20:00</span>
+            <span>中学生 18:00-20:00</span>
+          </dd>
+        </div>
+        <div><dt>日・休・祝</dt><dd>主に近隣のグラウンドにて試合</dd></div>
         <div><dt>補足</dt><dd>送迎相談あり・保護者当番なし</dd></div>
       </dl>
       <div class="place-actions" data-animate="slideRight">
@@ -428,6 +454,7 @@
         <p>アリバは、一人ひとりを見て、考えてプレーできる選手を育てる。そして、次のステージまで本気でつなぐクラブです。</p>
         <p>ただ練習するだけでは終わらせません。ただ技術を増やすだけでは終わらせません。ただ試合に勝つだけで終わらせません。</p>
         <p>なぜ見えなかったのか。なぜ判断が遅れたのか。なぜ技術が試合で出なかったのか。なぜ身体が間に合わなかったのか。そこまで見て、選手一人ひとりに必要な声かけをします。</p>
+        <div class="modal-related"><h3>関連してよく見られる内容</h3><div class="modal-related-buttons"><a href="#about">指導理念</a><a href="#method">指導内容</a><a href="#career">進路実績</a><a href="#trial">無料体験</a></div></div>
         <div class="modal-footer-actions">
           <a class="btn btn-primary" href="/practice_session/">体験申込</a>
           <button class="modal-bottom modal-close" type="button">閉じる</button>
@@ -527,6 +554,7 @@
         <p>試合には出ているけれど成長を感じにくい、練習はしているけれど自分の課題が分からない、高校年代を見据えて今から本気で変わりたい。そんな選手に必要なのは、ただ練習量を増やすことだけではありません。</p>
         <p>大切なのは、今の自分に何が足りないのかを整理し、どこを見れば判断が変わるのか、どの技術をどの場面で使うべきなのか、どんな身体の使い方を身につけるべきなのかを明確にすることです。</p>
         <p>アリバでは、技術、認知、判断、身体操作、プレーへの向き合い方を一人ひとり見ながら、次のステージで必要になる力を積み上げていきます。途中入部、移籍、現在の悩み、進路への不安がある場合も、まずは無料体験で練習の雰囲気と指導内容を確認してください。</p>
+        <div class="modal-related"><h3>関連してよく見られる内容</h3><div class="modal-related-buttons"><a href="#career">進路実績</a><a href="#about">指導理念</a><a href="#parent">保護者安心</a><a href="#trial">無料体験</a></div></div>
         <div class="modal-footer-actions">
           <a class="btn btn-primary" href="/practice_session/">体験申込</a>
           <button class="modal-bottom modal-close" type="button">閉じる</button>
@@ -546,6 +574,7 @@
         <p>中学生になると、身体の強さ、プレーの速さ、判断の早さ、相手との駆け引き、味方との関係性が一気に求められます。ただボールを上手く扱えるだけではなく、見る力、判断する力、選ぶ力、実行する力、失敗しても考え直す力が必要になります。</p>
         <p>アリバでは、小学生のうちから中学年代を見据え、技術だけでなく、認知、判断、身体操作、非認知能力まで含めて育てていきます。今すぐ完成された選手である必要はありません。</p>
         <p>全国レベルの高校進学を目指したい選手、本気で自分を変えたい選手、考えてプレーできるようになりたい選手は、まず体験会でアリバの練習を感じてください。参加無料で、複数回の参加相談も可能です。</p>
+        <div class="modal-related"><h3>関連してよく見られる内容</h3><div class="modal-related-buttons"><a href="#about">指導理念</a><a href="#career">進路実績</a><a href="#parent">保護者安心</a><a href="#trial">無料体験</a></div></div>
         <div class="modal-footer-actions">
           <a class="btn btn-primary" href="/practice_session/">体験申込</a>
           <button class="modal-bottom modal-close" type="button">閉じる</button>
@@ -565,6 +594,7 @@
         <p>見る、考える、選ぶ、動く、実行する。この流れを小学生年代から積み上げることで、中学年代に入った時の成長が大きく変わります。技術練習も、ただ同じ動きを繰り返すのではなく、相手、味方、スペース、ゴール、時間を意識しながら行います。</p>
         <p>小学生のうちは、失敗を恐れずにチャレンジすることも大切です。上手くいかなかった時に、なぜ失敗したのか、次は何を変えるのかを考えることで、サッカーだけでなく物事に向き合う力も育ちます。</p>
         <p>今の上手い・下手だけで判断するのではなく、サッカーが好きで成長したい気持ちを大切にしています。中学年代へつながる土台を作りたい選手は、まず体験で練習の雰囲気、コーチの声かけ、選手との距離感を確認してください。</p>
+        <div class="modal-related"><h3>関連してよく見られる内容</h3><div class="modal-related-buttons"><a href="#about">指導理念</a><a href="#method">指導内容</a><a href="#parent">保護者安心</a><a href="#trial">無料体験</a></div></div>
         <div class="modal-footer-actions">
           <a class="btn btn-primary" href="/practice_session/">体験申込</a>
           <button class="modal-bottom modal-close" type="button">閉じる</button>
@@ -584,6 +614,7 @@
         <p>もっと上手くなりたいけれど、いきなりチームに入るのは不安。今のチーム活動に加えて、平日にもう少し練習したい。試合で使える技術や判断力を身につけたい。そうした選手のためのスクールです。</p>
         <p>練習では、ボールを扱う技術だけではなく、見る力、判断する力、身体操作、相手との駆け引きも大切にします。練習したことを試合で使えるように、状況を見てプレーを選ぶ力まで育てていきます。</p>
         <p>対象は小学1年生から中学2年生です。火曜のみ、水曜のみ、火曜と水曜の両方など、参加方法を選べます。送迎あり、保護者当番なし、チーム登録なしで参加できるため、まずは体験で、お子さまに合う環境かどうかを確認してください。</p>
+        <div class="modal-related"><h3>関連してよく見られる内容</h3><div class="modal-related-buttons"><a href="#method">指導内容</a><a href="#parent">保護者安心</a><a href="#junior">ジュニア募集</a><a href="#trial">無料体験</a></div></div>
         <div class="modal-footer-actions">
           <a class="btn btn-primary" href="/practice_session/">体験申込</a>
           <button class="modal-bottom modal-close" type="button">閉じる</button>
@@ -645,12 +676,14 @@
         <p>集中して取り組める、花屋敷グラウンド。平日の通常練習は、宝塚市の花屋敷グラウンドで行っています。</p>
         <div class="modal-detail-grid">
           <div class="modal-detail-card"><h3>住所</h3><p>宝塚市花屋敷荘園4-2-35</p></div>
-          <div class="modal-detail-card"><h3>通常練習</h3><p>火曜日・水曜日・金曜日 18:00〜20:00</p></div>
+          <div class="modal-detail-card"><h3>通常練習</h3><p><strong>火・水・金</strong><br>小学生低学年 17:30-19:00<br>小学生高学年 18:00-20:00<br>中学生 18:00-20:00</p></div>
+          <div class="modal-detail-card"><h3>日・休・祝</h3><p>主に近隣のグラウンドにて試合</p></div>
           <div class="modal-detail-card"><h3>補足</h3><p>送迎相談あり。保護者当番なし。</p></div>
         </div>
         <div class="modal-map">
           <iframe title="花屋敷グラウンドの地図" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=%E5%AE%9D%E5%A1%9A%E5%B8%82%E8%8A%B1%E5%B1%8B%E6%95%B7%E8%8D%98%E5%9C%924-2-35&output=embed"></iframe>
         </div>
+        <div class="modal-related"><h3>関連してよく見られる内容</h3><div class="modal-related-buttons"><a href="#parent">保護者安心</a><a href="#method">指導内容</a><a href="#school">スクール</a><a href="#trial">無料体験</a></div></div>
         <div class="modal-footer-actions">
           <a class="btn btn-primary" href="/practice_session/">体験申込</a>
           <button class="modal-bottom modal-close" type="button">閉じる</button>
@@ -688,6 +721,7 @@
         <h2 id="modal-faq-title">よくある質問</h2>
         <p>現在中学生の途中入部・移籍相談、現在6年生の2027年度体験会、現在小学生のジュニア募集、花屋敷校スクールについて、参加前の不安を確認できます。</p>
         <p>保護者当番はありません。送迎は相談可能です。スクールはチーム登録なしで参加できます。</p>
+        <div class="modal-related"><h3>関連してよく見られる内容</h3><div class="modal-related-buttons"><a href="#junior-youth">現在中学生</a><a href="#trial-2027">現在6年生</a><a href="#school">スクール</a><a href="#trial">無料体験</a></div></div>
         <div class="modal-footer-actions">
           <a class="btn btn-primary" href="/practice_session/">体験申込</a>
           <button class="modal-bottom modal-close" type="button">閉じる</button>
@@ -701,9 +735,10 @@
     <div class="modal-panel">
       <button class="modal-back modal-close" type="button" aria-label="閉じる">&times;</button>
       <img class="modal-wide" src="./assets/img/arriba-2026/modal-final-cta.jpg" alt="最終申込ブロック">
-      <div class="modal-body">
+        <div class="modal-body">
         <h2 id="modal-final-cta-title">まずは体験で、練習の空気を。</h2>
         <p>選手への声かけ。一人ひとりを見る距離感。考えてプレーすることを大切にする空気。次のステージまで見据えた育成。まずは無料体験で、アリバの練習を感じてください。</p>
+        <div class="modal-related"><h3>関連してよく見られる内容</h3><div class="modal-related-buttons"><a href="#junior-youth">現在中学生</a><a href="#trial-2027">現在6年生</a><a href="#junior">小学生</a><a href="#school">スクール</a></div></div>
         <div class="modal-footer-actions">
           <a class="btn btn-primary" href="/practice_session/">体験申込</a>
           <button class="modal-bottom modal-close" type="button">閉じる</button>
@@ -717,9 +752,10 @@
     <div class="modal-panel">
       <button class="modal-back modal-close" type="button" aria-label="閉じる">&times;</button>
       <img class="modal-wide" src="./assets/img/arriba-2026/modal-club-info.jpg" alt="アリバサッカークラブ基本情報">
-      <div class="modal-body">
+        <div class="modal-body">
         <h2 id="modal-club-info-title">アリバサッカークラブ基本情報</h2>
         <p>川西市・猪名川町・川辺郡・池田市・伊丹市・宝塚市・西宮市・三田市・尼崎市・豊中市・箕面市・吹田市・花屋敷から通いやすいサッカークラブです。</p>
+        <div class="modal-related"><h3>関連してよく見られる内容</h3><div class="modal-related-buttons"><a href="#about">指導理念</a><a href="#place">練習場所</a><a href="#parent">保護者安心</a><a href="#trial">無料体験</a></div></div>
         <div class="modal-footer-actions">
           <a class="btn btn-primary" href="/practice_session/">体験申込</a>
           <button class="modal-bottom modal-close" type="button">閉じる</button>
@@ -729,6 +765,6 @@
     <button class="modal-floating-close modal-close" type="button">閉じる</button>
   </div>
 
-  <script src="./assets/js/main.js?v=20260608-modal-buttons"></script>
+  <script src="./assets/js/main.js?v=20260609-entry-place-modal"></script>
 </body>
 </html>
