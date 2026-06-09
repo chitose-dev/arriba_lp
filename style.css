@@ -153,19 +153,19 @@ section[id] {
   }
 }
 
-/* Match the junior-youth title to the blue first-view title. */
-#junior-youth h2 {
+/* Match all recruitment titles to the blue first-view title. */
+.recruit-title {
   color: #005bac;
   text-shadow: 0 8px 22px rgba(0, 91, 172, 0.12);
 }
 
-#junior-youth h2 span {
+.recruit-title span {
   display: block;
   white-space: nowrap;
 }
 
 @media (max-width: 600px) {
-  #junior-youth h2 {
+  .recruit-title {
     font-size: clamp(1.05rem, 4.75vw, 1.2rem) !important;
     line-height: 1.08 !important;
     letter-spacing: -0.09em;

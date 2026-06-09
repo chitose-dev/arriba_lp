@@ -32,7 +32,7 @@ WordPress files and database were moved out of the public root and backed up on 
 
 - GitHub remote: `https://github.com/chitose-dev/arriba_lp.git`
 - Main branch contains the deployed GA4 tag/events, the non-credentialed update manual, and the June 2026 LP content/layout rebuild.
-- Latest functional code commit at the 2026-06-09 memory update: `3c27157 Align junior youth title styling`.
+- Latest title-layout baseline before the next commit: `3c27157 Align junior youth title styling`.
 - GitHub Pages preview: `https://chitose-dev.github.io/arriba_lp/`
 - Production `index.html` and `assets/js/main.js` were verified to match local hashes after the GA4/manual deployment; production has not been re-verified in this memory after the June LP rebuild.
 
@@ -57,7 +57,7 @@ WordPress files and database were moved out of the public root and backed up on 
 - The LP was updated through 2026-06-09 with revised recruitment copy, new `assets/img/arriba-2026/` images, modal-heavy detail sections, and responsive layout refinements.
 - Current top-level LP copy uses audience labels such as `現在中学生`, `現在6年生`, `現在小学生`, and `スクール希望`.
 - Current cache versions in `index.html`:
-  - CSS: `20260609-junior-title`
+  - CSS: `20260609-recruit-titles`
   - JavaScript: `20260609-modal-docked-footer`
   - Modal article fetch: `20260609-long-copy`
 - Local verification on 2026-06-08:
@@ -81,7 +81,7 @@ WordPress files and database were moved out of the public root and backed up on 
   - Do not alter mobile layout or modal geometry unless explicitly requested. The verified 390px-wide layout has a two-column action footer and unchanged panel/scroll/footer dimensions.
   - Desktop modal readability is handled only in `@media (min-width: 901px)`: reduced hero-image height, wider panel, controlled article line length, and centered related links/actions.
   - Desktop checks passed at 1024x768, 1440x900, and 1920x1080. Mobile regression checks passed at 390x844 and 390x650.
-  - The `ジュニアユース募集 / 現在中学生` title is blue like the first-view title and uses explicit two-line spans so `募集` never breaks onto a separate line. Verified at 320px, 390px, and 430px widths.
+  - All four recruitment titles use the same blue first-view styling and explicit two-line spans: `ジュニアユース募集 / 現在中学生`, `2027年度体験会 / 現在6年生`, `ジュニア募集 / 現在小学生`, and `花屋敷校スクール / 火曜・水曜`. Verified without overflow at 320px, 390px, 430px, and 1024px widths.
   - Current confirmed practice schedule:
     - 火・水・金: 小学生低学年 17:30-19:00、小学生高学年 18:00-20:00、中学生 18:00-20:00
     - 日・休・祝: 主に近隣のグラウンドにて試合
