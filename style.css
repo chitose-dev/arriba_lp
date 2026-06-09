@@ -6108,7 +6108,7 @@ dd {
   }
 
   .circle-points::before {
-    content: "育成ポイント";
+    content: attr(data-label);
     position: absolute;
     top: 0;
     left: 0;
