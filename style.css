@@ -179,16 +179,31 @@ section[id] {
 }
 
 .menu-toggle span {
+  position: absolute;
+  left: 24%;
+  right: 24%;
+  top: 50%;
   display: block;
   height: 2px;
   background: #fff;
-  margin: 5px 0;
   transition: transform 0.34s ease, opacity 0.22s ease;
   transform-origin: center;
 }
 
+.menu-toggle span:nth-child(1) {
+  transform: translateY(-7px);
+}
+
+.menu-toggle span:nth-child(2) {
+  transform: translateY(-1px);
+}
+
+.menu-toggle span:nth-child(3) {
+  transform: translateY(5px);
+}
+
 .menu-toggle[aria-expanded="true"] span:nth-child(1) {
-  transform: translateY(7px) rotate(45deg);
+  transform: translateY(-1px) rotate(45deg);
 }
 
 .menu-toggle[aria-expanded="true"] span:nth-child(2) {
@@ -196,7 +211,7 @@ section[id] {
 }
 
 .menu-toggle[aria-expanded="true"] span:nth-child(3) {
-  transform: translateY(-7px) rotate(-45deg);
+  transform: translateY(-1px) rotate(-45deg);
 }
 
 .hero {
@@ -417,7 +432,7 @@ section[id] {
   text-align: center;
   gap: 22px;
   padding: 18px clamp(16px, 4vw, 52px);
-  background: var(--white);
+  background: #f3f5f7;
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
   overflow-x: auto;
@@ -6113,57 +6128,6 @@ dd {
     background: #eef2f6 !important;
     color: #303943 !important;
     box-shadow: inset 0 0 0 3px #fff;
-  }
-
-  .mini-nav:not(.hero-entry-nav) {
-    position: relative;
-    gap: 6px !important;
-    padding: 34px 8px 8px !important;
-    background: #f3f5f7 !important;
-  }
-
-  .mini-nav:not(.hero-entry-nav)::before {
-    content: "関連ページ";
-    position: absolute;
-    top: 10px;
-    left: 12px;
-    color: #68717c;
-    font-size: 0.72rem;
-    line-height: 1;
-    font-weight: 900;
-    letter-spacing: 0.08em;
-  }
-
-  .mini-nav:not(.hero-entry-nav) a {
-    min-height: 46px !important;
-    padding: 6px 3px !important;
-    border: 1px solid #d2d8df !important;
-    border-radius: 5px;
-    background: #fff !important;
-    color: var(--ink) !important;
-    box-shadow: 0 3px 10px rgba(7, 16, 24, 0.06);
-    font-size: clamp(0.68rem, 3.05vw, 0.86rem) !important;
-    line-height: 1.15 !important;
-    white-space: normal;
-  }
-
-  .mini-nav:not(.hero-entry-nav) a:not(.is-call)::after {
-    content: "›";
-    margin-left: 3px;
-    color: var(--red);
-    font-size: 1.15em;
-  }
-
-  .mini-nav:not(.hero-entry-nav) .is-red {
-    border-color: rgba(200, 23, 30, 0.32) !important;
-    background: #fff3f3 !important;
-    color: var(--red) !important;
-  }
-
-  .mini-nav:not(.hero-entry-nav) .is-call {
-    border-color: var(--black) !important;
-    background: var(--black) !important;
-    color: #fff !important;
   }
 
   .modal {
