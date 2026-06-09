@@ -6521,4 +6521,27 @@ main > section:not(#final) h2 + .modal-teaser {
   main > section:not(#final) h2 + .modal-teaser {
     margin-top: 12px !important;
   }
+
+  .circle-points {
+    padding-top: 30px !important;
+  }
+
+  .circle-points::before {
+    font-size: 0.82rem;
+    letter-spacing: 0.06em;
+  }
+
+  .circle-points li,
+  #about .circle-points li,
+  #method .circle-points li,
+  .method-section .circle-points li,
+  #trial .circle-points li {
+    font-size: clamp(0.66rem, 3.1vw, 0.84rem) !important;
+  }
+}
+
+@media (max-width: 360px) {
+  #about .circle-points li {
+    font-size: 0.62rem !important;
+  }
 }
