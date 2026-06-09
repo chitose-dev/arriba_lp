@@ -833,6 +833,11 @@ h3 {
   align-items: start;
 }
 
+.category-layout-single {
+  grid-template-columns: minmax(320px, 560px);
+  justify-content: center;
+}
+
 .category-main {
   width: 100%;
   height: auto;
