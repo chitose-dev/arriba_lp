@@ -97,7 +97,7 @@ function replaceModalIntro(modal, markdown) {
   fallbackParagraphs.forEach((paragraph) => paragraph.remove());
 }
 
-fetch("./assets/content/modal-articles.md?v=20260609-rich-copy")
+fetch("./assets/content/modal-articles.md?v=20260609-full-copy")
   .then((response) => {
     if (!response.ok) throw new Error(`Modal article load failed: ${response.status}`);
     return response.text();
