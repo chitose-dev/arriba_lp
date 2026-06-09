@@ -7,7 +7,6 @@ let activeModal = null;
 let activeModalFromPush = false;
 const modalTapThreshold = 8;
 let modalPressStart = null;
-const modalFooterPositions = new WeakMap();
 
 document.documentElement.classList.add("js");
 
@@ -173,7 +172,6 @@ function openModal(id) {
   if (!modal) return;
   activeModal = modal;
   activeModalFromPush = false;
-  detachMobileModalFooter(modal);
   modal.classList.add("is-open");
   document.body.classList.add("modal-open");
   const backButton = modal.querySelector(".modal-back");
@@ -183,35 +181,10 @@ function openModal(id) {
 
 function closeModal() {
   if (!activeModal) return;
-  restoreMobileModalFooter(activeModal);
   activeModal.classList.remove("is-open");
   activeModal = null;
   activeModalFromPush = false;
   document.body.classList.remove("modal-open");
-}
-
-function shouldDetachModalFooter() {
-  return window.matchMedia("(max-width: 420px)").matches;
-}
-
-function detachMobileModalFooter(modal) {
-  if (!shouldDetachModalFooter()) return;
-  const footer = modal.querySelector(".modal-footer-actions");
-  if (!footer || footer.parentElement === modal) return;
-  modalFooterPositions.set(footer, {
-    parent: footer.parentNode,
-    nextSibling: footer.nextSibling
-  });
-  const floatingClose = modal.querySelector(".modal-floating-close");
-  modal.insertBefore(footer, floatingClose || null);
-}
-
-function restoreMobileModalFooter(modal) {
-  const footer = modal.querySelector(":scope > .modal-footer-actions");
-  const position = footer ? modalFooterPositions.get(footer) : null;
-  if (!footer || !position?.parent) return;
-  position.parent.insertBefore(footer, position.nextSibling);
-  modalFooterPositions.delete(footer);
 }
 
 modalTriggers.forEach((trigger) => {
@@ -260,7 +233,6 @@ modals.forEach((modal) => {
 
   modal.querySelectorAll("a[href^='#']").forEach((link) => {
     link.addEventListener("click", () => {
-      restoreMobileModalFooter(modal);
       modal.classList.remove("is-open");
       activeModal = null;
       activeModalFromPush = false;
@@ -271,7 +243,6 @@ modals.forEach((modal) => {
 
 window.addEventListener("popstate", () => {
   if (activeModal) {
-    restoreMobileModalFooter(activeModal);
     activeModal.classList.remove("is-open");
     activeModal = null;
     activeModalFromPush = false;
@@ -294,7 +265,6 @@ document.querySelectorAll('a[href^="#"]').forEach((link) => {
     event.preventDefault();
     closeMenu();
     if (activeModal) {
-      restoreMobileModalFooter(activeModal);
       activeModal.classList.remove("is-open");
       activeModal = null;
       activeModalFromPush = false;
