@@ -59,7 +59,7 @@ WordPress files and database were moved out of the public root and backed up on 
 - Current cache versions in `index.html`:
   - CSS: `20260609-recruit-titles`
   - JavaScript: `20260609-modal-docked-footer`
-  - Modal article fetch: `20260609-long-copy`
+  - Modal article fetch: `20260609-school-name`
 - Local verification on 2026-06-08:
   - `git status --short` was clean before this memory update.
   - `http://127.0.0.1:8088/` returned 200 via `python3 -m http.server`.
@@ -67,7 +67,7 @@ WordPress files and database were moved out of the public root and backed up on 
   - Local referenced assets/pages, page anchors, and modal `data-modal` targets all resolved.
   - PHP CLI was not installed locally, so `practice_session/*.php` lint could not be run on this machine.
 - Additional local update on 2026-06-08:
-  - Four recruitment entry items were moved into independent blocks in this order: `ジュニアユース募集`, `2027年度体験会`, `ジュニア募集`, `花屋敷校スクール`.
+  - Four recruitment entry items were moved into independent blocks in this order: `ジュニアユース募集`, `2027年度体験会`, `ジュニア募集`, `花屋敷スクール`.
   - New downloaded images were copied into `assets/img/arriba-2026/` with ASCII filenames.
   - Modal hero images use `modal-*.jpg` assets at a 16:9 layout with no letterbox padding from CSS.
   - Added modal triggers/assets for FAQ, final CTA, and footer club information.
@@ -81,7 +81,7 @@ WordPress files and database were moved out of the public root and backed up on 
   - Do not alter mobile layout or modal geometry unless explicitly requested. The verified 390px-wide layout has a two-column action footer and unchanged panel/scroll/footer dimensions.
   - Desktop modal readability is handled only in `@media (min-width: 901px)`: reduced hero-image height, wider panel, controlled article line length, and centered related links/actions.
   - Desktop checks passed at 1024x768, 1440x900, and 1920x1080. Mobile regression checks passed at 390x844 and 390x650.
-  - All four recruitment titles use the same blue first-view styling and explicit two-line spans: `ジュニアユース募集 / 現在中学生`, `2027年度体験会 / 現在6年生`, `ジュニア募集 / 現在小学生`, and `花屋敷校スクール / 火曜・水曜`. Verified without overflow at 320px, 390px, 430px, and 1024px widths.
+  - All four recruitment titles use the same blue first-view styling and explicit two-line spans: `ジュニアユース募集 / 現在中学生`, `2027年度体験会 / 現在6年生`, `ジュニア募集 / 現在小学生`, and `花屋敷スクール / 火曜・水曜`. Verified without overflow at 320px, 390px, 430px, and 1024px widths.
   - Current confirmed practice schedule:
     - 火・水・金: 小学生低学年 17:30-19:00、小学生高学年 18:00-20:00、中学生 18:00-20:00
     - 日・休・祝: 主に近隣のグラウンドにて試合

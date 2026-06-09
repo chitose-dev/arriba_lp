@@ -113,7 +113,7 @@ function replaceModalIntro(modal, markdown) {
   fallbackParagraphs.forEach((paragraph) => paragraph.remove());
 }
 
-fetch("./assets/content/modal-articles.md?v=20260609-long-copy")
+fetch("./assets/content/modal-articles.md?v=20260609-school-name")
   .then((response) => {
     if (!response.ok) throw new Error(`Modal article load failed: ${response.status}`);
     return response.text();
