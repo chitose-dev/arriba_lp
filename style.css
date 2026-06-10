@@ -6476,15 +6476,17 @@ main > section h2 {
       3.55rem
     )
   ) !important;
-  line-height: 1.05 !important;
+  line-height: 1.12 !important;
   font-weight: 500 !important;
-  letter-spacing: -0.09em !important;
+  letter-spacing: -0.035em !important;
   margin-bottom: 0 !important;
   text-shadow: none !important;
 }
 
 .hero h1 {
   font-weight: 500 !important;
+  line-height: 1.12 !important;
+  letter-spacing: -0.035em !important;
   text-shadow: none !important;
 }
 
@@ -6509,7 +6511,7 @@ main > section:not(#final) h2 + .modal-teaser {
 @media (max-width: 600px) {
   main > section h2 {
     font-size: var(--heading-fit-size, 1.5rem) !important;
-    letter-spacing: -0.11em !important;
+    letter-spacing: -0.025em !important;
   }
 
   #entries {
