@@ -147,7 +147,7 @@ function replaceModalIntro(modal, markdown) {
   fallbackParagraphs.forEach((paragraph) => paragraph.remove());
 }
 
-fetch("./assets/content/modal-articles.md?v=20260609-school-name")
+fetch("./assets/content/modal-articles.md?v=20260610-schedules")
   .then((response) => {
     if (!response.ok) throw new Error(`Modal article load failed: ${response.status}`);
     return response.text();

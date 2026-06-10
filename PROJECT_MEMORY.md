@@ -57,9 +57,9 @@ WordPress files and database were moved out of the public root and backed up on 
 - The LP was updated through 2026-06-09 with revised recruitment copy, new `assets/img/arriba-2026/` images, modal-heavy detail sections, and responsive layout refinements.
 - Current top-level LP copy uses audience labels such as `現在中学生`, `現在6年生`, `現在小学生`, and `スクール希望`.
 - Current cache versions in `index.html`:
-  - CSS: `20260610-readable-blue-titles`
-  - JavaScript: `20260609-section-heading-length`
-  - Modal article fetch: `20260609-school-name`
+  - CSS: `20260610-schedules-note`
+  - JavaScript: `20260610-schedules-note`
+  - Modal article fetch: `20260610-schedules`
 - Local verification on 2026-06-08:
   - `git status --short` was clean before this memory update.
   - `http://127.0.0.1:8088/` returned 200 via `python3 -m http.server`.
@@ -82,10 +82,13 @@ WordPress files and database were moved out of the public root and backed up on 
   - Desktop modal readability is handled only in `@media (min-width: 901px)`: reduced hero-image height, wider panel, controlled article line length, and centered related links/actions.
   - Desktop checks passed at 1024x768, 1440x900, and 1920x1080. Mobile regression checks passed at 390x844 and 390x650.
   - All four recruitment titles use the same blue first-view styling and explicit two-line spans: `ジュニアユース募集 / 現在中学生`, `2027年度体験会 / 現在6年生`, `ジュニア募集 / 現在小学生`, and `花屋敷スクール / 火曜・水曜`. Verified without overflow at 320px, 390px, 430px, and 1024px widths.
-  - Every main-page section `h2` and the hero title use blue `#005bac` with font weight 500 and no text shadow. This applies to all 14 page sections. Modal article headings remain black.
+  - Every main-page section `h2` and the hero title use blue `#005bac` with font weight 500 and no text shadow. This applies to all 15 page sections. Modal article headings remain black.
   - Main-page section headings are larger than the earlier hero-matched baseline. JavaScript sets `--heading-length` and, when needed, `--heading-fit-size` from the actual rendered width so longer titles scale down only enough to fit.
   - Phone section titles start at a unified 24px. The measured-fit script reduces only a single-line title that actually exceeds its available width.
   - Main-page titles retain blue and weight 500, but use relaxed negative tracking (`-0.035em`, phone `-0.025em`) and `1.12` line-height for readability.
+  - The activity schedule is grouped by junior youth, junior lower grades, junior upper grades, trial sessions, and Hanayashiki School 1/2 in the place section and its modal.
+  - The official note block sits after FAQ and before the final CTA, linking to `https://note.com/arriba`. Desktop shows a tappable button and `assets/img/arriba-note-qr.png`; phones show the direct button without the redundant QR.
+  - Mobile modal article copy uses slightly larger type, relaxed line-height, and pretty wrapping; schedule details use lists to create clear breaks.
   - Non-recruitment headings do not wrap except the long final CTA, which may wrap naturally on narrow screens. The ENTRY title is forced to one line, and its mobile text column is widened so it remains prominent at 320px. Recruitment headings retain their intentional title/target structure.
   - Main section title-to-copy spacing follows the hero rhythm: 12px on phones, 14px through 1100px, and 28px on wide desktop. Section-heading bottom margins are reset so they do not stack with paragraph margins.
   - On phones, circle-list labels such as `体験会の概要` are 0.82rem and the text inside the circles uses `clamp(0.66rem, 3.1vw, 0.84rem)`. Circle dimensions and layout are unchanged.

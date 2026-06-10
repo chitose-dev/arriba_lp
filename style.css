@@ -5926,15 +5926,17 @@ dd {
   }
 
   .modal-article p {
-    font-size: 0.96rem;
-    line-height: 1.85;
+    font-size: 0.98rem;
+    line-height: 1.78;
+    text-wrap: pretty;
   }
 
   .modal-article .modal-article-lead {
     padding: 17px 16px 17px 19px;
     border-left-width: 5px;
     font-size: 1.08rem;
-    line-height: 1.65;
+    line-height: 1.72;
+    text-wrap: pretty;
   }
 
   .modal-article h3 {
@@ -5944,7 +5946,9 @@ dd {
 
   .modal-article li {
     padding: 10px 10px 10px 39px;
-    font-size: 0.9rem;
+    font-size: 0.92rem;
+    line-height: 1.65;
+    text-wrap: pretty;
   }
 
   .modal-article li::before {
@@ -6206,6 +6210,57 @@ dd {
 
 .place-list dd span {
   margin-top: 4px;
+}
+
+.place-list dd small {
+  display: block;
+  margin-top: 7px;
+  color: #626b75;
+  font-size: 0.86rem;
+  line-height: 1.55;
+  font-weight: 600;
+}
+
+.note-section {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 220px;
+  gap: 48px;
+  align-items: center;
+  background: linear-gradient(120deg, #f5f8fb 0%, #fff 68%);
+}
+
+.note-copy {
+  max-width: 760px;
+}
+
+.note-copy > p:not(.section-kicker) {
+  margin: 18px 0 26px;
+  color: #303943;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  font-weight: 600;
+}
+
+.note-qr {
+  display: grid;
+  gap: 10px;
+  justify-items: center;
+  padding: 18px;
+  background: #fff;
+  border: 1px solid rgba(18, 20, 23, 0.1);
+  box-shadow: 0 18px 42px rgba(7, 16, 24, 0.1);
+}
+
+.note-qr img {
+  display: block;
+  width: 184px;
+  height: 184px;
+}
+
+.note-qr span {
+  color: #535c66;
+  font-size: 0.82rem;
+  font-weight: 700;
 }
 
 @media (max-width: 1100px) {
@@ -6512,6 +6567,28 @@ main > section:not(#final) h2 + .modal-teaser {
   main > section h2 {
     font-size: var(--heading-fit-size, 1.5rem) !important;
     letter-spacing: -0.025em !important;
+  }
+
+  .note-section {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+    align-items: center;
+  }
+
+  .note-copy > p:not(.section-kicker) {
+    margin: 12px 0 18px;
+    font-size: 0.94rem;
+    line-height: 1.7;
+  }
+
+  .note-copy .btn {
+    min-height: 48px;
+    padding: 10px 12px;
+    font-size: 0.9rem;
+  }
+
+  .note-qr {
+    display: none;
   }
 
   #entries {
