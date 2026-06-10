@@ -5928,7 +5928,12 @@ dd {
   .modal-article p {
     font-size: 0.98rem;
     line-height: 1.78;
-    text-wrap: pretty;
+    text-align: justify;
+    text-justify: inter-character;
+    text-wrap: auto;
+    line-break: strict;
+    word-break: normal;
+    overflow-wrap: normal;
   }
 
   .modal-article .modal-article-lead {
@@ -5936,7 +5941,9 @@ dd {
     border-left-width: 5px;
     font-size: 1.08rem;
     line-height: 1.72;
-    text-wrap: pretty;
+    text-align: justify;
+    text-justify: inter-character;
+    text-wrap: auto;
   }
 
   .modal-article h3 {
@@ -5948,7 +5955,8 @@ dd {
     padding: 10px 10px 10px 39px;
     font-size: 0.92rem;
     line-height: 1.65;
-    text-wrap: pretty;
+    text-align: left;
+    text-wrap: auto;
   }
 
   .modal-article li::before {
