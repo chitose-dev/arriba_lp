@@ -6508,14 +6508,7 @@ main > section:not(#final) h2 + .modal-teaser {
 
 @media (max-width: 600px) {
   main > section h2 {
-    font-size: var(
-      --heading-fit-size,
-      clamp(
-        1.08rem,
-        min(5.8vw, calc(1.72rem - (var(--heading-length, 8) * 0.035rem))),
-        1.5rem
-      )
-    ) !important;
+    font-size: var(--heading-fit-size, 1.5rem) !important;
     letter-spacing: -0.11em !important;
   }
 
