@@ -6477,10 +6477,15 @@ main > section h2 {
     )
   ) !important;
   line-height: 1.05 !important;
-  font-weight: 900;
+  font-weight: 500 !important;
   letter-spacing: -0.09em !important;
   margin-bottom: 0 !important;
-  text-shadow: 0 8px 22px rgba(0, 91, 172, 0.12);
+  text-shadow: none !important;
+}
+
+.hero h1 {
+  font-weight: 500 !important;
+  text-shadow: none !important;
 }
 
 main > section h2:not(.recruit-title) {
