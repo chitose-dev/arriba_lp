@@ -57,7 +57,7 @@ WordPress files and database were moved out of the public root and backed up on 
 - The LP was updated through 2026-06-09 with revised recruitment copy, new `assets/img/arriba-2026/` images, modal-heavy detail sections, and responsive layout refinements.
 - Current top-level LP copy uses audience labels such as `現在中学生`, `現在6年生`, `現在小学生`, and `スクール希望`.
 - Current cache versions in `index.html`:
-  - CSS: `20260611-sentence-breaks`
+  - CSS: `20260611-note-entry-links`
   - JavaScript: `20260611-sentence-breaks`
   - Modal article fetch: `20260610-schedules`
 - Local verification on 2026-06-08:
@@ -88,6 +88,7 @@ WordPress files and database were moved out of the public root and backed up on 
   - Main-page titles retain blue and weight 500, but use relaxed negative tracking (`-0.035em`, phone `-0.025em`) and `1.12` line-height for readability.
   - The activity schedule is grouped by junior youth, junior lower grades, junior upper grades, trial sessions, and Hanayashiki School 1/2 in the place section and its modal.
   - The official note block sits after FAQ and before the final CTA, linking to `https://note.com/arriba`. Desktop shows a tappable button and `assets/img/arriba-note-qr.png`; phones show the direct button without the redundant QR.
+  - The official note block begins with four equal audience links for current junior-high students, current sixth graders, elementary students, and school participants.
   - Mobile modal article copy uses slightly larger type and relaxed line-height; schedule details use lists to create clear breaks.
   - Modal prose is left-aligned and the renderer inserts a line break after each Japanese full stop `。`, except at the end of a paragraph. Headings and list items are unchanged.
   - Non-recruitment headings do not wrap except the long final CTA, which may wrap naturally on narrow screens. The ENTRY title is forced to one line, and its mobile text column is widened so it remains prominent at 320px. Recruitment headings retain their intentional title/target structure.

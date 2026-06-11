@@ -6235,6 +6235,41 @@ dd {
   background: linear-gradient(120deg, #f5f8fb 0%, #fff 68%);
 }
 
+.note-entry-links {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  width: 100%;
+  margin-bottom: 8px;
+  background: #fff;
+  border: 1px solid var(--line);
+}
+
+.note-entry-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  min-height: 58px;
+  padding: 10px 8px;
+  border-right: 1px solid var(--line);
+  color: var(--ink);
+  font-size: 0.96rem;
+  line-height: 1.25;
+  font-weight: 800;
+  text-align: center;
+  transition: color 0.2s ease, background 0.2s ease;
+}
+
+.note-entry-links a:last-child {
+  border-right: 0;
+}
+
+.note-entry-links a:hover {
+  color: var(--red);
+  background: #f7f8fa;
+}
+
 .note-copy {
   max-width: 760px;
 }
@@ -6577,8 +6612,19 @@ main > section:not(#final) h2 + .modal-teaser {
 
   .note-section {
     grid-template-columns: minmax(0, 1fr);
-    gap: 0;
+    gap: 22px;
     align-items: center;
+  }
+
+  .note-entry-links {
+    margin-bottom: 8px;
+  }
+
+  .note-entry-links a {
+    min-height: 54px;
+    padding: 8px 3px;
+    font-size: clamp(0.76rem, 3.45vw, 0.9rem);
+    white-space: nowrap;
   }
 
   .note-copy > p:not(.section-kicker) {
