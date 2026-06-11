@@ -139,11 +139,13 @@ WordPress files and database were moved out of the public root and backed up on 
   - If applicant confirmation mail still fails to arrive despite `customer=ok` in `mail_results.log`, switch to authenticated SMTP using the `info@arriba.club` mailbox.
 - Form fields include:
   - calendar date field for `event_date`.
-  - applicant name, furigana, grade, preference, city, current team, phone, email, email confirmation, guardian name, source, and notes.
+  - applicant name, furigana, grade, preference, transportation, city, current team, phone, email, email confirmation, guardian name, source, and notes.
+  - transportation is a required radio choice: `JR川西池田駅から利用する`, `能勢口駅近辺から利用する`, or `利用しない`.
+  - client-side validation shows an error summary plus an inline reason at each invalid field; server-side validation returns the exact invalid field names as a fallback.
 - 2027 junior youth preference text is `2027年度ジュニアユース体験会`; do not add grade text there unless explicitly requested.
 - Header/back links use `トップへ戻る`, not `LPへ戻る`.
 - Result page primary button is `トップへ戻る`; smaller secondary button is `フォームへ戻る`.
-- Current practice form CSS cache version: `style.css?v=20260530-3`.
+- Current practice form asset cache version: `20260612-transport-validation` for CSS and JavaScript.
 - Production verification on 2026-05-30:
   - `https://arriba.club/practice_session/` returns 200.
   - PHP lint passed for `practice_session/index.php` and `practice_session/submit.php`.

@@ -29,7 +29,7 @@ function render_page(string $title, string $message, bool $success): void
     echo '<!doctype html><html lang="ja"><head><meta charset="utf-8">';
     echo '<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">';
     echo '<title>' . h($title) . ' | アリバサッカークラブ</title>';
-    echo '<link rel="stylesheet" href="./style.css?v=20260530-8">';
+    echo '<link rel="stylesheet" href="./style.css?v=20260612-transport-validation">';
     echo '</head><body><main class="result-page">';
     echo '<div class="result-card ' . $class . '">';
     echo '<h1>' . h($title) . '</h1>';
@@ -55,6 +55,7 @@ $fields = [
     'furigana' => 'ふりがな',
     'grade' => '学年',
     'preference' => '希望',
+    'transportation' => '送迎',
     'city' => '市町村',
     'current_team' => '現在所属チーム',
     'phone' => '電話番号',
@@ -76,6 +77,7 @@ $required = [
     'furigana',
     'grade',
     'preference',
+    'transportation',
     'city',
     'current_team',
     'phone',
@@ -85,23 +87,63 @@ $required = [
     'source',
 ];
 
+$errors = [];
+$selectionFields = [
+    'event_date',
+    'grade',
+    'preference',
+    'transportation',
+    'source',
+];
 foreach ($required as $key) {
     if ($data[$key] === '') {
-        render_page('送信できませんでした', '未入力の必須項目があります。入力内容を確認してください。', false);
+        $action = in_array($key, $selectionFields, true) ? '選択' : '入力';
+        $errors[] = $fields[$key] . 'を' . $action . 'してください。';
     }
 }
 
-$date = DateTime::createFromFormat('Y-m-d', $data['event_date']);
-if (!$date || $date->format('Y-m-d') !== $data['event_date']) {
-    render_page('送信できませんでした', '体験希望日をカレンダーから選択してください。', false);
+$date = $data['event_date'] !== '' ? DateTime::createFromFormat('Y-m-d', $data['event_date']) : false;
+if ($data['event_date'] !== '' && (!$date || $date->format('Y-m-d') !== $data['event_date'])) {
+    $errors[] = '体験希望日をカレンダーから選択してください。';
 }
 
-if (!filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
-    render_page('送信できませんでした', 'メールアドレスを確認してください。', false);
+if ($data['email'] !== '' && !filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
+    $errors[] = 'メールアドレスの形式を確認してください。';
 }
 
-if ($data['email'] !== $data['email_confirm']) {
-    render_page('送信できませんでした', 'メールアドレスと確認用メールアドレスが一致していません。', false);
+if (
+    $data['email'] !== ''
+    && $data['email_confirm'] !== ''
+    && $data['email'] !== $data['email_confirm']
+) {
+    $errors[] = 'メールアドレスと確認用メールアドレスが一致していません。';
+}
+
+$allowedPreferences = [
+    '2027年度ジュニアユース体験会',
+    '今年度ジュニアユース(現中学生)選手',
+    'ジュニア(小学生)選手',
+    '平日スクール',
+];
+if ($data['preference'] !== '' && !in_array($data['preference'], $allowedPreferences, true)) {
+    $errors[] = '希望を選択し直してください。';
+}
+
+$allowedTransportation = [
+    'JR川西池田駅から利用する',
+    '能勢口駅近辺から利用する',
+    '利用しない',
+];
+if ($data['transportation'] !== '' && !in_array($data['transportation'], $allowedTransportation, true)) {
+    $errors[] = '送迎を選択し直してください。';
+}
+
+if ($errors !== []) {
+    render_page(
+        '送信できませんでした',
+        "以下の項目を確認してください。\n・" . implode("\n・", array_values(array_unique($errors))),
+        false
+    );
 }
 
 $data['message'] = $data['message'] !== '' ? $data['message'] : 'なし';
@@ -135,6 +177,7 @@ $customerBody = implode("\n", [
     'ふりがな: ' . $data['furigana'],
     '学年: ' . $data['grade'],
     '希望: ' . $data['preference'],
+    '送迎: ' . $data['transportation'],
     '市町村: ' . $data['city'],
     '現在所属チーム: ' . $data['current_team'],
     '電話番号: ' . $data['phone'],
