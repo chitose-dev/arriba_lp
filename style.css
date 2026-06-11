@@ -5928,8 +5928,7 @@ dd {
   .modal-article p {
     font-size: 0.98rem;
     line-height: 1.78;
-    text-align: justify;
-    text-justify: inter-character;
+    text-align: left;
     text-wrap: auto;
     line-break: strict;
     word-break: normal;
@@ -5941,8 +5940,7 @@ dd {
     border-left-width: 5px;
     font-size: 1.08rem;
     line-height: 1.72;
-    text-align: justify;
-    text-justify: inter-character;
+    text-align: left;
     text-wrap: auto;
   }
 

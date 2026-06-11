@@ -81,6 +81,13 @@ function renderArticleInline(value) {
     .replace(/\^\^(.+?)\^\^/g, '<span class="article-blue">$1</span>');
 }
 
+function renderArticleProse(value) {
+  return renderArticleInline(value).replace(
+    /。((?:<\/(?:strong|span|mark)>)*)(?=[\s\S])/g,
+    "。$1<br>"
+  );
+}
+
 function renderModalArticle(markdown) {
   const output = [];
   let listItems = [];
@@ -106,11 +113,11 @@ function renderModalArticle(markdown) {
     if (line.startsWith("### ")) {
       output.push(`<h3>${renderArticleInline(line.slice(4))}</h3>`);
     } else if (line.startsWith("> ")) {
-      output.push(`<p class="modal-article-lead">${renderArticleInline(line.slice(2))}</p>`);
+      output.push(`<p class="modal-article-lead">${renderArticleProse(line.slice(2))}</p>`);
     } else if (line.startsWith("! ")) {
-      output.push(`<p class="modal-article-note">${renderArticleInline(line.slice(2))}</p>`);
+      output.push(`<p class="modal-article-note">${renderArticleProse(line.slice(2))}</p>`);
     } else {
-      output.push(`<p>${renderArticleInline(line)}</p>`);
+      output.push(`<p>${renderArticleProse(line)}</p>`);
     }
   });
   flushList();
