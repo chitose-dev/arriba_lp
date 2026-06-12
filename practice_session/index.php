@@ -3,9 +3,24 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>体験会案内・申込フォーム | アリバサッカークラブ</title>
+  <title>無料体験・選手募集 | アリバサッカークラブ</title>
   <meta name="description" content="アリバサッカークラブの体験会申込フォームです。体験希望日を選び、必要事項を入力して送信してください。">
   <meta name="robots" content="noindex, follow">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="アリバサッカークラブ">
+  <meta property="og:title" content="無料体験・選手募集 | アリバサッカークラブ">
+  <meta property="og:description" content="現在中学生、現在6年生、小学生、花屋敷スクールの無料体験を受け付けています。">
+  <meta property="og:url" content="https://arriba.club/practice_session/">
+  <meta property="og:image" content="https://arriba.club/assets/img/ogp-arriba-brochure.jpg?v=20260612">
+  <meta property="og:image:secure_url" content="https://arriba.club/assets/img/ogp-arriba-brochure.jpg?v=20260612">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="アリバサッカークラブ 無料体験・選手募集パンフレット">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="無料体験・選手募集 | アリバサッカークラブ">
+  <meta name="twitter:description" content="現在中学生、現在6年生、小学生、花屋敷スクールの無料体験を受け付けています。">
+  <meta name="twitter:image" content="https://arriba.club/assets/img/ogp-arriba-brochure.jpg?v=20260612">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500;700;800;900&amp;display=swap" rel="stylesheet">
