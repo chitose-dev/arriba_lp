@@ -1,6 +1,6 @@
 # ARRIBA LP Project Memory
 
-Last updated: 2026-06-09
+Last updated: 2026-06-13
 
 ## Current Production State
 
@@ -14,6 +14,11 @@ Last updated: 2026-06-09
   - `practice_session/`
 - WordPress is no longer exposed from the public root.
 - `https://arriba.club/wp-login.php` should return 404.
+- Latest production update on 2026-06-13:
+  - `index.html`, `style.css`, and `practice_session/index.php` are deployed.
+  - Production CSS cache version is `20260613-responsive-fix`.
+  - Production was checked directly at widths from 390px through 1440px with no horizontal page overflow.
+  - Production `index.html` and `style.css` matched the local SHA-256 hashes after deployment.
 - Verified on 2026-05-28 10:28 JST:
   - Production `index.html`, `style.css`, and `assets/js/main.js` match local SHA-256 hashes.
   - `https://arriba.club/` returns 200.
@@ -31,10 +36,13 @@ WordPress files and database were moved out of the public root and backed up on 
 ## Source Control
 
 - GitHub remote: `https://github.com/chitose-dev/arriba_lp.git`
-- Main branch contains the deployed GA4 tag/events, the non-credentialed update manual, and the June 2026 LP content/layout rebuild.
-- Latest title-layout baseline before the next commit: `3c27157 Align junior youth title styling`.
+- Main branch contains the deployed GA4 tag/events, the June 2026 LP rebuild, the responsive fixes, and the current practice form.
+- Latest production commit: `4e7c20f Use Japanese club name in trial form`.
+- Recent layout commits:
+  - `47e0cc8 Fix tablet responsive layout`
+  - `3c42943 Improve desktop LP section layout`
 - GitHub Pages preview: `https://chitose-dev.github.io/arriba_lp/`
-- Production `index.html` and `assets/js/main.js` were verified to match local hashes after the GA4/manual deployment; production has not been re-verified in this memory after the June LP rebuild.
+- GitHub Pages was verified after commit `47e0cc8` at 876px, 1024px, 1100px, 1200px, and 1440px.
 
 ## GA4
 
@@ -57,7 +65,7 @@ WordPress files and database were moved out of the public root and backed up on 
 - The LP was updated through 2026-06-09 with revised recruitment copy, new `assets/img/arriba-2026/` images, modal-heavy detail sections, and responsive layout refinements.
 - Current top-level LP copy uses audience labels such as `現在中学生`, `現在6年生`, `現在小学生`, and `スクール希望`.
 - Current cache versions in `index.html`:
-  - CSS: `20260611-note-entry-links`
+  - CSS: `20260613-responsive-fix`
   - JavaScript: `20260611-sentence-breaks`
   - Modal article fetch: `20260610-schedules`
 - Local verification on 2026-06-08:
@@ -98,6 +106,34 @@ WordPress files and database were moved out of the public root and backed up on 
     - 火・水・金: 小学生低学年 17:30-19:00、小学生高学年 18:00-20:00、中学生 18:00-20:00
     - 日・休・祝: 主に近隣のグラウンドにて試合
   - Client confirmation message: `/Users/ogikubo/Desktop/アリバLP_クライアント確認依頼.txt`
+
+## June 13 Responsive and Delivery Update
+
+- Desktop sections were rebuilt to reduce unused vertical space:
+  - Main split sections use text on the left and images on the right.
+  - Circle points remain a compact single row on desktop.
+  - Career and place buttons stay with their left-side copy instead of dropping below the image.
+  - Section backgrounds extend to the viewport edges.
+- The final application block:
+  - Uses the left-copy/right-image layout on PC and tablet.
+  - Uses `assets/img/arriba-2026/modal-final-cta.jpg` as a 16:9 image on widths of 601px and above.
+  - Keeps the existing phone layout below 601px.
+  - Uses explicit title lines: `まずは体験で、` and `練習の空気を。`.
+- Tablet/narrow desktop fixes apply only from 601px through 1100px:
+  - Circle items use compact fixed responsive sizes and stay on one row.
+  - Trial buttons remain side by side without overlapping the image.
+  - Final CTA image, buttons, and audience links no longer overlap.
+- Responsive verification completed on 2026-06-13:
+  - Automated widths: 320, 390, 600, 601, 768, 876, 900, 901, 1024, 1100, 1101, 1200, 1280, 1366, 1440, 1600, and 2048px.
+  - Additional portrait/landscape viewport checks covered phone, tablet, narrow desktop, standard desktop, and large desktop.
+  - Confirmed no page-level horizontal overflow, no image/action overlap, and no multi-row circle lists at 601px and above.
+- Production backups for the final June 13 changes are stored locally under:
+  - `/Users/ogikubo/Desktop/arriba_production_backups/`
+- Current delivery files:
+  - `/Users/ogikubo/Desktop/千歳開発/取引先/アリバ/納品/アリバサッカークラブLP_最新版納品_20260613.zip`
+  - `/Users/ogikubo/Desktop/千歳開発/取引先/アリバ/納品/アリバサッカークラブLP_納品仕様書_20260613.pdf`
+- The delivery ZIP was rebuilt after the latest form wording change and passed `unzip -t`.
+- The delivery specification is a visually checked two-page A4 PDF. It documents the PC/tablet two-column layout and unchanged phone layout.
 
 ## Update Manuals
 
@@ -146,6 +182,9 @@ WordPress files and database were moved out of the public root and backed up on 
 - Header/back links use `トップへ戻る`, not `LPへ戻る`.
 - Result page primary button is `トップへ戻る`; smaller secondary button is `フォームへ戻る`.
 - Current practice form asset cache version: `20260612-transport-validation` for CSS and JavaScript.
+- Form-facing club-name text is standardized as `アリバサッカークラブ`.
+  - The logo alternative text and both caution statements were updated on 2026-06-13.
+  - Production form HTML was checked and contains no visible `ARRIBAサッカークラブ` string.
 - Production verification on 2026-05-30:
   - `https://arriba.club/practice_session/` returns 200.
   - PHP lint passed for `practice_session/index.php` and `practice_session/submit.php`.
