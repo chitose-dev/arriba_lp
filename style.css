@@ -6674,3 +6674,352 @@ main > section:not(#final) h2 + .modal-teaser {
     font-size: 0.62rem !important;
   }
 }
+
+/* Desktop recruitment sections: keep each block visually connected. */
+@media (min-width: 1101px) {
+  .js .lp-section .section-kicker,
+  .js .lp-section h2,
+  .js .lp-section .modal-teaser,
+  .js .lp-section .recruit-list,
+  .js .lp-section .place-list,
+  .js .lp-section .trial-list,
+  .js .lp-section .circle-points li,
+  .js .lp-section .section-actions,
+  .js .lp-section .place-actions,
+  .js .final-section h2,
+  .js .final-section p,
+  .js .final-section .final-actions {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .lp-section.split {
+    box-sizing: border-box;
+    width: 100%;
+    min-height: auto;
+    margin-inline: 0;
+    padding: clamp(46px, 4.4vw, 78px) max(48px, calc((100vw - 1080px) / 2));
+    grid-template-columns: minmax(360px, 0.9fr) minmax(380px, 0.95fr);
+    gap: clamp(8px, 1vw, 14px) clamp(40px, 4.2vw, 64px);
+    align-items: start;
+  }
+
+  .lp-section.split > .section-copy {
+    grid-column: 1 / 2;
+    grid-row: 1;
+    align-self: start;
+    max-width: 520px;
+  }
+
+  .lp-section.split > .section-photo {
+    grid-column: 2 / 3;
+    grid-row: 1 / span 4;
+    width: min(100%, 500px);
+    justify-self: end;
+    align-self: start;
+    box-shadow: 0 26px 50px rgba(7, 16, 24, 0.1);
+  }
+
+  .lp-section.split > .section-photo:has(> img[src*="block-"]) {
+    aspect-ratio: 4 / 5 !important;
+    background: #fff !important;
+  }
+
+  .lp-section.split > .section-photo > img[src*="block-"],
+  .is-inview .lp-section.split > .section-photo > img[src*="block-"] {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    object-position: center !important;
+    transform: none !important;
+  }
+
+  .lp-section.split > .recruit-list,
+  .lp-section.split > .circle-points,
+  .lp-section.split > .section-actions {
+    grid-column: 1 / 2 !important;
+    max-width: 520px;
+    margin-top: 0;
+  }
+
+  .lp-section.split > .recruit-list,
+  .lp-section.split > .circle-points {
+    grid-row: 2;
+  }
+
+  .lp-section.split > .circle-points {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    gap: 10px !important;
+  }
+
+  .lp-section.split > .circle-points li {
+    flex: 0 0 92px !important;
+    width: 92px !important;
+    max-width: 92px !important;
+    min-width: 0 !important;
+    font-size: 0.9rem !important;
+    line-height: 1.18 !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+
+  .lp-section.split > .section-actions {
+    grid-row: 3;
+    justify-self: start;
+    width: fit-content;
+  }
+
+  .lp-section.split > .section-actions .btn {
+    min-width: 190px;
+    min-height: 68px;
+    padding-inline: 32px;
+    font-size: 1.08rem;
+  }
+
+  #trial-2027.lp-section.split > .circle-points,
+  #junior.lp-section.split > .circle-points {
+    align-self: start;
+  }
+
+  #junior-youth.lp-section.split > .section-actions {
+    grid-column: 1 / 2;
+    grid-row: auto;
+    margin-top: 4px;
+  }
+}
+
+@media (min-width: 1500px) {
+  .lp-section.split {
+    padding-inline: max(70px, calc((100vw - 1160px) / 2));
+    grid-template-columns: 520px 560px;
+  }
+
+  .lp-section.split > .section-photo {
+    width: min(100%, 560px);
+  }
+}
+
+/* Desktop compact pass for place, trial and final blocks. */
+@media (min-width: 1101px) {
+  #trial.lp-section.split {
+    padding-block: clamp(38px, 3.6vw, 64px);
+  }
+
+  #trial.lp-section.split > .circle-points {
+    gap: 14px;
+    margin-top: 0 !important;
+  }
+
+  #trial.lp-section.split > .section-actions {
+    display: flex;
+    gap: 14px;
+    width: 100%;
+    margin-top: 2px !important;
+  }
+
+  #trial.lp-section.split > .section-actions .btn {
+    min-width: 210px;
+  }
+
+  #place.place-section {
+    box-sizing: border-box;
+    width: 100%;
+    margin-inline: 0;
+    padding: clamp(38px, 3.6vw, 64px) max(48px, calc((100vw - 1080px) / 2));
+    grid-template-columns: minmax(360px, 0.9fr) minmax(380px, 0.95fr);
+    gap: clamp(12px, 1.6vw, 22px) clamp(40px, 4.2vw, 64px);
+    align-items: start;
+  }
+
+  #place .place-copy {
+    grid-column: 1 / 2;
+    grid-row: 1;
+    align-self: start;
+    max-width: 520px;
+  }
+
+  #place .place-photo {
+    grid-column: 2 / 3;
+    grid-row: 1 / span 4;
+    width: min(100%, 500px);
+    justify-self: end;
+    align-self: start;
+    aspect-ratio: 4 / 5 !important;
+    background: #fff !important;
+    box-shadow: 0 26px 50px rgba(7, 16, 24, 0.1);
+  }
+
+  #place .place-photo img {
+    object-fit: contain !important;
+    object-position: center !important;
+    transform: none !important;
+  }
+
+  #place .place-list {
+    grid-column: 1 / 2;
+    grid-row: 2;
+    max-width: 520px;
+    margin-top: 0 !important;
+  }
+
+  #place .place-actions {
+    grid-column: 1 / 2;
+    grid-row: 3;
+    justify-self: start;
+    width: fit-content;
+    margin-top: 2px !important;
+  }
+
+  #place .place-actions .btn {
+    min-width: 260px;
+    min-height: 68px;
+    padding-inline: 32px;
+    font-size: 1.08rem;
+  }
+
+  #career.career-section {
+    box-sizing: border-box;
+    width: 100%;
+    margin-inline: 0;
+    padding: clamp(46px, 4.4vw, 78px) max(48px, calc((100vw - 1080px) / 2));
+    grid-template-columns: minmax(360px, 0.9fr) minmax(380px, 0.95fr);
+    gap: clamp(8px, 1vw, 14px) clamp(40px, 4.2vw, 64px);
+    align-items: start;
+  }
+
+  #career .career-copy {
+    grid-column: 1 / 2;
+    grid-row: 1;
+    align-self: start;
+    max-width: 520px;
+  }
+
+  #career .career-photo {
+    grid-column: 2 / 3;
+    grid-row: 1 / span 3;
+    width: min(100%, 500px);
+    justify-self: end;
+    align-self: start;
+    aspect-ratio: 4 / 5 !important;
+    background: #fff !important;
+    box-shadow: 0 26px 50px rgba(7, 16, 24, 0.1);
+  }
+
+  #career .career-photo img {
+    object-fit: contain !important;
+    object-position: center !important;
+    transform: none !important;
+  }
+
+  #career .section-actions {
+    grid-column: 1 / 2;
+    grid-row: 2;
+    justify-self: start;
+    width: fit-content;
+    margin-top: 2px !important;
+  }
+
+  #career .section-actions .btn {
+    min-width: 190px;
+    min-height: 68px;
+    padding-inline: 32px;
+    font-size: 1.08rem;
+  }
+
+  .final-section {
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: minmax(360px, 0.9fr) minmax(380px, 0.95fr);
+    gap: clamp(8px, 1vw, 14px) clamp(40px, 4.2vw, 64px);
+    align-items: center;
+    width: 100%;
+    min-height: auto;
+    padding: clamp(46px, 4.4vw, 78px) max(48px, calc((100vw - 1080px) / 2));
+    background: linear-gradient(90deg, rgba(200, 23, 30, 0.055), #fff 46%);
+    color: var(--ink);
+  }
+
+  .final-section::after {
+    content: none;
+  }
+
+  .final-bg {
+    content: url("./assets/img/arriba-2026/modal-final-cta.jpg");
+    position: relative;
+    inset: auto;
+    grid-column: 2 / 3;
+    grid-row: 1;
+    width: min(100%, 560px);
+    height: auto;
+    aspect-ratio: 16 / 9;
+    justify-self: end;
+    align-self: center;
+    object-fit: cover;
+    object-position: center;
+    background: #fff;
+    box-shadow: 0 26px 50px rgba(7, 16, 24, 0.1);
+  }
+
+  .final-inner {
+    grid-column: 1 / 2;
+    grid-row: 1;
+    width: auto;
+    max-width: 520px;
+    margin-inline: 0;
+  }
+
+  .final-section h2 {
+    max-width: none;
+    margin-bottom: 18px;
+  }
+
+  .final-section .modal-teaser {
+    max-width: none;
+    margin-bottom: 18px;
+  }
+
+  .final-section p {
+    color: #2c333a;
+  }
+
+  .final-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+
+  .final-actions .btn {
+    min-width: 190px;
+    min-height: 68px;
+    padding-inline: 28px;
+    font-size: 1.04rem;
+  }
+
+  .final-actions .text-link {
+    color: var(--ink);
+  }
+}
+
+@media (min-width: 1500px) {
+  #place.place-section {
+    padding-inline: max(70px, calc((100vw - 1160px) / 2));
+    grid-template-columns: 520px 560px;
+  }
+
+  #place .place-photo {
+    width: min(100%, 560px);
+  }
+
+  #career.career-section,
+  .final-section {
+    padding-inline: max(70px, calc((100vw - 1160px) / 2));
+    grid-template-columns: 520px 560px;
+  }
+
+  #career .career-photo,
+  .final-bg {
+    width: min(100%, 560px);
+  }
+}
