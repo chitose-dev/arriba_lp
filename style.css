@@ -1188,6 +1188,10 @@ dd {
   color: rgba(255, 255, 255, 0.88);
 }
 
+.final-section h2 span {
+  display: block;
+}
+
 .final-actions .text-link {
   color: #fff;
 }
@@ -7021,5 +7025,152 @@ main > section:not(#final) h2 + .modal-teaser {
   #career .career-photo,
   .final-bg {
     width: min(100%, 560px);
+  }
+}
+
+/* Tablet and narrow desktop: prevent full-width circles and CTA overlap. */
+@media (min-width: 601px) and (max-width: 1100px) {
+  .lp-section.split > .circle-points,
+  #about .circle-points,
+  #method .circle-points,
+  #trial .circle-points {
+    display: flex !important;
+    grid-column: 1 / -1 !important;
+    grid-row: 2 !important;
+    flex-wrap: nowrap !important;
+    justify-content: flex-start !important;
+    gap: 10px !important;
+    width: auto !important;
+    max-width: 100% !important;
+    margin: 18px 0 0 !important;
+  }
+
+  .lp-section.split > .circle-points li,
+  #about .circle-points li,
+  #method .circle-points li,
+  #trial .circle-points li {
+    flex: 0 0 clamp(78px, 9vw, 92px) !important;
+    width: clamp(78px, 9vw, 92px) !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    aspect-ratio: 1 !important;
+    padding: 0 4px !important;
+    font-size: clamp(0.76rem, 1.6vw, 0.9rem) !important;
+    line-height: 1.15 !important;
+    white-space: nowrap !important;
+  }
+
+  #about .circle-points li {
+    font-size: clamp(0.68rem, 1.45vw, 0.84rem) !important;
+  }
+
+  #trial.lp-section.split > .section-actions {
+    grid-column: 1 / -1 !important;
+    grid-row: 3 !important;
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 12px !important;
+    width: 100% !important;
+    margin-top: 18px !important;
+  }
+
+  #trial.lp-section.split > .section-actions .btn {
+    width: 100% !important;
+    min-width: 0 !important;
+    min-height: 58px !important;
+    font-size: clamp(0.9rem, 1.8vw, 1rem) !important;
+  }
+
+  .final-section {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) minmax(260px, 1fr) !important;
+    gap: 24px !important;
+    align-items: center !important;
+    min-height: auto !important;
+    padding: clamp(38px, 5vw, 56px) clamp(20px, 4vw, 44px) !important;
+    background: linear-gradient(90deg, rgba(200, 23, 30, 0.055), #fff 52%) !important;
+    color: var(--ink) !important;
+  }
+
+  .final-section::after {
+    content: none !important;
+  }
+
+  .final-bg {
+    content: url("./assets/img/arriba-2026/modal-final-cta.jpg");
+    position: relative !important;
+    inset: auto !important;
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 16 / 9 !important;
+    align-self: center !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    box-shadow: 0 20px 38px rgba(7, 16, 24, 0.1) !important;
+  }
+
+  .final-inner {
+    display: block !important;
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+    width: 100% !important;
+    max-width: none !important;
+    min-width: 0 !important;
+  }
+
+  .final-section h2 {
+    margin-bottom: 14px !important;
+    color: #005bac !important;
+    font-size: clamp(2rem, 4.4vw, 2.55rem) !important;
+    line-height: 1.1 !important;
+  }
+
+  .final-inner > .modal-teaser {
+    margin: 0 0 18px !important;
+    color: #2c333a !important;
+  }
+
+  .final-section .inline-more-light {
+    color: var(--ink) !important;
+  }
+
+  .final-section .modal-teaser:hover .inline-more-light {
+    color: var(--red) !important;
+  }
+
+  .final-actions,
+  .final-actions:has(.btn + .btn) {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 10px 12px !important;
+    width: 100% !important;
+    margin: 0 !important;
+  }
+
+  .final-actions .btn,
+  .final-actions:has(.btn + .btn) .btn {
+    width: 100% !important;
+    min-width: 0 !important;
+    min-height: 56px !important;
+    padding-inline: 10px !important;
+    font-size: clamp(0.78rem, 1.7vw, 0.96rem) !important;
+    white-space: nowrap !important;
+  }
+
+  .final-actions .text-link {
+    color: var(--ink) !important;
+    font-size: clamp(0.78rem, 1.6vw, 0.94rem) !important;
+  }
+}
+
+@media (min-width: 1101px) {
+  .final-section .inline-more-light {
+    color: var(--ink) !important;
+  }
+
+  .final-section .modal-teaser:hover .inline-more-light {
+    color: var(--red) !important;
   }
 }
