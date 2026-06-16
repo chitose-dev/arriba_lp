@@ -7231,9 +7231,4 @@ main > section:not(#final) h2 + .modal-teaser {
     letter-spacing: inherit !important;
   }
 
-  #trial-2027 .recruit-title,
-  #junior .recruit-title,
-  #school .recruit-title {
-    font-size: clamp(0.98rem, 4.9vw, 1.23rem) !important;
-  }
 }
