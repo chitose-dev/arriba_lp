@@ -7210,6 +7210,30 @@ main > section:not(#final) h2 + .modal-teaser {
     text-shadow: none !important;
   }
 
+  #final h2 {
+    display: block !important;
+    grid-column: 1 / -1 !important;
+    grid-row: 1 !important;
+    width: 100% !important;
+    max-width: none !important;
+    white-space: nowrap !important;
+  }
+
+  #final .modal-teaser {
+    grid-column: 1 !important;
+    grid-row: 2 !important;
+  }
+
+  #final .final-bg {
+    grid-column: 2 !important;
+    grid-row: 2 !important;
+    align-self: start !important;
+  }
+
+  #official-note.note-section {
+    padding-top: 24px !important;
+  }
+
   #junior-youth.lp-section.split,
   #trial-2027.lp-section.split,
   #junior.lp-section.split,
