@@ -1,6 +1,6 @@
 # ARRIBA LP Project Memory
 
-Last updated: 2026-06-13
+Last updated: 2026-06-16
 
 ## Current Production State
 
@@ -134,6 +134,26 @@ WordPress files and database were moved out of the public root and backed up on 
   - `/Users/ogikubo/Desktop/千歳開発/取引先/アリバ/納品/アリバサッカークラブLP_納品仕様書_20260613.pdf`
 - The delivery ZIP was rebuilt after the latest form wording change and passed `unzip -t`.
 - The delivery specification is a visually checked two-page A4 PDF. It documents the PC/tablet two-column layout and unchanged phone layout.
+
+## June 16 Client Revision
+
+- Local-only update, not yet deployed to production:
+  - Added the supplied 2027 junior-youth recruitment header image as `assets/img/arriba-2026/jy-2027-header.jpg`.
+  - Inserted the image as a full-width banner immediately below the fixed site header.
+  - Updated the CSS cache version in `index.html` to `20260616-header-title-fix`.
+  - On phone widths, `.recruit-title` now stays on one line for:
+    - `ジュニアユース募集 / 現在中学生`
+    - `2027年度体験会 / 現在6年生`
+    - `ジュニア募集 / 現在小学生`
+    - `花屋敷スクール / 火曜・水曜`
+- Local checks completed on 2026-06-16:
+  - `node --check assets/js/main.js` passed.
+  - HTML local asset references and modal IDs resolved with no missing references.
+  - `git diff --check` passed.
+  - Local `http://127.0.0.1:8088/` and the new header image returned 200.
+  - Chrome device emulation at 390px and 320px showed no page-level horizontal overflow and no `.recruit-title` wrapping/overflow.
+- Deployment note:
+  - SSH to `harmony3.sakura.ne.jp` timed out during banner exchange from this environment on 2026-06-16.
 
 ## Update Manuals
 
