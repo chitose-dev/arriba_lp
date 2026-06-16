@@ -7226,8 +7226,13 @@ main > section:not(#final) h2 + .modal-teaser {
 
   #final .final-bg {
     grid-column: 2 !important;
-    grid-row: 2 !important;
+    grid-row: 1 / span 2 !important;
     align-self: start !important;
+    aspect-ratio: 16 / 9 !important;
+    height: auto !important;
+    margin-top: 22px !important;
+    object-fit: cover !important;
+    object-position: center !important;
   }
 
   #official-note.note-section {
