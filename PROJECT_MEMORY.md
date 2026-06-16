@@ -138,8 +138,8 @@ WordPress files and database were moved out of the public root and backed up on 
 ## June 16 Client Revision
 
 - GitHub update only, not yet deployed to production:
-  - Added the supplied 2027 junior-youth recruitment header image as `assets/img/arriba-2026/jy-2027-header.jpg`.
-  - The supplied image is used in the modal header image position for `modal-trial-2027` only.
+  - Replaced the existing `assets/img/arriba-2026/modal-trial-2027.jpg` file with the supplied 2027 junior-youth recruitment header image.
+  - The image is used through the existing `modal-trial-2027.jpg` path only; do not add or reference a separate new image filename.
   - Do not insert this image as a separate top-of-page banner.
   - Updated the CSS cache version in `index.html` to `20260616-modal-header-title-fix`.
   - On phone widths, `.recruit-title` keeps the target labels visible at one shared size, with the recruitment blocks using a slightly wider text column so each title fits on one line:
