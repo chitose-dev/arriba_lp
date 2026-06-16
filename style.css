@@ -7124,11 +7124,15 @@ main > section:not(#final) h2 + .modal-teaser {
     grid-row: 1 !important;
     width: 100% !important;
     height: auto !important;
-    aspect-ratio: 16 / 9 !important;
+    aspect-ratio: 4 / 5 !important;
     align-self: center !important;
     object-fit: cover !important;
     object-position: center !important;
     box-shadow: 0 20px 38px rgba(7, 16, 24, 0.1) !important;
+  }
+
+  #final .final-actions {
+    margin-top: 46px !important;
   }
 
   .final-inner {
@@ -7228,11 +7232,15 @@ main > section:not(#final) h2 + .modal-teaser {
     grid-column: 2 !important;
     grid-row: 1 / span 2 !important;
     align-self: start !important;
-    aspect-ratio: 16 / 9 !important;
+    aspect-ratio: 4 / 5 !important;
     height: auto !important;
     margin-top: 22px !important;
     object-fit: cover !important;
     object-position: center !important;
+  }
+
+  #final .final-actions {
+    margin-top: 46px !important;
   }
 
   #official-note.note-section {
