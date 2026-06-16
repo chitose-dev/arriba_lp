@@ -7234,7 +7234,7 @@ main > section:not(#final) h2 + .modal-teaser {
     align-self: start !important;
     aspect-ratio: 4 / 5 !important;
     height: auto !important;
-    margin-top: 22px !important;
+    margin-top: 16px !important;
     object-fit: cover !important;
     object-position: center !important;
   }
