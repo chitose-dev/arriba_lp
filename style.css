@@ -7210,24 +7210,60 @@ main > section:not(#final) h2 + .modal-teaser {
     text-shadow: none !important;
   }
 
+  #final.final-section {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    row-gap: 16px !important;
+    padding: 44px 16px !important;
+    background: var(--black) !important;
+    color: #fff !important;
+  }
+
+  #final .final-inner {
+    display: contents !important;
+  }
+
   #final h2 {
     display: block !important;
-    grid-column: 1 / -1 !important;
+    grid-column: 1 !important;
     grid-row: 1 !important;
     width: 100% !important;
     max-width: none !important;
+    margin: 0 !important;
     white-space: nowrap !important;
   }
 
   #final .modal-teaser {
     grid-column: 1 !important;
     grid-row: 2 !important;
+    width: 100% !important;
+    margin: 0 !important;
+    color: rgba(255, 255, 255, 0.88) !important;
   }
 
   #final .final-bg {
-    grid-column: 2 !important;
-    grid-row: 2 !important;
-    align-self: start !important;
+    content: url("./assets/img/arriba-2026/modal-final-cta.jpg");
+    position: relative !important;
+    inset: auto !important;
+    grid-column: 1 !important;
+    grid-row: 3 !important;
+    width: 100% !important;
+    height: auto !important;
+    max-height: none !important;
+    aspect-ratio: 16 / 9 !important;
+    align-self: stretch !important;
+    justify-self: stretch !important;
+    object-fit: contain !important;
+    object-position: center !important;
+    background: #fff !important;
+    box-shadow: none !important;
+  }
+
+  #final .final-actions {
+    grid-column: 1 !important;
+    grid-row: 4 !important;
+    width: 100% !important;
+    margin: 0 !important;
   }
 
   #official-note.note-section {
