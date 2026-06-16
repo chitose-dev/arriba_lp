@@ -7196,6 +7196,20 @@ main > section:not(#final) h2 + .modal-teaser {
 }
 
 @media (max-width: 600px) {
+  .hero h1,
+  main > section h2,
+  .final-section h2 {
+    color: #005bac !important;
+    font-size: clamp(0.86rem, 4.3vw, 1.08rem) !important;
+    line-height: 1.12 !important;
+    letter-spacing: -0.065em !important;
+    font-weight: 500 !important;
+    white-space: nowrap !important;
+    overflow-wrap: normal !important;
+    word-break: keep-all !important;
+    text-shadow: none !important;
+  }
+
   #junior-youth.lp-section.split,
   #trial-2027.lp-section.split,
   #junior.lp-section.split,
