@@ -142,11 +142,11 @@ WordPress files and database were moved out of the public root and backed up on 
   - The supplied image is used in the modal header image position for `modal-junior-youth` and `modal-trial-2027`.
   - Do not insert this image as a separate top-of-page banner.
   - Updated the CSS cache version in `index.html` to `20260616-modal-header-title-fix`.
-  - On phone widths, `.recruit-title` shows only the main blue heading text at one shared size, keeping the line as large as possible while fitting:
-    - `ジュニアユース募集`
-    - `2027年度体験会`
-    - `ジュニア募集`
-    - `花屋敷スクール`
+  - On phone widths, `.recruit-title` keeps the target labels visible at one shared size, with the recruitment blocks using a slightly wider text column so each title fits on one line:
+    - `ジュニアユース募集 現在中学生`
+    - `2027年度体験会 現在6年生`
+    - `ジュニア募集 現在小学生`
+    - `花屋敷スクール 火曜・水曜`
 - Local checks completed on 2026-06-16:
   - `node --check assets/js/main.js` passed.
   - HTML local asset references and modal IDs resolved with no missing references.
