@@ -7283,3 +7283,35 @@ main > section:not(#final) h2 + .modal-teaser {
   }
 
 }
+
+/* Main visual: isolated from the existing hero and section layouts. */
+.main-visual {
+  width: 100%;
+  margin: 0;
+  padding: 76px 0 0;
+  overflow: hidden;
+  line-height: 0;
+  background: #fff;
+}
+
+.main-visual > img {
+  display: block;
+  width: 100%;
+  max-width: none;
+  height: auto;
+  margin: 0;
+}
+
+.main-visual + .hero {
+  padding-top: 72px;
+}
+
+@media (max-width: 900px) {
+  .main-visual {
+    padding-top: 58px;
+  }
+
+  .main-visual + .hero {
+    padding-top: 44px;
+  }
+}
